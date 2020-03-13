@@ -1,1 +1,33 @@
-<p>header works!</p>
+<div class="container-fluid p-0 shadow-sm fixed-top">
+  <nav class="navbar navbar-light bg-light justify-content-between">
+      <div class="navbar-brand ml-2">
+          <img src="../../../../assets/img/IT-logo.png" height="40" class="d-inline-block align-top" alt="Logo IT Academy">
+      </div>
+      
+      <ul class="nav nav-justified">
+          <li class="nav-item">
+            <a class="black-c nav-link" routerLink="/classroom-view" routerLinkActive="active">Aula</a>
+          </li>
+          <li class="nav-item">
+            <a class="black-c nav-link" routerLink="/reviews-view" routerLinkActive="active">Revisión</a>
+          </li>
+          <li class="nav-item">
+            <a class="black-c nav-link" routerLink="/statistics-view" routerLinkActive="active">Estadísticas</a>
+          </li>
+          <li class="nav-item">
+            <a class="black-c nav-link" routerLink="/student-file-view" routerLinkActive="active">Alumno</a>
+          </li>
+      </ul>
+
+      <div class="d-flex justify-content-around">
+          <img [src]="user.portrait | noimage" class="mr-2 img-thumb img-circle">
+          <span class="navbar-text mr-5 mt-2"> <h5>Nombre Apellido {{user.firstName}} {{user.lastName}}</h5></span>
+
+          <button type="submit" class="btn submit-btn mt-2">
+              <fa-icon [icon]="faSignOutAlt" class="mr-2"></fa-icon>Salir
+          </button>
+      </div>
+
+  </nav>
+</div>
+

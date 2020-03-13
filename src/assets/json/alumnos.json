@@ -1,0 +1,79 @@
+[{
+        "name": "Pepín",
+        "lastname": "Gálvez",
+        "absences": "12",
+        "startDate": "2019-09-30",
+        "limitDate": "2020-02-19",
+        "mail": "Pepito@falso.es",
+        "itinerary": "Front-end",
+        "progress": "50",
+        "img": "men.svg"
+    },
+    {
+        "name": "Honorio",
+        "lastname": "Martín",
+        "absences": "6",
+        "startDate": "2019-10-02",
+        "limitDate": "2020-02-21",
+        "mail": "Pepito@falso.es",
+        "itinerary": "Back-end",
+        "progress": "86",
+        "img": "men.svg"
+    },
+    {
+        "name": "Carlota",
+        "lastname": "Cifuentes",
+        "absences": "8",
+        "startDate": "2019-10-08",
+        "limitDate": "2020-02-27",
+        "mail": "Pepito@falso.es",
+        "itinerary": ".Net",
+        "progress": "15",
+        "img": "women.svg"
+    },
+    {
+        "name": "Pepe",
+        "lastname": "Gonzalez",
+        "absences": "0",
+        "startDate": "2019-10-08",
+        "limitDate": "2020-02-27",
+        "mail": "Pepito@falso.es",
+        "itinerary": ".Net",
+        "progress": "40",
+        "img": "men.svg"
+    },
+    {
+        "name": "Pedro",
+        "lastname": "Sanchez",
+        "absences": "11",
+        "startDate": "2019-10-08",
+        "limitDate": "2020-02-27",
+        "mail": "Pepito@falso.es",
+        "itinerary": "Back-end",
+        "progress": "25",
+        "img": "men.svg"
+    },
+    {
+        "name": "Marta",
+        "lastname": "Vidal",
+        "absences": "12",
+        "startDate": "2019-10-10",
+        "limitDate": "2020-03-02",
+        "mail": "Pepito@falso.es",
+        "itinerary": "Front-end",
+        "progress": "55",
+        "img": "women.svg"
+    },
+    {
+        "name": "Gemma",
+        "lastname": "Capmany",
+        "absences": "7",
+        "startDate": "2020-01-21",
+        "limitDate": "2020-05-25",
+        "mail": "Pepito@falso.es",
+        "itinerary": "Back-end",
+        "progress": "25",
+        "img": "women.svg"
+    }
+
+]

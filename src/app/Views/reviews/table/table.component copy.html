@@ -1,0 +1,62 @@
+<!-- LOADING BAR -->
+<div class="row justify-content-md-center">
+    <button class="btn btn-outline-primary" type="button" disabled>
+        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+        Selecciona un itinerario para cargar los datos
+    </button>
+</div>
+
+<!-- BADGES TABLE -->
+<div class="container-fluid mt-3 ml-3">
+    <div class="box-wrap">
+        <div class="row align-middle">
+            <div class="col text-right">
+                <span class="badge badge-grey ml-1">Entregado</span>
+                <span class="badge badge-blue ml-1">Corregido</span>
+                <span class="badge badge-pink ml-1">A revisar</span>
+                <span class="badge badge-lightgrey ml-1">No entregado</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- LAYOUT TABLE -->
+<div class="container-fluid mt-3 ml-3">
+    <div class="table-wrap">
+        <table class="table table-hover table-sm text-center">
+            <thead>
+                <tr>
+                    <th class="first p-2 table-bg">
+                        Alumno
+                    </th>
+                    <th class="table-bg" *ngFor="let titleExercises of students[0].exercises">
+                        {{ titleExercises.name }}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let student of students | paginate: {itemsPerPage: 6, currentPage: selectedPage}">
+                    <td class="first p-3 table-bg">
+                        {{ student.firstName }} {{ student.lastName }}
+                    </td>
+                    <td class="row-size text-center" *ngFor="let exercises of student.exercises; index as i" [ngClass]="[{'No entregado': 'table-bg-default', 'Entregado': 'table-bg-done', 'Corregido': 'table-bg-corrected', 'A revisar': 'table-bg-reviewed'}[ exercises.state ]]">
+                        <app-modal [data]="exercises"></app-modal>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- PAGINATION TABLE -->
+<div class="container-fluid mt-3 ml-3">
+    <div class="box-wrap">
+        <div class="row align-middle">
+            <div class="col text-right pagination-layout">
+                <pagination-controls class="ngx-pagination" (pageChange)="selectedPage = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Pagination Table Documentation: https://www.npmjs.com/package/ngx-pagination#demo -->

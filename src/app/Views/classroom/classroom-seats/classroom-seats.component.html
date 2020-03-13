@@ -1,0 +1,220 @@
+<p>classroom-seats works!</p>
+<div class="container-fluid my-3 pb-4">
+    <div class="students-background px-4 py-5">
+
+        <div class="student-grid">
+
+            <!-- row 1-->
+            <div class="table-2 invisible">
+                <!--no-table-->
+            </div>
+
+            <div class="table-4">
+                <!--posiciones 1,2,3,4-->
+                <app-student-position [student]="student" *ngFor="let student of students | slice:0:4" (click)="selectStudent(student); openModal(template)" [title]="student.position">
+                </app-student-position>
+            </div>
+
+            <div class="table-4">
+                <!--posiciones 5,6,7,8-->
+                <app-student-position [student]="student" *ngFor="let student of students | slice:4:8" (click)="selectStudent(student); openModal(template)" [title]="student.position">
+                </app-student-position>
+            </div>
+
+            <div class="table-2 invisible">
+                <!--no-table-->
+            </div>
+
+            <div class="table-4 invisible">
+                <!--no-table-->
+            </div>
+
+            <div class="table-2">
+                <!--posiciones 9,10-->
+                <app-student-position [student]="student" *ngFor="let student of students | slice:8:10" (click)="selectStudent(student); openModal(template)" [title]="student.position">
+                </app-student-position>
+            </div>
+            <!--end row 1-->
+
+            <!--row 2-->
+            <div class="table-2">
+                <!--posiciones 11,12-->
+                <app-student-position [student]="student" *ngFor="let student of students | slice:10:12" (click)="selectStudent(student); openModal(template)" [title]="student.position">
+                </app-student-position>
+            </div>
+
+            <div class="table-4">
+                <!--posiciones 13,14,15,16-->
+                <app-student-position [student]="student" *ngFor="let student of students | slice:12:16" (click)="selectStudent(student); openModal(template)" [title]="student.position">
+                </app-student-position>
+            </div>
+
+            <div class="table-4">
+                <!--posiciones 17,18,19,20-->
+                <app-student-position [student]="student" *ngFor="let student of students | slice:16:20" (click)="selectStudent(student); openModal(template)" [title]="student.position">
+                </app-student-position>
+            </div>
+
+            <div class="table-2">
+                <!--posiciones 21,22-->
+                <app-student-position [student]="student" *ngFor="let student of students | slice:20:22" (click)="selectStudent(student); openModal(template)" [title]="student.position">
+                </app-student-position>
+            </div>
+
+            <div class="table-4">
+                <!--posiciones 23,24,25,26-->
+                <app-student-position [student]="student" *ngFor="let student of students | slice:22:26" (click)="selectStudent(student); openModal(template)" [title]="student.position">
+                </app-student-position>
+            </div>
+
+            <div class="table-2">
+                <!--posiciones 27,28-->
+                <app-student-position [student]="student" *ngFor="let student of students | slice:26:28" (click)="selectStudent(student); openModal(template)" [title]="student.position">
+                </app-student-position>
+            </div>
+            <!--end row 2-->
+
+            <!--row 3-->
+            <div class="table-2">
+                <!--posiciones 29,30-->
+                <app-student-position [student]="student" *ngFor="let student of students | slice:28:30" (click)="selectStudent(student); openModal(template)" [title]="student.position">
+                </app-student-position>
+            </div>
+
+            <div class="table-4">
+                <!--posiciones 31,32,33,34-->
+                <app-student-position [student]="student" *ngFor="let student of students | slice:30:34" (click)="selectStudent(student); openModal(template)" [title]="student.position">
+                </app-student-position>
+            </div>
+
+            <div class="table-4">
+                <!--posiciones 35,36,37,38-->
+                <app-student-position [student]="student" *ngFor="let student of students | slice:34:38" (click)="selectStudent(student); openModal(template)" [title]="student.position">
+                </app-student-position>
+            </div>
+
+            <div class="table-2">
+                <!--posiciones 39,40-->
+                <app-student-position [student]="student" *ngFor="let student of students | slice:38:40" (click)="selectStudent(student); openModal(template)" [title]="student.position">
+                </app-student-position>
+            </div>
+
+            <div class="table-4">
+                <!--posiciones 41,42, 43, 44-->
+                <app-student-position [student]="student" *ngFor="let student of students | slice:40:44" (click)="selectStudent(student); openModal(template)" [title]="student.position">
+                </app-student-position>
+            </div>
+
+            <div class="table-2">
+                <!--posiciones 45,46-->
+                <app-student-position [student]="student" *ngFor="let student of students | slice:44:46" (click)="selectStudent(student); openModal(template)" [title]="student.position">
+                </app-student-position>
+            </div>
+            <!--end row 3-->
+
+            <!--row 4-->
+
+            <div class="table-2 invisible">
+                <!--no-table-->
+            </div>
+
+            <div class="table-4">
+                <!--posiciones 47,48,49,50-->
+                <app-student-position [student]="student" *ngFor="let student of students | slice:46:50" (click)="selectStudent(student); openModal(template)" [title]="student.position">
+                </app-student-position>
+            </div>
+
+            <div class="table-4">
+                <!--posiciones 51,52,53,54-->
+                <app-student-position [student]="student" *ngFor="let student of students | slice:50:54" (click)="selectStudent(student); openModal(template)" [title]="student.position">
+                </app-student-position>
+            </div>
+
+            <div class="table-2 invisible">
+                <!--no-table-->
+            </div>
+
+            <div class="table-4">
+                <!--posiciones 55,56,57,58-->
+                <app-student-position [student]="student" *ngFor="let student of students | slice:54:58" (click)="selectStudent(student); openModal(template)" [title]="student.position">
+                </app-student-position>
+            </div>
+
+            <div class="table-2">
+                <!--posiciones 59,60-->
+                <app-student-position [student]="student" *ngFor="let student of students | slice:58:60" (click)="selectStudent(student); openModal(template)" [title]="student.position">
+                </app-student-position>
+            </div>
+            <!--end row 4-->
+
+        </div>
+        <!--end student grid-->
+
+        <div class="board">PIZARRA</div>
+
+        <div class="text-center rounded last_updated mt-3">
+          Actualizado el {{ lastUpdated()}}
+        </div>
+    </div>
+    <!--student background-->
+    <div class="container reference d-flex justify-content-around">
+        <div class="reference-box">
+            <div class="color-reference net"></div>
+            <p class="pt-2">.Net</p>
+        </div>
+        <div class="reference-box">
+            <div class="color-reference frontend"></div>
+            <p class="pt-2">Front End</p>
+        </div>
+        <div class="reference-box">
+            <div class="color-reference backend"></div>
+            <p class="pt-2">Back End</p>
+        </div>
+        <div class="reference-box">
+            <div class="color-reference empty"></div>
+            <p class="pt-2">Libre</p>
+        </div>
+    </div>
+</div>
+
+
+<!--modal / student popup-->
+<ng-template #template>
+    <div class="modal-header">
+        <h1 *ngIf="selectedStudent.gender == 'M' || selectedStudent.gender == 'm' || selectedStudent.gender == ''" class="modal-title pull-left">Alumno</h1>
+        <h1 *ngIf="selectedStudent.gender == 'F' || selectedStudent.gender == 'f'" class="modal-title pull-left">Alumna</h1>
+        <button type="button" class="close pull-right buttonX" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <h2 class="mt-1 mb-3">{{ selectedStudent.name | uppercase }} {{ selectedStudent.lastname | uppercase }}</h2>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+            <label class="form-check-label" for="exampleRadios1">
+                Front-End
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+                Back-End
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+            <label class="form-check-label" for="exampleRadios3">
+                .Net
+            </label>
+        </div>
+        <div class="form-check disabled mb-2">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4" disabled>
+            <label class="form-check-label" for="exampleRadios4">
+                Android
+            </label>
+        </div>
+        <button type="button" class="btn button-modal ml-1 mr-2 mt-3" (click)="confirm(); modalRef.hide()">Guardar</button>
+        <button type="button" class="btn button-modal ml-1 mr-2 mt-3" (click)="decline(); modalRef.hide()">Cancelar</button>
+        <button type="button" class="btn button-modal ml-1 mt-3">Ir a perfil</button>
+    </div>
+</ng-template>
