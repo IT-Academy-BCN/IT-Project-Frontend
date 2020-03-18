@@ -1,0 +1,103 @@
+<div class="container-fluid">
+    <select [(ngModel)]="selectedStudent" id="inputState" class="form-control col-3 mb-4" (change)='getStudent()'>
+        <option *ngFor="let alumno of Alumnos" [ngValue]="alumno.name"> {{alumno.name}}</option>
+    </select>
+
+    <!--Contenedor de la ficha-->
+    <div *ngIf="selectedStudent.length == 0" class="row justify-content-md-center">
+
+        <button class="btn btn-outline-primary" type="button" disabled>
+            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+            Esperando a seleccionar alumno
+        </button>
+
+    </div>
+    <div *ngIf="selectedStudent.length > 1">
+        <div class="container-fluid">
+            <div class="row">
+
+                <!--Foto estudiante-->
+                <div class="col-4">
+                    <figure class="figure " style="width: 50%">
+                        <!-- <img src="assets/img/{{student.img}}" class="figure-img img-fluid rounded align-self-center" alt="..."> -->
+                    </figure>
+
+                    <!--Cambio itinerario-->
+                    <div><button class="btn btn-outline-pink" data-toggle="modal" data-target="#exampleModal">Cambio de
+                            itinerario</button></div>
+                </div>
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Cambio de itinerario</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                En este módulo puedes cambiar de itinerario a <b>{{student.name}}
+                                    {{student.lastname}}</b>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-outline-pink" data-dismiss="modal" (click)='changeItinerary("Back-end")'>Back-end</button>
+                                <button type="button" class="btn btn-outline-pink" data-dismiss="modal" (click)='changeItinerary("Front-end")'>Front-end</button>
+                                <button type="button" class="btn btn-outline-pink" data-dismiss="modal" (click)='changeItinerary(".Net")'>.Net</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Datos del alumno-->
+                <div class="col-8 mb-2">
+                    <h4>{{student.name}} {{student.lastname}}</h4>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <span>Mail: </span>
+                            <span> {{student.mail}} </span>
+                        </div>
+                        <div class="col-6">
+                            <span>Itinerario: </span>
+                            <span> {{student.itinerary}} </span>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-6">
+                            <span>Fecha de alta: </span>
+                            <span> {{student.startDate | date:"dd/MM/yy"}} </span>
+                        </div>
+
+                        <div class="col-6">
+                            <span>Fecha límite: </span>
+                            <span> {{student.limitDate| date:"dd/MM/yy"}} </span>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-6">
+                            <span>Faltas:</span>
+                            <span>{{student.absences}} </span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Barra progreso-->
+
+            <div class="progress mt-4">
+                <div class="progress-bar" role="progressbar" [style.width]="student.percentage + '%'" aria-valuenow="student.percentage" aria-valuemin="0" aria-valuemax="100">
+                    {{student.percentage}}%
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

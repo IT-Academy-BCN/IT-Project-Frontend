@@ -1,0 +1,106 @@
+@import '../../../../assets/colors.scss';
+// LOADING
+span {
+    padding: 2%;
+}
+
+.btn-outline-primary {
+    color: $white;
+    background-color: $pink;
+    border: $pink;
+    cursor: default;
+}
+
+// GENERAL
+.box-wrap {
+    width: 80%;
+    margin: 0 auto;
+    margin-left: 10em;
+}
+
+// BADGES
+.badge-grey {
+    background-color: $dark-grey;
+    color: $white;
+    cursor: default;
+    padding: 6px;
+}
+
+.badge-blue {
+    background-color: $blue;
+    color: $white;
+    cursor: default;
+    padding: 6px;
+}
+
+.badge-pink {
+    background-color: $pink;
+    color: $white;
+    cursor: default;
+    padding: 6px;
+}
+
+.badge-lightgrey {
+    background-color: $light-grey;
+    cursor: default;
+    padding: 6px;
+}
+
+// TABLE
+th,
+td {
+    white-space: nowrap;
+    padding-right: 1em;
+    padding-left: 1em;
+    cursor: default;
+}
+
+.first {
+    position: absolute;
+    width: 10em;
+    margin-left: -10em;
+}
+
+.table-wrap {
+    overflow-x: scroll;
+    width: 80%;
+    margin: 0 auto;
+    margin-left: 10em;
+}
+
+.table-bg {
+    background-color: $light-grey;
+}
+
+.row-size {
+    min-width: 190px;
+    padding: 16px;
+}
+
+// BG CONDITIONS
+.table-bg-default {
+    background-color: $white;
+}
+
+.table-bg-done {
+    background-color: $dark-grey;
+    color: $white;
+}
+
+.table-bg-corrected {
+    background-color: $blue;
+    color: $white;
+}
+
+.table-bg-reviewed {
+    background-color: $pink;
+    color: $white;
+}
+
+// PAGINATION
+.pagination-layout::ng-deep .ngx-pagination .current {
+    padding: 0.1875rem 0.625rem;
+    background: $pink;
+    color: $white;
+    cursor: default;
+}

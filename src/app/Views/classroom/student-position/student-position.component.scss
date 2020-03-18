@@ -1,0 +1,48 @@
+@import '../../../../styles.scss';
+
+/* STYLES */
+
+.student-container {
+    background-color: $white;
+    height: 50px;
+    width: 50px;
+    padding-top: 2.5px;
+    padding-left: 2.5px;
+    margin-top: 4.5px;
+    margin-left: 2px;
+    position: relative;
+}
+
+.student {
+    text-align: center;
+    background-color: $white /* $light-grey */;
+    height: 45px;
+    width: 45px;
+    border-radius: 100%;
+    margin: auto;
+    border: none;
+}
+
+.front-end {
+    /* background-color: $pink; */
+}
+
+.back-end {
+    /* background-color: $blue; */
+}
+
+.net {
+  /*   background-color: $black; */
+}
+
+.empty {
+    border: solid 1px #CCCCCC;
+    background-color: #E8E8E8;
+}
+
+.circle-bar {
+position:absolute;
+top:0px;
+left: 0px;
+z-index:4;
+}

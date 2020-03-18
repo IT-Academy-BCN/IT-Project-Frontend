@@ -1,0 +1,46 @@
+@import '../../../../styles.scss';
+// TABLE TEXT
+p {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    cursor: pointer;
+}
+
+// MODAL BUTTONS
+button.submit-btn {
+    background-color: $pink;
+    color: $white;
+}
+
+button.submit-btn:hover {
+    color: $white;
+    text-decoration: underline;
+}
+
+button.grey-btn {
+    background-color: $dark-grey;
+    color: $white;
+}
+
+button.grey-btn:hover {
+    color: $white;
+    text-decoration: underline;
+}
+
+button.blue-btn {
+    background-color: $blue;
+    color: $white;
+}
+
+button.blue-btn:hover {
+    color: $white;
+    text-decoration: underline;
+}
+
+button.lightgrey-btn {
+    background-color: $light-grey;
+}
+
+button.lightgrey-btn:hover {
+    text-decoration: underline;
+}

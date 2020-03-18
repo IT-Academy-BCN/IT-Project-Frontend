@@ -1,0 +1,21 @@
+<div class="m-3">
+
+    <form class="form-inline">
+
+      <select2 id="search-select"
+               class="form-control mr-2 "
+               name="search-select"               
+               (valueChanged)="searchQuery($event)"
+               [data]="nameList"
+               [cssImport]="true"
+               [options]="optionsSelect">
+               <option></option>
+      </select2>
+
+      <button [disabled]="(search == '')? 'disabled' : ''"
+              (click)="onSubmit()"
+              class="btn btn-outline-pink"
+              type="submit">Buscar</button>
+
+    </form>
+</div>

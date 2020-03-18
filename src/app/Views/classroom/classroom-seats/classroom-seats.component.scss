@@ -1,0 +1,122 @@
+@import '../../../../styles.scss';
+
+/* STYLES */
+
+p {
+    color: $dark-grey;
+    font-size: 1em;
+}
+
+.students-background {
+    background-color: $light-grey;
+    width: 100%;
+    min-width: 1100px;
+}
+
+.board {
+    //pizarra
+    height: 30px;
+    width: 100%;
+    background-color: $dark-grey;
+    text-align: center;
+    color: $white;
+    font-size: 1.2em;
+    margin-top: 80px;
+}
+
+.reference {
+    width: 100%;
+    min-width: 400px;
+    margin: 25px auto;
+    height: 50px;
+}
+
+.reference-box {
+    width: 20%;
+    text-align: center;
+}
+
+.color-reference {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    margin: auto;
+}
+
+// STUDENT GRID STYLES
+.student-grid {
+    //border: 1px solid blue;
+    display: grid;
+    grid-template-columns: 2fr 4fr 4fr 2fr 4fr 2fr;
+    grid-template-rows: 60px 60px 60px 60px; //hacer mediaquery para L / XL
+    grid-column-gap: 15px;
+    grid-row-gap: 30px;
+}
+
+.table-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: $white;
+}
+
+.table-4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    background-color: $white;
+}
+
+// ITINERARY COLORS
+.frontend {
+    background-color: $pink;
+}
+
+.backend {
+    background-color: $blue;
+}
+
+.net {
+    background-color: $black;
+}
+
+.empty {
+    background-color: #CCCCCC;
+}
+
+// MODAL STYLES
+.button-modal {
+    background-color: $pink;
+    color: $white;
+}
+
+.button-modal:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.buttonX {
+    color: $pink;
+}
+
+h1 {
+    color: $dark-grey;
+}
+
+h2 {
+    font-size: 1.25em;
+    font-weight: 400;
+    color: $pink;
+}
+
+label {
+    font-size: .9em;
+    color: $dark-grey;
+}
+
+//LAST UPDATED
+
+.last_updated {
+  border: solid 1px $dark-grey;
+  width: fit-content;
+  margin:auto;
+  padding: 0 10px;
+}

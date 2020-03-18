@@ -1,0 +1,39 @@
+@import '../../../../styles.scss';
+
+/*.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+    background-color: $pink;
+    border: none;
+} */
+
+.button-modal {
+    background-color: $pink;
+    color: $white;
+}
+
+.button-modal:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.buttonX {
+    color: $pink;
+}
+
+h1 {
+    color: $dark-grey;
+}
+
+h2 {
+    font-size: 1.25em;
+    font-weight: 400;
+    color: $pink;
+}
+
+label {
+    font-size: .9em;
+    color: $dark-grey;
+}

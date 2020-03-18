@@ -1,0 +1,40 @@
+@import '../../../styles.scss'; 
+
+.navbar {
+    // background-color: $white !important;
+    // border-bottom: solid 1px $dark-grey;
+    .navbar-text {
+        color: $black;
+    }
+}
+
+button.submit-btn {
+    font-size: 1.125em;
+    background-color: $pink;
+    color: $white;
+    width: 120px;
+    height: 40px;
+}
+
+button.submit-btn:hover {
+    color: $white;
+    text-decoration: underline;
+}
+
+.img-thumb {
+    width: 60px;
+    height: 60px;
+}
+
+.img-circle {
+    border-radius: 100%;
+    width: 60px;
+}
+
+// menu
+
+a:hover {
+    color: $white;
+    background-color: $pink;
+    border-radius: .25rem;
+}

@@ -1,0 +1,10 @@
+@import '../../../../../styles.scss';
+button.state-btn {
+    font-size: 1.125em;
+    background-color: $pink;
+    color: $white;
+}
+
+button.state-btn:hover {
+    color: $white;
+}
