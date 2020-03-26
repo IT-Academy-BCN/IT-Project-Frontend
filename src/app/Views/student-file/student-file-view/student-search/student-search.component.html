@@ -3,8 +3,8 @@
     <form class="form-inline">
 
       <select2 id="search-select"
-               class="form-control mr-2 "
-               name="search-select"               
+               class="form-control mr-2 search-bar"
+               name="search-select"
                (valueChanged)="searchQuery($event)"
                [data]="nameList"
                [cssImport]="true"
@@ -12,10 +12,10 @@
                <option></option>
       </select2>
 
-      <button [disabled]="(search == '')? 'disabled' : ''"
+      <!-- <button [disabled]="(search == '')? 'disabled' : ''"
               (click)="onSubmit()"
               class="btn btn-outline-pink"
-              type="submit">Buscar</button>
+              type="submit">Buscar</button> -->
 
     </form>
 </div>
