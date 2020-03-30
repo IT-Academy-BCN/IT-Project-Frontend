@@ -11,9 +11,10 @@ import { ReviewsRoutingModule } from './reviews-routing.module';
 import { ReviewsViewComponent } from './reviews-view/reviews-view.component';
 import { TableComponent }   from './table/table.component'; 
 import { ModalComponent } from './modal/modal.component';
+import { ReviewsItSearchComponent } from './reviews-it-search/reviews-it-search.component';
 
 @NgModule({
-  declarations: [ReviewsViewComponent,TableComponent,ModalComponent],
+  declarations: [ReviewsViewComponent,TableComponent,ModalComponent, ReviewsItSearchComponent],
   imports: [
     CommonModule,
     BsDatepickerModule.forRoot(),

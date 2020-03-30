@@ -1,0 +1,14 @@
+@import '../../../../styles.scss';
+
+// LOADING
+span {
+    padding: 2%;
+}
+
+.btn-outline-primary {
+    color: $white;
+    background-color: $pink;
+    border: $pink;
+    cursor: default;
+    padding: .375rem .7rem;
+}
