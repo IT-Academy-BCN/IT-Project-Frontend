@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StatisticsService {
-
-  constructor() { }
+  baseUrl = 'http://217.76.158.200:8090/api/statistics'
+  constructor(private http: HttpClient) { }
+    //get students per itinerary
+    public get_itineraryStudents () {
+      return this.http.get(this.baseUrl+'/per-itinerary/');
+    }
 }
