@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
 
   }
   modifyHeader() { // This method is called many times
-debugger
+
     console.log(this.router.url); // This prints a loot of routes on console
     if (this.router.url == '/login' || this.router.url == '/login/reset-password') {
       this.showHeader = false;
