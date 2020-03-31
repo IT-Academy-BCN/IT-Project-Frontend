@@ -1,7 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 
-import {ChartOptions, ChartType} from 'chart.js';
-import {Label, SingleDataSet} from 'ng2-charts';
+import {Label} from 'ng2-charts';
+import {Chart} from 'chart.js';
+
+import {StatisticsService} from './../../../../Services/statistics.service';
+import {Peoplepie} from './../models/peoplepie.model';
 
 @Component({
   selector: 'app-peoplepie',
@@ -10,18 +13,43 @@ import {Label, SingleDataSet} from 'ng2-charts';
 })
 export class PeoplepieComponent implements OnInit {
 
-  public pieChartOptions: ChartOptions = {
-    responsive: true,
-  };
-  public pieChartLabels: Label[] = ['FrontEnd', 'BackEnd', '.Net'];
-  public pieChartData: SingleDataSet = [300, 500, 100];
-  public pieChartType: ChartType = 'pie';
-  public pieChartLegend = true;
-  public pieChartPlugins = [];
+  public pieChartLabels: Label[] = [];
+  public pieChartData: number [] = [];
 
-  constructor() { }
+  constructor(private statisticsService: StatisticsService) {}
 
   ngOnInit() {
+    
+    this.statisticsService.get_itineraryStudents()
+    .subscribe((result: Peoplepie[])=>{
+        result.forEach(element => {
+          this.pieChartData.push(element.students);
+          this.pieChartLabels.push(element.itinerary);
+        });
+        new Chart('peoplechart', {
+          type: 'pie',
+          data: {
+            labels: this.pieChartLabels,
+            datasets: [
+              {
+                data: this.pieChartData,
+                backgroundColor: [  
+                  "#ffa3b7",  
+                  "#5cc8f5",  
+                  "#ffe397",  
+                  "#e8e8e8"  
+                ],  
+                fill: true
+              }
+            ]
+          },
+          options: {
+              legend: {display: true},
+              responsive: true,
+            },
+        });
+      }
+    )
   }
 
 }
