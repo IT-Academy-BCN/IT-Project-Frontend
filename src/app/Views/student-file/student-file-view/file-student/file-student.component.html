@@ -1,7 +1,9 @@
 <div class="container-fluid">
-<!--     <select [(ngModel)]="selectedStudent" id="inputState" class="form-control col-3 mb-4" (change)='getStudent()'>
+
+
+    <select [(ngModel)]="selectedStudent" id="inputState" class="form-control col-3 mb-4" (change)='getStudent()'>
         <option *ngFor="let alumno of Alumnos" [ngValue]="alumno.name"> {{alumno.name}}</option>
-    </select> -->
+    </select>
 
     <!--Contenedor de la ficha-->
     <div *ngIf="selectedStudent.length == 0" class="row justify-content-md-center">
