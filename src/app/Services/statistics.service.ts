@@ -11,4 +11,7 @@ export class StatisticsService {
     public get_itineraryStudents () {
       return this.http.get(this.baseUrl+'/per-itinerary/');
     }
+    public get_genderStudents () {
+      return this.http.get(this.baseUrl+'/per-gender/');
+    }
 }
