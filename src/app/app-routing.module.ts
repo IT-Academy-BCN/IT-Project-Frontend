@@ -12,8 +12,7 @@ const routes: Routes = [
   { path: 'login/reset-password', component: ResetPasswordRequestComponent },
 
   { path: '**', pathMatch: 'full', redirectTo: 'login' }
-]
-;
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
