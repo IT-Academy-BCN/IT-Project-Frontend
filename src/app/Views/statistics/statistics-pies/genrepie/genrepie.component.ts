@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartOptions, ChartType } from 'chart.js';
-import { Label, SingleDataSet } from 'ng2-charts';
+
+import {Chart} from 'chart.js';
+import {Label} from 'ng2-charts';
+
+import {StatisticsService} from './../../../../Services/statistics.service';
 
 @Component({
   selector: 'app-genrepie',
@@ -9,18 +12,43 @@ import { Label, SingleDataSet } from 'ng2-charts';
 })
 export class GenrepieComponent implements OnInit {
 
-  public pieChartOptions: ChartOptions = {
-    responsive: true,
-  };
-  public pieChartLabels: Label[] = ['Masculino', 'Femenino'];
-  public pieChartData: SingleDataSet = [300, 500];
-  public pieChartType: ChartType = 'pie';
-  public pieChartLegend = true;
-  public pieChartPlugins = [];
+  public pieChartLabels: Label[] = [];
 
-  constructor() { }
+  constructor(private statisticsService: StatisticsService) {}
 
   ngOnInit() {
+    
+    this.statisticsService.get_genderStudents()
+    .subscribe((result)=>{
+      var pieChartData = Object.values(result);
+      var pieChartLabels = Object.keys(result);
+        new Chart('genderchart', {
+          type: 'pie',
+          data: {
+            labels: pieChartLabels,
+            datasets: [
+              {
+                data: pieChartData,
+                backgroundColor: [  
+                  "#ffa3b7",  
+                  "#5cc8f5" 
+                ],  
+                fill: true
+              }
+            ]
+          },
+          options: {
+              legend: {
+                display: true,
+                labels: {
+                  boxWidth: 24,
+                }
+              },
+              responsive: true,              
+          },
+        });
+      }
+    )
   }
 
 }
