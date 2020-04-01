@@ -14,4 +14,7 @@ export class StatisticsService {
     public get_genderStudents () {
       return this.http.get(this.baseUrl+'/per-gender/');
     }
+    public get_absenceStudents () {
+      return this.http.get(this.baseUrl+'/per-absence/');
+    }
 }
