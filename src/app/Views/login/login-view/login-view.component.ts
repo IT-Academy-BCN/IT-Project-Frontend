@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup,Validators} from '@angular/forms';
 import { Router } from '@angular/router';
-
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-login-view',
@@ -10,19 +10,27 @@ import { Router } from '@angular/router';
 })
 export class LoginViewComponent implements OnInit {
 
+
   loginForm: FormGroup;
   submitted = false;
 
-  constructor( private formBuilder: FormBuilder,
-               private router: Router ) { }
+  constructor( 
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
 
-       email: ['', [Validators.required, Validators.email]],
-       password: ['', [Validators.required, Validators.pattern('(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}')
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.pattern('(?=.*?[0-9]).{3,6}')
+      
+      // Expresion regular para usar con password real
+      // (?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}
       ]]  // min 8, max 16 characters / at least: 1 uppercase - 1 lowercase - 1 number - 1 special character
     });
+
+    
   }
 
   get f() {
@@ -35,12 +43,28 @@ export class LoginViewComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
-    // SUCCESS
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.loginForm.value));
+
+    fetch('http://217.76.158.200:8090/api/login', {
+      method: 'POST', // or 'PUT'
+      body: JSON.stringify(this.loginForm.value), headers:{
+        'Content-Type': 'application/json'
+      }
+    }).then(res => res.json())
+    .catch(error => console.error('Error:', error))
+    
+    .then(response => {
+      if (response.success == true) {
+        console.log('Success:', response);
+        swal("Good job!", "You are logged in!", "success");
+        this.router.navigate(['classroom-view']); 
+      }else {
+        swal("Oops!", "Something went wrong!", "error");
+      }      
+    });
   }
 
-  forgotPassword() {
-    this.router.navigate( ['/login', 'reset-password'] );
-  }
+  // forgotPassword() {
+  //   this.router.navigate( ['/login', 'reset-password'] );
+  // }
 
 }
