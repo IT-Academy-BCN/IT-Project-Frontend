@@ -44,7 +44,12 @@ export class PeoplepieComponent implements OnInit {
             ]
           },
           options: {
-              legend: {display: true},
+              legend: {
+                display: true,
+                labels: {
+                  boxWidth: 24,
+                }
+              },
               responsive: true,
             },
         });
