@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Alumno } from './model/alumno';
-import { AlumnoService } from '../../../Services/alumno.service';
+import { PerAbsence } from './model/perabsence.model';
+import {StatisticsService} from './../../../Services/statistics.service';
 
 @Component({
   selector: 'app-tables',
@@ -9,14 +9,16 @@ import { AlumnoService } from '../../../Services/alumno.service';
 })
 export class TablesComponent implements OnInit {
 
-  constructor(private alumnoService: AlumnoService) { }
-
-  tooManyAbsences: Alumno[] = [];
-  almostDone: Alumno[] = [];
+  
+  constructor(private statisticsService: StatisticsService) {}
+  tooManyAbsences:PerAbsence[] = [];
 
   ngOnInit() {
-    this.tooManyAbsences = this.alumnoService.getByAbsences(8);
-    this.almostDone = this.alumnoService.getTwooWeeksToEnd();
+    
+    this.statisticsService.get_absenceStudents()
+    .subscribe((tooManyAbsences: PerAbsence[])=>{
+        console.log(tooManyAbsences);
+        this.tooManyAbsences = tooManyAbsences;
+        });
   }
-
 }
