@@ -24,6 +24,8 @@ import { LayoutComponent } from './Components/layout/layout.component';
 import { LoginModule } from './Views/login/login.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoimagePipe } from './Pipes/noimage.pipe';
+/*HTTP API client*/
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,7 @@ import { NoimagePipe } from './Pipes/noimage.pipe';
     LoginModule,
     BrowserAnimationsModule,
     TooltipModule.forRoot(),
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],
