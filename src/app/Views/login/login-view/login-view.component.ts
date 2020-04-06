@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup,Validators} from '@angular/forms';
 import { Router } from '@angular/router';
-import swal from 'sweetalert';
 
 @Component({
   selector: 'app-login-view',
@@ -51,14 +50,15 @@ export class LoginViewComponent implements OnInit {
       }
     }).then(res => res.json())
     .catch(error => console.error('Error:', error))
-    
     .then(response => {
       if (response.success == true) {
-        console.log('Success:', response);
-        swal("Good job!", "You are logged in!", "success");
-        this.router.navigate(['classroom-view']); 
+        
+        alert('Good job! You are logged in!');
+        
+        this.router.navigateByUrl('/classroom-view'); 
       }else {
-        swal("Oops!", "Something went wrong!", "error");
+        alert('Oops!, Something went wrong!');
+
       }      
     });
   }
