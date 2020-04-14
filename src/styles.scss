@@ -1,22 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
-@import './assets/colors.scss';
-@import './assets/animation.scss';
+@import "./assets/colors.scss";
+@import "./assets/animation.scss";
 
 body {
-    font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 h1 {
-    font-size: 2em;
-    font-weight: 700;
+  font-size: 2em;
+  font-weight: 700;
 }
 
 h2 {
-    font-size: 1.5em;
-    font-weight: 700;
+  font-size: 1.5em;
+  font-weight: 700;
 }
 
 p {
-    font-size: 1em;
-    font-weight: 400;
+  font-size: 1em;
+  font-weight: 400;
+}
+
+// popup styles
+.swal-button {
+  background-color: $pink;
+  font-weight: 400;
+}
+
+.swal-button:not([disabled]):hover {
+  color: #fff;
+  text-decoration: underline;
+  background-color: $pink;
+  border: none;
+}
+
+.swal-button:focus {
+  box-shadow: none;
 }

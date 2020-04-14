@@ -1,60 +1,59 @@
-@import '../../../../styles.scss';
+@import "../../../../styles.scss";
 
 /* STYLES */
 
 h1 {
-    font-size: 2.5em;
-    color: $pink;
+  font-size: 2.5em;
+  color: $pink;
 }
 
 label {
-    font-size: 1.25em;
-    color: $black;
+  font-size: 1.25em;
+  color: $black;
 }
 
 .main-container {
-    padding-top: 15vh;
-    padding-bottom: 10vh;
+  padding-top: 15vh;
+  padding-bottom: 10vh;
 }
 
 .login-title {
-    background-color: $light-grey;
-    height: 70px;
-    color: $black;
+  background-color: $light-grey;
+  height: 70px;
+  color: $black;
 }
 
 button.submit-btn {
-    font-size: 1.125em;
-    background-color: $pink;
-    color: $white;
-    width: 120px;
+  font-size: 1.125em;
+  background-color: $pink;
+  color: $white;
+  width: 120px;
 }
 
 button.submit-btn:hover {
-    color: $white;
-    text-decoration: underline;
+  color: $white;
+  text-decoration: underline;
 }
 
 button.forgot-password {
-    color: $blue;
-    background-color: transparent;
-    border: none;
-    padding: 0;
+  color: $blue;
+  background-color: transparent;
+  border: none;
+  padding: 0;
 }
 
 button.forgot-password:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
-
 
 /* VALIDATION CLASSES */
 
 .invalid {
-    border: 2px solid $pink;
-    color: $pink;
+  border: 2px solid $pink;
+  color: $pink;
 }
 
 .text-invalid {
-    color: $pink;
-    line-height: 1.125em;
+  color: $pink;
+  line-height: 1.125em;
 }
