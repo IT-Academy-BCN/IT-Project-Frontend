@@ -12,6 +12,9 @@ export class StudentSearchService {
 
   public StudentSample: any = alumnos;
   public studentList: StudentSearch[] = [];
+    // following property identifies view from where the search originates.
+    // receives 'student' from student-file view and '....' from classroom view
+    // may be useful for processing API response differently for different views
   public page: string;
 
   public selectedStudent = {};
@@ -55,7 +58,7 @@ export class StudentSearchService {
     return this.filterNames(filter, 1);
   }
 
-  //getStudentBySurname(filter:string): StudentSearch[]{
+  // getStudentBySurname(filter:string): StudentSearch[]{
   //   return StudentSearchSample.filter(surname => surname.Lastname == filter);
   // }
 
