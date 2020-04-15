@@ -1,38 +1,43 @@
 import { Injectable } from '@angular/core';
 import { StudentSearch } from '../Models/student-search';
-import alumnos from '../../assets/json/alumnos.json';
 
-
+import mockStudents from '../../assets/json/alumnos.json';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentSearchService {
 
-
-  public StudentSample: any = alumnos;
-  public studentList: StudentSearch[] = [];
+  private mockStudentsJSON: any = mockStudents;
+  private mockStudentsList: StudentSearch[] = [];
+  public students: StudentSearch[] = this.mockStudentsList;
     // following property identifies view from where the search originates.
     // receives 'student' from student-file view and '....' from classroom view
     // may be useful for processing API response differently for different views
   public page: string;
-
+    // property unnecessary here, only needed in method that performs API request
   public selectedStudent = {};
 
-
   constructor() {
-    for (let i = 0; i < this.StudentSample.length; i++) {
-      const student: StudentSearch = new StudentSearch(`a${i}`, this.StudentSample[i].name, this.StudentSample[i].lastname);
-      this.studentList.push(student);
-    }
+    this.parseMockStudentsJSON();
+  }
 
+  private parseMockStudentsJSON() {
+    for (let i = 0; i < this.mockStudentsJSON.length; i++) {
+      const student = new StudentSearch(
+        `a${i}`,
+        this.mockStudentsJSON[i].name,
+        this.mockStudentsJSON[i].lastname
+      );
+      this.mockStudentsList.push(student);
+    }
   }
 
   // FIXME: clean functions if are not used
-
+    // used by time-bar component in student-view
   filterNames(query: string, type: number) {
     // 1= firstname, 2= Lastname
-    return this.studentList.filter((el) => {
+    return this.mockStudentsList.filter((el) => {
         switch (type) {
           case 0:
             return el.Id.indexOf(query) > -1;
@@ -43,23 +48,9 @@ export class StudentSearchService {
         }
     });
   }
-
+    // should be replaced by method that deals with search triggered
   getSelectedStudent(stu: any) {
     this.selectedStudent = stu;
     return this.selectedStudent;
   }
-
-  fullName(name: string, surname: string): string {
-    return `${name} ${surname}`;
-  }
-
-  getStudentByName(filter: string): StudentSearch[] {
-    // console.log(filter);
-    return this.filterNames(filter, 1);
-  }
-
-  // getStudentBySurname(filter:string): StudentSearch[]{
-  //   return StudentSearchSample.filter(surname => surname.Lastname == filter);
-  // }
-
 }

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { StudentSearch } from '../../Models/student-search';
 import { StudentSearchService } from '../../Services/student-search.service';
 import { Select2OptionData } from 'ng2-select2';
 import { Router } from '@angular/router';
+// import { Student } from 'src/app/Models/student.model';
 
 @Component({
   selector: 'app-student-search',
@@ -11,55 +12,52 @@ import { Router } from '@angular/router';
 })
 export class StudentSearchComponent implements OnInit {
 
+  public selectedStudent: string = '';
+  public studentsData: Select2OptionData[] = [];
+  public select2options: Select2Options = {
+    theme: 'bootstrap',
+    placeholder: 'Buscar Alumno...',
+    allowClear: true,
+    width: '100%',
+  };
 
-  students: StudentSearch [] = [];
-  studentNames: string [] = [];
-  nameList: Select2OptionData [] = [];
-  search = ''; // id from student itself
+  @Input() origin: 'classroom' | 'students';
 
-   optionsSelect: Select2Options; // select2 options variable
+  constructor(
+    private studentSearchService: StudentSearchService,
+    private router: Router
+  ) { }
 
-  constructor(private studentSearchService: StudentSearchService,
-              private route: Router) {
-    this.students = this.studentSearchService.getStudentByName(this.search);
-    let i = 0; // index
-    for (const student of this.students) {
-      this.studentNames.push(this.studentSearchService.fullName(student.FirstName, student.LastName));
-      this.nameList.push({id: student.Id, text: this.studentNames[i]});
-      i++;
-    }
+  ngOnInit() {
+    this.fillStudentsData();
   }
 
-  // return the stundent's id from the select
-  searchQuery(q: any) {
-    this.studentSearchService.getSelectedStudent(q);
-    this.search = q.data[0].text;
+  updateSelection(selection) {
+    this.selectedStudent = selection.value;
   }
 
   onSubmit() {
     // TODO: add conection with the API
     // console.log(this.search);
-    switch (this.studentSearchService.page) {
+    switch (this.origin) {
       case 'classroom':
         console.warn('mostrar alumno en el diagrama');
         console.log(this.studentSearchService.selectedStudent);
         break;
-      case 'student':
-        // console.log('student loading');
-        this.route.navigate(['/layout/student', this.search]);
+      case 'students':
+        this.router.navigate(['/student', this.selectedStudent]);
         break;
     }
+    // console says "Form submission canceled because the form is not connected"
   }
 
-  ngOnInit() {
-
-    this.optionsSelect = {
-      theme: 'bootstrap',
-      placeholder: 'Buscar Alumno...',
-      allowClear: true,
-      width: '100%',
-    };
-
+  private fillStudentsData() {
+    const students: StudentSearch[] = this.studentSearchService.students;
+    for (const student of students) {
+      this.studentsData.push({
+        id: student.Id,
+        text: `${student.FirstName} ${student.LastName}`
+      });
+    }
   }
-
 }

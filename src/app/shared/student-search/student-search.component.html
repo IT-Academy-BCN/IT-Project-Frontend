@@ -5,17 +5,18 @@
     <select2 id="search-select"
              class="form-control mr-2 "
              name="search-select"               
-             (valueChanged)="searchQuery($event)"
-             [data]="nameList"
+             (valueChanged)="updateSelection($event)"
+             [data]="studentsData"
              [cssImport]="true"
-             [options]="optionsSelect">
+             [options]="select2options">
              <option></option>
     </select2>
 
-    <button [disabled]="(search == '')? 'disabled' : ''"
+    <button [disabled]="selectedStudent ? '' : 'disabled'"
             (click)="onSubmit()"
             class="btn btn-outline-pink"
             type="submit">Buscar</button>
 
   </form>
+
 </div>

@@ -35,8 +35,9 @@ export class TimeBarComponent implements OnInit {
         const result = this.stu.filterNames(params.id, 0);
 
         // TODO: obtener fecha final del array studentsample si coincide con el resultado de la búsqueda
-        for (const student of this.stu.StudentSample) {
-          if (student.name === result[0].FirstName && student.lastname === result[0].LastName) {
+        // Warning: stu.students do not have all properties required here
+        for (const student of this.stu.students) {
+          if (student.FirstName === result[0].FirstName && student.LastName === result[0].LastName) {
             console.log(student.limitDate);
             // destructuring this kind of string: 'new Date(2020, 11, 20)'
             let tempDate = student.limitDate.split('(');
