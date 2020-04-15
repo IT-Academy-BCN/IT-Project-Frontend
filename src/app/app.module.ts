@@ -27,13 +27,14 @@ import { NoimagePipe } from './Pipes/noimage.pipe';
 /*HTTP API client*/
 import { HttpClientModule } from '@angular/common/http';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
     LayoutComponent,
-    NoimagePipe
+    NoimagePipe,
   ],
   imports: [
     BsDatepickerModule,

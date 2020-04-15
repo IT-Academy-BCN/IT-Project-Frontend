@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { SharedModule } from '../../Shared/shared.module';
 import { ClassroomRoutingModule } from './classroom-routing.module';
 import { ClassroomViewComponent } from './classroom-view/classroom-view.component';
 import { ClassroomSeatsComponent } from './classroom-seats/classroom-seats.component';
 import { StudentPositionComponent } from './student-position/student-position.component';
-import { ClassroomSearchComponent } from './classroom-search/classroom-search.component';
 
 // Services
 import { ClassroomService } from '../../Services/classroom.service';
 import { StudentSearchService } from '../../Services/student-search.service';
 import { AlumnoService } from '../../Services/alumno.service';
-import { Select2Module } from 'ng2-select2';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 // graficos
@@ -26,10 +25,9 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     ClassroomViewComponent,
-    ClassroomSeatsComponent, 
+    ClassroomSeatsComponent,
     StudentPositionComponent,
     StudentPopupComponent,
-    ClassroomSearchComponent
   ],
   imports: [
     CommonModule,
@@ -38,9 +36,9 @@ import { FormsModule } from '@angular/forms';
     NgCircleProgressModule.forRoot({radius: 20, showBackground: true}),
     ModalModule.forRoot(),
     FormsModule,
-    Select2Module,
     BsDatepickerModule.forRoot(),
-    ClassroomRoutingModule
+    ClassroomRoutingModule,
+    SharedModule
   ],
   providers: [
     ClassroomService,

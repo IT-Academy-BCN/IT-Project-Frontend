@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { StudentSearch } from '../../../../Models/student-search';
-import { StudentSearchService } from '../../../../Services/student-search.service';
+import { StudentSearch } from '../../Models/student-search';
+import { StudentSearchService } from '../../Services/student-search.service';
 import { Select2OptionData } from 'ng2-select2';
 import { Router } from '@angular/router';
-/* ? */
-//import { FileStudentComponent } from './../file-student/file-student.component'; // ?
 
 @Component({
   selector: 'app-student-search',
