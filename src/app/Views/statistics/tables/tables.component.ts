@@ -12,7 +12,8 @@ export class TablesComponent implements OnInit {
   
   constructor(private statisticsService: StatisticsService) {}
   tooManyAbsences:PerAbsence[] = [];
-
+  maxAbsences:Number = 12;
+ 
   ngOnInit() {
     
     this.statisticsService.get_absenceStudents()

@@ -1,49 +1,59 @@
 <div class="container">
-  <!-- Table 8 absences -->
-  <div class="row d-flex justify-content-around mt-4">
-    <div class="col">
-      <h2 class="text-center mt-5">Alumnos con más de 8 faltas</h2>
-      <table class="table table-hover">
+    <!-- Table 8 absences -->
+    <div class="row d-flex justify-content-around mt-4">
+        <div class="col">
+            <h2 class="text-center mt-5">Alumnos con más de 8 faltas</h2>
+            <table class="table table-hover">
 
-        <thead>
-          <tr class="text-center">
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellidos</th>
-            <th scope="col">Faltas</th>
-          </tr>
-        </thead>
+                <thead>
+                    <tr class="text-center">
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">Faltas</th>
+                    </tr>
+                </thead>
 
-        <tbody>
-          <tr class="text-center" *ngFor='let absence of tooManyAbsences'>
-            <td>{{absence.firstName}}</td>
-            <td>{{absence.lastName}}</td>
-            <td>{{absence.absences}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+                <tbody>
+                    <ng-container *ngFor='let absence of tooManyAbsences'>
+                        <tr class="text-center" *ngIf="absence.absences > maxAbsences, else showUnstyled" style="background-color: #eb7171">
+                            <td>{{absence.firstName}}</td>
+                            <td>{{absence.lastName}}</td>
+                            <td>{{absence.absences}}</td>
+                        </tr>
+                        <ng-template #showUnstyled>
+                            <tr class="text-center">
+                                <td>{{absence.firstName}}</td>
+                                <td>{{absence.lastName}}</td>
+                                <td>{{absence.absences}}</td>
+                            </tr>
+                        </ng-template>
+                    </ng-container>
+                </tbody>
 
-    <!-- Table almost done -->
-    <div class="col">
-      <h2 class="text-center mt-5">Alumnos a dos semanas de finalizar</h2>
-      <table class="table table-hover">
+            </table>
+        </div>
 
-        <thead>
-          <tr class="text-center">
-            <th scope="col">Nombre</th>
-            <th scope="col">Primer Apellido</th>
-            <th scope="col">Fecha Finalización</th>
-          </tr>
-        </thead>
+        <!-- Table almost done -->
+        <div class="col">
+            <h2 class="text-center mt-5">Alumnos a dos semanas de finalizar</h2>
+            <table class="table table-hover">
 
-        <tbody>
-          <!-- <tr class="text-center" *ngFor="let alumno of almostDone">
+                <thead>
+                    <tr class="text-center">
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Primer Apellido</th>
+                        <th scope="col">Fecha Finalización</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <!-- <tr class="text-center" *ngFor="let alumno of almostDone">
             <td>{{alumno.name}}</td>
             <td>{{alumno.lastname}}</td>
             <td>{{alumno.limitDate | date:'dd/MM/yyyy'}}</td> 
           </tr>-->
-        </tbody>
-      </table>
+                </tbody>
+            </table>
+        </div>
     </div>
-  </div>
 </div>
