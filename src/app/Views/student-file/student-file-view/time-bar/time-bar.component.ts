@@ -27,7 +27,7 @@ export class TimeBarComponent implements OnInit {
     // this.remainingHoursWeek();
   }
 
-  remainingHoursWeek() {
+  /* remainingHoursWeek() {
     console.log('dia de la semana: ' + this.today.getDay());
     this.aRoute.params.subscribe( params => {
       // console.log(Object.keys(params).length);
@@ -51,7 +51,7 @@ export class TimeBarComponent implements OnInit {
         }
       }
     });
-  }
+  } */
 
   getWeek(d: Date): number {
     // Copy date so don't modify original

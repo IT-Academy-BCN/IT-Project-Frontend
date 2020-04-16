@@ -1,27 +1,50 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { StudentSearch } from '../Models/student-search';
-
-import mockStudents from '../../assets/json/alumnos.json';
+import { Student, StudentInList } from '../Models/student.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentSearchService {
 
-  private mockStudentsJSON: any = mockStudents;
-  private mockStudentsList: StudentSearch[] = [];
-  public students: StudentSearch[] = this.mockStudentsList;
+  // private mockStudentsJSON: any = mockStudents;
+  // private mockStudentsList: StudentSearch[] = [];
+  // public students: StudentSearch[] = this.mockStudentsList;
     // following property identifies view from where the search originates.
     // receives 'student' from student-file view and '....' from classroom view
     // may be useful for processing API response differently for different views
-  public page: string;
+  // public page: string;
     // property unnecessary here, only needed in method that performs API request
-  public selectedStudent = {};
+  // public selectedStudent = {};
 
-  constructor() {
-    this.parseMockStudentsJSON();
+  private apiDomain = 'http://217.76.158.200:8090/api';
+
+  constructor(private http: HttpClient) { }
+
+  public getAllStudents() {
+    const endpoint = '/students';
+    const url = this.apiDomain + endpoint;
+    return this.http
+      .get<StudentInList[]>(url)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
-
+    // error handling could be improved
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      console.error('An client-side or network error occurred:', error.error.message);
+    } else {
+      console.error(
+        `Server returned unsuccessful response code ${error.status}, ` +
+        `body was: ${error.error}`);
+    }
+    return throwError('Se ha producido un error. Intente nuevamente más tarde.'); // to user
+  }
+/*
   private parseMockStudentsJSON() {
     for (let i = 0; i < this.mockStudentsJSON.length; i++) {
       const student = new StudentSearch(
@@ -52,5 +75,5 @@ export class StudentSearchService {
   getSelectedStudent(stu: any) {
     this.selectedStudent = stu;
     return this.selectedStudent;
-  }
+  }*/
 }

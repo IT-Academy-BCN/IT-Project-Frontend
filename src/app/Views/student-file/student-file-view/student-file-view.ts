@@ -26,7 +26,7 @@ export class StudentFileViewComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
   ) {
-    search.page = 'students';
+    // search.page = 'students';
   }
 
   ngOnInit() {

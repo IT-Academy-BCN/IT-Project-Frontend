@@ -8,9 +8,7 @@ import { StudentSearchService } from '../../../Services/student-search.service';
 })
 export class ClassroomViewComponent implements OnInit {
 
-   constructor(private search: StudentSearchService) {
-     search.page = 'classroom-view';
-   }
+   constructor(private search: StudentSearchService) { }
   ngOnInit() {
   }
 
