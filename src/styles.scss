@@ -1,43 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+
 @import "./assets/colors.scss";
 @import "./assets/animation.scss";
-
 body {
-  font-family: "Source Sans Pro", sans-serif;
+    font-family: "Source Sans Pro", sans-serif;
 }
 
 h1 {
-  font-size: 2em;
-  font-weight: 700;
+    font-size: 2em;
+    font-weight: 700;
 }
 
 h2 {
-  font-size: 1.5em;
-  font-weight: 700;
+    font-size: 1.5em;
+    font-weight: 700;
 }
 
 p {
-  font-size: 1em;
-  font-weight: 400;
+    font-size: 1em;
+    font-weight: 400;
 }
 
 // Sweet Alert popup
 .swal2-styled {
-  padding: 6px 12px !important;
-  font-weight: 400 !important;
-  width: 120px;
-  height: 40px;
+    padding: 6px 12px !important;
+    font-weight: 400 !important;
+    width: 120px;
+    height: 40px;
+    &.swal2-confirm {
+        background-color: $pink !important;
+    }
+    &:focus {
+        box-shadow: none !important;
+    }
+    &:hover .swal2-actions:not(.swal2-loading) {
+        text-decoration: underline;
+        background-image: none !important;
+    }
+}
 
-  &.swal2-confirm {
-    background-color: $pink !important;
-  }
-
-  &:focus {
-    box-shadow: none !important;
-  }
-
-  &:hover .swal2-actions:not(.swal2-loading) {
-    text-decoration: underline;
-    background-image: none !important;
-  }
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }

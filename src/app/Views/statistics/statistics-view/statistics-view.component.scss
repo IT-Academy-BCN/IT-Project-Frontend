@@ -1,12 +1,12 @@
 @import '../../../../styles.scss';
-
-.container{
-    .col-12{
-        h1{
+.container {
+    .col-12 {
+        h1 {
             margin-top: 100px;
         }
     }
 }
+
 h1 {
     color: $black;
 }
@@ -17,4 +17,12 @@ h2 {
 
 p {
     color: $black;
+}
+
+.stats-container {
+    min-height: 100vh;
+    // overflow: hidden;
+    display: block;
+    position: relative;
+    padding-bottom: 79px;
 }

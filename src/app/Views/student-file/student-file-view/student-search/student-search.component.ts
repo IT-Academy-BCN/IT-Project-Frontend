@@ -19,7 +19,7 @@ export class StudentSearchComponent implements OnInit {
   nameList: Select2OptionData [] = [];
   search = ''; // id from student itself
 
-   optionsSelect: Select2Options; // select2 options variable
+   optionsSelect: Select2.Options; // select2 options variable
 
   constructor(private studentSearchService: StudentSearchService,
               private route: Router) {
