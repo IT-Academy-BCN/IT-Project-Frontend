@@ -1,15 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
-/* to receive id parameter from route */
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
-
-/* services */
-import { ExerciseService } from '../../../Services/exercise.service';
+import { ActivatedRoute } from '@angular/router';
 import { StudentSearchService } from '../../../Services/student-search.service';
-/* ? */
-// import { StudentSearchComponent} from './student-search/student-search.component';// ?
-// import { Exercise } from './tables/model/exercise'; //?
+import { Student } from '../../../Models/student.model';
 
 @Component({
   selector: 'app-student-file-view',
@@ -18,26 +10,27 @@ import { StudentSearchService } from '../../../Services/student-search.service';
 })
 export class StudentFileViewComponent implements OnInit {
 
-    public student;
+  public student: Student;
 
   constructor(
-    private exerciseService: ExerciseService,
-    private search: StudentSearchService,
-    private route: ActivatedRoute,
-    private router: Router,
-  ) {
-    // search.page = 'students';
-  }
+    private studentSearchService: StudentSearchService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
-    this.student = this.route.snapshot.params.id;
-
-    /* if student service returned an observable, we could do something like this:
-    this.student = this.route.paramMap.pipe(
-      switchMap(
-        (params: ParamMap) => this.studentService.getStudent(params.get('id'))
-      )
-    ); */
+      // beware: https://angular.io/guide/router#snapshot-the-no-observable-alternative
+    const studentId = this.route.snapshot.params.id;
+    this.studentSearchService
+      .getStudentById(studentId)
+      .subscribe(this.updateStudent, this.displayErrorMessage);
   }
 
+    // this is a callback, must remain in arrow form so that this.student is not undefined
+  private updateStudent = (student: Student) => {
+    this.student = student;
+  }
+
+  private displayErrorMessage(error) {
+    alert(error);
+  }
 }

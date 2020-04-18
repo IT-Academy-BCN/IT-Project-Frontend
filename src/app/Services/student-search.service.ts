@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { StudentSearch } from '../Models/student-search';
 import { Student, StudentInList } from '../Models/student.model';
 
@@ -20,16 +20,26 @@ export class StudentSearchService {
     // property unnecessary here, only needed in method that performs API request
   // public selectedStudent = {};
 
-  private apiDomain = 'http://217.76.158.200:8090/api';
+  private apiEndPoint = 'http://217.76.158.200:8090/api/students';
 
   constructor(private http: HttpClient) { }
 
   public getAllStudents() {
-    const endpoint = '/students';
-    const url = this.apiDomain + endpoint;
     return this.http
-      .get<StudentInList[]>(url)
+      .get<StudentInList[]>(this.apiEndPoint)
       .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  public getStudentById(id: string) {
+    const options = { params: new HttpParams().set('id', id) };
+    return this.http
+      .get<Student>(this.apiEndPoint, options)
+      .pipe(
+          // API does not parse URL parameters yet, so it returns students/ array.
+          // following operator calls callback that provides a mock student while API is not fixed
+        map(student => this.provideMockStudent(student, id)),
         catchError(this.handleError)
       );
   }
@@ -44,19 +54,38 @@ export class StudentSearchService {
     }
     return throwError('Se ha producido un error. Intente nuevamente más tarde.'); // to user
   }
-/*
-  private parseMockStudentsJSON() {
-    for (let i = 0; i < this.mockStudentsJSON.length; i++) {
-      const student = new StudentSearch(
-        `a${i}`,
-        this.mockStudentsJSON[i].name,
-        this.mockStudentsJSON[i].lastname
-      );
-      this.mockStudentsList.push(student);
-    }
-  }
+    // provisional until API is corrected
+  private provideMockStudent(student: Student | StudentInList[], id: string) {
+    if (Array.isArray(student)) {
+      const chosenStudent = student.filter(stud => stud.id === id)[0];
+      const mockStudent = new Student();
+      mockStudent.id = chosenStudent.id;
+      mockStudent.firstName = chosenStudent.firstName;
+      mockStudent.lastName = chosenStudent.lastName;
+      mockStudent.seat = chosenStudent.seat;
+      mockStudent.courses = chosenStudent.courses;
+      mockStudent.age = Math.floor(Math.random() * 50) + 18;
+      mockStudent.gender = Math.random() < 0.5 ? 'm' : 'f';
 
-  // FIXME: clean functions if are not used
+      const name = ((firstName, lastName) => {
+        const fullName = firstName + lastName;
+        let parsedName = '';
+        for (const char of fullName) {
+          if (char !== ' ') {
+            parsedName += char.toLowerCase();
+          }
+        }
+        return parsedName;
+      })(mockStudent.firstName, mockStudent.lastName);
+
+      mockStudent.email = `${name}@gmail.com`;
+      mockStudent.portrait = `${name}.png`;
+      student = mockStudent;
+    }
+    return student;
+  }
+/*
+  /* FIXME: clean functions if are not used
     // used by time-bar component in student-view
   filterNames(query: string, type: number) {
     // 1= firstname, 2= Lastname
@@ -71,9 +100,5 @@ export class StudentSearchService {
         }
     });
   }
-    // should be replaced by method that deals with search triggered
-  getSelectedStudent(stu: any) {
-    this.selectedStudent = stu;
-    return this.selectedStudent;
-  }*/
+    */
 }

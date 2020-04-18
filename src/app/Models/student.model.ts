@@ -4,10 +4,15 @@ interface Seat {
   classRoom: number;
 }
 
+interface Itinerary {
+  id: number;
+  name: string;
+}
+
 interface Course {
   id: number;
   endDate: string | null;
-  itinerary: any;
+  itinerary: Itinerary;
 }
   // API response to GET /students
 export class StudentInList {
