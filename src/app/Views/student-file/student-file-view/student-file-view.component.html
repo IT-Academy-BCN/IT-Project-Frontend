@@ -1,4 +1,7 @@
 <div class="top-margin"></div> <!-- spacing below header -->
-<p>Received student: {{ student.firstName }} {{ student.lastName }}</p>
-<app-file-student></app-file-student> 
+<app-student-data *ngIf="student" 
+  class="container" 
+  [student]="student" 
+  (newItinerary)="changeItinerary($event)">
+</app-student-data>
 <app-exercises></app-exercises>

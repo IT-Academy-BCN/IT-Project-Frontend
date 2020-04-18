@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
-import { throwError } from 'rxjs';
+import { throwError, Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { StudentSearch } from '../Models/student-search';
 import { Student, StudentInList } from '../Models/student.model';
@@ -43,6 +43,25 @@ export class StudentSearchService {
         catchError(this.handleError)
       );
   }
+
+  public changeItinerary(student: Student, itinerary: string) {
+      // this must be replaced by call to API:
+      // Put /api/students/id
+      // Send Json: with the student fields and the information that needs to be updated.
+      // Return Json: 404 - student not found / 200 - Successful
+    return new Observable(subscriber => {
+      const ids = {
+        'Back-end': 1,
+        'Front-end': 2,
+        '.Net': 3
+      };
+      student.courses[0].itinerary.name = itinerary;
+      student.courses[0].itinerary.id = ids[itinerary];
+      subscriber.next(student);
+      subscriber.complete();
+    });
+  }
+
     // error handling could be improved
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -65,7 +84,7 @@ export class StudentSearchService {
       mockStudent.seat = chosenStudent.seat;
       mockStudent.courses = chosenStudent.courses;
       mockStudent.age = Math.floor(Math.random() * 50) + 18;
-      mockStudent.gender = Math.random() < 0.5 ? 'm' : 'f';
+      mockStudent.gender = Math.random() < 0.5 ? 'M' : 'F';
 
       const name = ((firstName, lastName) => {
         const fullName = firstName + lastName;

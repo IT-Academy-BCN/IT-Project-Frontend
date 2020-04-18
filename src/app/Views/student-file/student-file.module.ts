@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 /* components & modules */
-import { StudentFileViewComponent} from './student-file-view/student-file-view';
 import { StudentSearchViewComponent } from './student-search-view/student-search-view.component';
-import { FileStudentComponent } from './student-file-view/file-student/file-student.component';
+import { StudentFileViewComponent} from './student-file-view/student-file-view';
+import { StudentDataComponent } from './student-file-view/student-data/student-data.component';
 import { ExerciseModalComponent } from './student-file-view/exercise-modal/exercise-modal.component';
 import { ExercisesComponent } from './student-file-view/exercises/exercises.component';
 import { TablesComponent } from './student-file-view/tables/tables.component';
@@ -22,13 +22,13 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 @NgModule({
   declarations: [
+    StudentSearchViewComponent,
     StudentFileViewComponent,
-    FileStudentComponent,
+    StudentDataComponent,
     ExerciseModalComponent,
     ExercisesComponent,
     TablesComponent,
-    TimeBarComponent,
-    StudentSearchViewComponent
+    TimeBarComponent
   ],
   imports: [
     CommonModule,

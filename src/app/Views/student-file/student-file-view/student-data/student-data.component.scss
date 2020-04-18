@@ -1,0 +1,19 @@
+@import '../../../../../assets/colors';
+
+.btn-outline-pink {
+  color: $pink;
+  border-color: $pink;
+  &:hover {
+      color: $white;
+      background-color: $pink;
+  }
+}
+
+.field-container > div {
+  display: flex;
+  align-items: center;
+}
+
+.progress-bar {
+  background-color: $pink;
+}

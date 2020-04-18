@@ -25,6 +25,11 @@ export class StudentFileViewComponent implements OnInit {
       .subscribe(this.updateStudent, this.displayErrorMessage);
   }
 
+  public changeItinerary(newItinerary: string) {
+    this.studentSearchService
+      .changeItinerary(this.student, newItinerary)
+      .subscribe(this.updateStudent, this.displayErrorMessage);
+  }
     // this is a callback, must remain in arrow form so that this.student is not undefined
   private updateStudent = (student: Student) => {
     this.student = student;
