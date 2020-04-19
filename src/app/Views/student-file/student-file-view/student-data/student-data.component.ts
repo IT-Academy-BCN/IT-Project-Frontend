@@ -8,6 +8,7 @@ import { Student } from '../../../../Models/student.model';
 })
 export class StudentDataComponent {
 
+    // tslint:disable-next-line: variable-name
   private _student: Student;
   @Input() set student(student: Student) {
     this._student = student;
@@ -24,6 +25,12 @@ export class StudentDataComponent {
 
   public changeItinerary(newItinerary: string) {
     this.newItinerary.emit(newItinerary);
+  }
+
+  public loadFallbackImg(event: Event) {
+    const img = event.target as HTMLImageElement;
+    img.onerror = null;
+    img.src = `../../../../assets/img/${this.student.gender === 'M' ? 'men.svg' : 'women.svg'}`;
   }
 
   private calculateProgress() {
