@@ -36,6 +36,11 @@ export class ExerciseService {
 
   constructor() { }
 
+  public getStudentExercises(studentId: string) {
+    // request to API GET /api/userExercise/Student_id should come here
+    return this.exercises;
+  }
+
   getExercises(): Exercise[] {
     return this.exercises;
   }
@@ -46,7 +51,6 @@ export class ExerciseService {
         return this.exercises[i];
       }
     }
-
   }
 }
 
