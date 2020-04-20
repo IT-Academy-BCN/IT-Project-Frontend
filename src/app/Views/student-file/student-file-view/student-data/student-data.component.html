@@ -3,49 +3,44 @@
     (error)="loadFallbackImg($event)"
     class="col-4 col-md-3 col-lg-2">
   <div class="col-8 col-md-9 col-lg-10 d-flex flex-column">
-    <h2>{{ student.firstName }} {{ student.lastName }}</h2>
+    <h2>{{ studentData.fullName }}</h2>
     <div class="row flex-grow-1 field-container">
       <div class="col-lg-6">
         <span class="font-weight-bold mr-2">Mail: </span>
-        <span> {{student.email}} </span>
+        <span> {{ studentData.email }} </span>
       </div>
 
       <div class="col-lg-6">
         <span class="font-weight-bold mr-2">Itinerario: </span>
         <span>
-          {{student.courses[0].itinerary.name}}
+          {{ studentData.itinerary }}
         </span>
         <button 
-            class="btn btn-sm btn-outline-pink ml-3"
-            data-toggle="modal"
-            data-target="#changeItinerary">
-            Cambiar
-          </button>
-        <!-- API provides courses array instead of current course. Arbitrarily chose 0 -->
+          class="btn btn-sm btn-outline-pink ml-3"
+          data-toggle="modal"
+          data-target="#changeItinerary">
+          Cambiar
+        </button>
       </div>
 
       <div class="col-lg-6">
         <span class="font-weight-bold mr-2">Fecha de alta: </span>
-        <span></span>
-        <!-- API doesn't include this field -->
+        <span>{{ studentData.startDate }}</span>
       </div>
 
       <div class="col-lg-6">
         <span class="font-weight-bold mr-2">Fecha límite: </span>
-        <span>{{ student.courses[0].endDate }}</span>
-        <!-- Field included in course from courses array. Always comes empty -->
+        <span>{{ studentData.limitDate }}</span>
       </div>
 
       <div class="col-lg-6">
         <span class="font-weight-bold mr-2">Faltas: </span>
-        <span></span>
-        <!-- API doesn't include this field -->
+        <span>{{ studentData.absences }}</span>
       </div>
 
       <div class="col-lg-6">
         <span class="font-weight-bold mr-2">Sexo: </span>
-        <span>{{ student.gender === 'M' ? 'Hombre' : 'Mujer' }}</span>
-        <!-- What about non-binary gender identities? -->
+        <span>{{ studentData.gender }}</span>
       </div>
     </div>
   </div>
@@ -58,7 +53,7 @@
     aria-valuenow="student.percentage" 
     aria-valuemin="0" 
     aria-valuemax="100">
-    Cursado: {{studentProgress}}%
+    Cursado: {{ studentData.progress }}%
   </div>
 </div>
 
@@ -77,7 +72,7 @@
               </button>
           </div>
           <div class="modal-body">
-              Elija el nuevo itinerario de <b>{{student.firstName}} {{student.lastName}}</b>
+              Elija el nuevo itinerario de <b>{{ studentData.fullName }}</b>
           </div>
           <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">

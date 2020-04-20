@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StudentSearchService } from '../../../../Services/student-search.service';
+import { StudentService } from '../../../../Services/student.service';
 import { ActivatedRoute } from '@angular/router';
 
 
@@ -20,7 +20,7 @@ export class TimeBarComponent implements OnInit {
   deadLine: number;
 
 
-  constructor(private stu: StudentSearchService,
+  constructor(private stu: StudentService,
               private aRoute: ActivatedRoute) { }
 
   ngOnInit() {

@@ -1,9 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Select2OptionData } from 'ng2-select2';
-import { StudentSearch } from '../../Models/student-search';
-import { Student, StudentInList } from '../../Models/student.model';
-import { StudentSearchService } from '../../Services/student-search.service';
+import { StudentInList } from '../../Models/student.model';
+import { StudentService } from '../../Services/student.service';
 
 @Component({
   selector: 'app-student-search',
@@ -12,7 +11,7 @@ import { StudentSearchService } from '../../Services/student-search.service';
 })
 export class StudentSearchComponent implements OnInit {
 
-  public selectedStudent: string = '';
+  public selectedStudent = '';
 
     // documentation for select2: https://github.com/NejcZdovc/ng2-select2
   public studentsData: Select2OptionData[] = [];
@@ -26,7 +25,7 @@ export class StudentSearchComponent implements OnInit {
   @Input() origin: 'classroom' | 'students';
 
   constructor(
-    private studentSearchService: StudentSearchService,
+    private studentService: StudentService,
     private router: Router
   ) { }
 
@@ -54,7 +53,7 @@ export class StudentSearchComponent implements OnInit {
   }
 
   private fetchStudentsData() {
-    this.studentSearchService
+    this.studentService
       .getAllStudents()
       .subscribe(this.fillStudentsData, this.displayErrorMessage);
   }

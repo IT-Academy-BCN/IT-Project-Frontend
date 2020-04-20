@@ -13,7 +13,7 @@ import { SharedModule } from '../../Shared/shared.module';
 import { StudentFileRoutingModule } from './student-file-routing.module';
 
 /* services*/
-import { StudentSearchService } from '../../Services/student-search.service';
+import { StudentService } from '../../Services/student.service';
 import { AlumnoService } from '../../Services/alumno.service';
 import { ExerciseService } from '../../Services/exercise.service';
 import { FormsModule } from '@angular/forms';
@@ -38,7 +38,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     SharedModule
   ],
   providers: [
-    StudentSearchService,
+    StudentService,
     AlumnoService,
     ExerciseService
   ]

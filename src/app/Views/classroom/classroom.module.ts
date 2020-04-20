@@ -9,7 +9,7 @@ import { StudentPositionComponent } from './student-position/student-position.co
 
 // Services
 import { ClassroomService } from '../../Services/classroom.service';
-import { StudentSearchService } from '../../Services/student-search.service';
+import { StudentService } from '../../Services/student.service';
 import { AlumnoService } from '../../Services/alumno.service';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
@@ -43,7 +43,7 @@ import { FormsModule } from '@angular/forms';
   providers: [
     ClassroomService,
     AlumnoService,
-    StudentSearchService
+    StudentService
   ]
 })
 export class ClassroomModule { }
