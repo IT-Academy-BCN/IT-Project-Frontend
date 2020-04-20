@@ -1,9 +1,9 @@
 <div class="row">
-  <img [src]="'../../../../assets/img/' + student.portrait"
+  <img [src]="'../../../../assets/img/' + studentData.portrait"
     (error)="loadFallbackImg($event)"
     class="col-4 col-md-3 col-lg-2">
   <div class="col-8 col-md-9 col-lg-10 d-flex flex-column">
-    <h2>{{ studentData.fullName }}</h2>
+    <h2>{{ studentData.fullName | titlecase }}</h2>
     <div class="row flex-grow-1 field-container">
       <div class="col-lg-6">
         <span class="font-weight-bold mr-2">Mail: </span>
@@ -40,7 +40,7 @@
 
       <div class="col-lg-6">
         <span class="font-weight-bold mr-2">Sexo: </span>
-        <span>{{ studentData.gender }}</span>
+        <span>{{ studentData.gender | i18nSelect: genderMap }}</span>
       </div>
     </div>
   </div>
@@ -49,7 +49,7 @@
 <div class="progress mt-4">
   <div class="progress-bar" 
     role="progressbar" 
-    [style.width]="studentProgress + '%'" 
+    [style.width]="studentData.progress + '%'" 
     aria-valuenow="student.percentage" 
     aria-valuemin="0" 
     aria-valuemax="100">
@@ -72,7 +72,7 @@
               </button>
           </div>
           <div class="modal-body">
-              Elija el nuevo itinerario de <b>{{ studentData.fullName }}</b>
+              Elija el nuevo itinerario de <b>{{ studentData.fullName | titlecase }}</b>
           </div>
           <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">

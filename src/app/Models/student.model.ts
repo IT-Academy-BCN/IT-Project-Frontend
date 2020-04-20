@@ -33,4 +33,9 @@ export class Student {
   portrait: string | null;
   seat: Seat;
   courses: Course[];
+    // not returned by API
+  itinerary?: string;
+  startDate?: Date;
+  limitDate?: Date;
+  absences?: number;
 }

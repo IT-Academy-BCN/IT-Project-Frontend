@@ -10,6 +10,7 @@ interface StudentData {
   limitDate: string;
   absences: string;
   progress: string;
+  portrait: string;
 }
 
 @Component({
@@ -20,28 +21,32 @@ interface StudentData {
 export class StudentDataComponent {
 
     // tslint:disable-next-line: variable-name
-  private _student: Student;
+  private _student;
   @Input() set student(student: Student) {
     this._student = student;
-    this.updateStudentData();
-  }
-  get student() {
-    return this._student;
+    this.updateStudentData(student);
   }
 
-  public studentData: StudentData = {
-    fullName: 'esperando datos',
-    gender: 'esperando datos',
-    email: 'esperando datos',
-    itinerary: 'esperando datos',
-    startDate: 'esperando datos',
-    limitDate: 'esperando datos',
-    absences: 'esperando datos',
-    progress: 'esperando datos'
-  };
-
-  public studentProgress = 0;
   @Output() newItinerary = new EventEmitter<string>();
+
+  private waitingData = 'esperando datos';
+  private noData = 'sin datos';
+  public genderMap = {
+    M: 'masculino',
+    F: 'femenino',
+    other: 'otro'
+  };
+  public studentData: StudentData = {
+    fullName: this.waitingData,
+    gender: this.waitingData,
+    email: this.waitingData,
+    itinerary: this.waitingData,
+    startDate: this.waitingData,
+    limitDate: this.waitingData,
+    absences: this.waitingData,
+    progress: this.waitingData,
+    portrait: ''
+  };
 
   constructor() { }
 
@@ -52,34 +57,46 @@ export class StudentDataComponent {
   public loadFallbackImg(event: Event) {
     const img = event.target as HTMLImageElement;
     img.onerror = null;
-    img.src = `../../../../assets/img/${this.student.gender === 'M' ? 'men.svg' : 'women.svg'}`;
+    img.src = `../../../../assets/img/${this._student.gender === 'M' ? 'men.svg' : 'women.svg'}`;
   }
 
-  private updateStudentData() {
-    this.studentData.fullName = this.student.firstName + ' ' + this.student.lastName;
-    this.studentData.gender = this.student.gender;
-    this.studentData.email = this.student.email;
-    this.studentData.itinerary = this.student.itinerary;
-    this.studentData.startDate = this.student.startDate;
-    this.studentData.limitDate = this.student.limitDate;
-    this.studentData.absences = this.student.absences;
-    this.studentData.progress = String(this.calculateProgress());
+  private updateStudentData(student: Student) {
+    this.studentData.fullName = student.firstName && student.lastName
+      ? student.firstName + ' ' + student.lastName
+      : this.noData;
+    this.studentData.gender = student.gender ? student.gender : this.noData;
+    this.studentData.email = student.email ? student.email : this.noData;
+    this.studentData.itinerary = student.itinerary ? student.itinerary : this.noData;
+    this.studentData.startDate = String(student.startDate ? student.startDate : this.noData);
+    this.studentData.limitDate = String(student.limitDate ? student.limitDate : this.noData);
+    this.studentData.absences = String(student.absences ? student.absences : this.noData);
+    this.studentData.progress = String(this.calculateProgress(
+      student.startDate,
+      student.limitDate
+    ));
+    this.studentData.portrait = student.portrait;
   }
 
-  private calculateProgress() {
-    const today = new Date().valueOf();
+  private calculateProgress(startDate: Date, limitDate: Date) {
+    const valueOfToday = new Date().valueOf();
 
-    const mockStartDate = today - Math.random() * 0.1 * today;
-    const mockEndDate = today + Math.random() * 0.1 * today;
+    let valueOfStartDate: number;
+    if (startDate) {
+      valueOfStartDate = startDate.valueOf();
+    } else {  // mock values to test progress bar presentation
+      valueOfStartDate = valueOfToday - Math.random() * 0.1 * valueOfToday;
+    }
 
-    const startDate = this.student.startDate
-      ? new Date(this.student.startDate).valueOf()
-      : mockStartDate;
-    const endDate = this.student.endDate
-      ? new Date(this.student.endDate).valueOf()
-      : mockEndDate;
+    let valueOfLimitDate: number;
+    if (limitDate) {
+      valueOfLimitDate = limitDate.valueOf();
+    } else {  // mock values to test progress bar presentation
+      valueOfLimitDate = valueOfToday + Math.random() * 0.1 * valueOfToday;
+    }
 
-    const percentage = Math.round(((today - startDate) / (endDate - startDate)) * 100);
+    const percentage = Math.round(
+      ((valueOfToday - valueOfStartDate) / (valueOfLimitDate - valueOfStartDate)) * 100
+    );
     return percentage;
   }
 }
