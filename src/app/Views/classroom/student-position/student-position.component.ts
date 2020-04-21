@@ -7,14 +7,31 @@ import { ClassroomService, StudentSeat } from '../../../Services/classroom.servi
   styleUrls: ['./student-position.component.scss']
 })
 export class StudentPositionComponent implements OnInit {
-  /* students: StudentSeat[] = []; */
+  students: StudentSeat[] = [];
   @Input() student: any = {};
 
-  constructor(private _studentSeatService: ClassroomService) { }
+  // ORIGINAL
+  // constructor(private _studentSeatService: ClassroomService) { }
+  constructor(private classroomService: ClassroomService) {}
+
 
   ngOnInit() {
-      // añadir el progreso aleatorio del alumno
-      this._studentSeatService.addRandomDays();
-  }
+     // ORIGINAL
+     // añadir el progreso aleatorio del alumno
+     //this._studentSeatService.addRandomDays();
 
-}
+
+      this.classroomService.getStudentsInfo()
+      .subscribe(
+        (data) => { // Success
+          this.student = data;
+          console.log(data);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+
+    }
+
+  }
