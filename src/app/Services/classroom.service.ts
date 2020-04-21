@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class ClassroomService {
+  baseUrl = 'http://217.76.158.200:8090/api/students'
+
   // datos (falsos) para obtener posición
   private students: StudentSeat[] = [
     {
@@ -428,12 +431,22 @@ export class ClassroomService {
 
 ];
 
-  constructor() {
-    console.log('Service ready!');
-   }
+  // ORIGINAL
+  // constructor() {
+  //   console.log('Service ready!');
+  //  }
+
+  constructor(private http: HttpClient) { }
+  // get students
+  public getStudentsInfo() {
+      return this.http.get(this.baseUrl);
+  }
+
+
+
    getStudentSeat(): StudentSeat[] {
     return this.students;
-}
+  }
 
   //adding random days (or%) in the course
 
@@ -444,6 +457,8 @@ export class ClassroomService {
     return this.students;
   }
 }
+
+// ORIGINAL
 // corregir interface con datos reales
 export interface StudentSeat {
   name: string;
@@ -453,4 +468,12 @@ export interface StudentSeat {
   gender: string;
   //pruebas J
   timeInAcademy?: number;
+}
+
+
+/* NEW */
+export interface StudentSeatFP {
+  id: string;
+  firstName: string;
+  lastName: string;
 }
