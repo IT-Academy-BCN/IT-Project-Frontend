@@ -56,7 +56,7 @@ export class LoginViewComponent implements OnInit {
 
           this.router.navigateByUrl("/classroom-view");
         } else {
-          Swal.fire("Oops!, Something went wrong!");
+          Swal.fire({ text: "Oops!, Something went wrong!" });
         }
       });
   }
