@@ -1,40 +1,100 @@
-@import '../../../styles.scss'; 
+@import "../../../styles.scss";
 
 .navbar {
-    // background-color: $white !important;
-    // border-bottom: solid 1px $dark-grey;
-    .navbar-text {
-        color: $black;
-    }
+  // background-color: $white !important;
+  // border-bottom: solid 1px $dark-grey;
+  .navbar-text {
+    color: $black;
+  }
 }
 
 button.submit-btn {
-    font-size: 1.125em;
-    background-color: $pink;
-    color: $white;
-    width: 120px;
-    height: 40px;
+  font-size: 1.125em;
+  background-color: $pink;
+  color: $white;
+  width: 120px;
+  height: 40px;
 }
 
 button.submit-btn:hover {
-    color: $white;
-    text-decoration: underline;
+  color: $white;
+  text-decoration: underline;
 }
 
 .img-thumb {
-    width: 60px;
-    height: 60px;
+  width: 60px;
+  height: 60px;
 }
 
 .img-circle {
-    border-radius: 100%;
-    width: 60px;
+  border-radius: 100%;
+  width: 60px;
 }
 
 // menu
 
 a:hover {
-    color: $white;
-    background-color: $pink;
-    border-radius: .25rem;
+  color: $white;
+  background-color: $pink;
+  border-radius: 0.25rem;
+}
+
+// mostrar la pagina actual
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  background-color: transparent !important;
+  color: $pink !important;
+}
+
+// Grids para cambiar el orden de los elementos del header
+
+@media (max-width: 998px) {
+  .navBarGrid {
+    display: grid !important;
+    max-height: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+      "logo salir"
+      "nombre nombre"
+      "menuNav menuNav";
+  }
+
+  .nombre {
+    grid-area: nombre;
+    display: inline-block !important;
+  }
+
+  .menuNav {
+    grid-area: menuNav;
+  }
+
+  .logo {
+    grid-area: logo;
+  }
+
+  .salir {
+    grid-area: salir;
+    display: inline-block;
+    max-width: 8em;
+    min-height: 2em;
+    margin-left: auto;
+    margin-right: 0em;
+  }
+}
+
+@media (min-width: 576px) {
+  .for-small-screens {
+    display: none;
+  }
+}
+
+@media (max-width: 575px) {
+  .for-large-screens {
+    display: none;
+  }
+
+  button.submit-btn {
+    width: 46px;
+  }
 }

@@ -36,14 +36,9 @@ export class StudentService {
       // Send Json: with the student fields and the information that needs to be updated.
       // Return Json: 404 - student not found / 200 - Successful
     return new Observable(subscriber => {
-      const ids = {
-        'Back-end': 1,
-        'Front-end': 2,
-        '.Net': 3
-      };
-      student.courses[0].itinerary.name = itinerary;
-      student.courses[0].itinerary.id = ids[itinerary];
-      subscriber.next(student);
+      const updatedStudent = Object.assign({}, student);
+      updatedStudent.itinerary = itinerary;
+      subscriber.next(updatedStudent);
       subscriber.complete();
     });
   }

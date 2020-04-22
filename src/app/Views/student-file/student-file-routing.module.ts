@@ -5,7 +5,7 @@ import { StudentSearchViewComponent } from './student-search-view/student-search
 
 
 const routes: Routes = [
-  { path: 'students',  component: StudentSearchViewComponent },
+  { path: 'student-view',  component: StudentSearchViewComponent },
   { path: 'student/:id', component: StudentFileViewComponent },
 ];
 
