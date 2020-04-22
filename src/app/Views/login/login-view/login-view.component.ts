@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import Swal from "sweetalert2";
+import { UserService } from "../../../Services/user.service";
 
 @Component({
   selector: "app-login-view",
@@ -12,7 +13,11 @@ export class LoginViewComponent implements OnInit {
   loginForm: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private userService: UserService
+  ) {}
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -55,6 +60,9 @@ export class LoginViewComponent implements OnInit {
           Swal.fire({ text: "Good job! You are logged in!" });
 
           this.router.navigateByUrl("/classroom-view");
+          console.log(response.firstName);
+          this.userService.firstName = response.firstName;
+          this.userService.lastName = response.lastName;
         } else {
           Swal.fire({ text: "Oops!, Something went wrong!" });
         }

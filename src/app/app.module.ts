@@ -27,6 +27,8 @@ import { NoimagePipe } from "./Pipes/noimage.pipe";
 import { SweetAlert2Module } from "@sweetalert2/ngx-sweetalert2";
 /*HTTP API client*/
 import { HttpClientModule } from "@angular/common/http";
+// services
+import { UserService } from "./Services/user.service";
 
 @NgModule({
   declarations: [
@@ -57,7 +59,7 @@ import { HttpClientModule } from "@angular/common/http";
     AppRoutingModule,
     SweetAlert2Module.forRoot(),
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
