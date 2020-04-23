@@ -1,6 +1,8 @@
 import { Component, OnInit, TemplateRef} from '@angular/core';
-import { ClassroomService, StudentSeat } from '../../../Services/classroom.service';
+import { ClassroomService, StudentSeat, StudentInfo } from '../../../Services/classroom.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { Subject, Observable } from 'rxjs'; // para trabajar con observables
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-classroom-seats',
@@ -8,21 +10,49 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
   styleUrls: ['./classroom-seats.component.scss']
 })
 export class ClassroomSeatsComponent implements OnInit {
-
   students: StudentSeat[] = [];
   selectedStudent: StudentSeat;
-
   modalRef: BsModalRef; // modal
-  
-  constructor( private _studentsService: ClassroomService,
+
+  /* FP */
+  studentsFP: StudentInfo[] = [];
+
+  constructor( public classroomService: ClassroomService,
     private modalService: BsModalService // modal
   ) {
   }
 
   ngOnInit() {
-    this.students = this._studentsService.getStudentSeat();
+    /* RUBEN: DESCOMENTAR ESTE BLOQUE
+    this.classroomService.getInfoDb()
+    .subscribe(
+      (data) => { // Success
+        this.studentsFP = data;
+        // este log muestra contenido
+        console.log(this.studentsFP);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+    // este log no muestra contenido
+    console.log(this.studentsFP);
+    */
+
+    /* RUBEN: COMENTAR ESTE BLOQUE */
+    this.studentsFP = this.classroomService.getInfoDb();
+    console.log(this.studentsFP);
+
+
+
+    
+
+    // esto por ahora queda porque lo llama el popup
+    this.students = this.classroomService.getStudentSeat();
     this.orderStudentsPosition();
+
   }
+
 
   studentPopup(student: StudentSeat) {
     this.selectedStudent = student;
@@ -37,6 +67,7 @@ export class ClassroomSeatsComponent implements OnInit {
   }
 
   // reordena los datos por el valor de la posición
+  // para llamar a datos reales hay que verificar columna, fila, etc
   orderStudentsPosition() {
     let orderedList = this.students.sort( (a,b) => {
     if (a.position > b.position) {
@@ -48,6 +79,8 @@ export class ClassroomSeatsComponent implements OnInit {
     console.log(orderedList);
     return orderedList;
   }
+
+
 
   // muestra el modal si hay contenido
   openModal(template: TemplateRef<any>) {
@@ -72,3 +105,4 @@ export class ClassroomSeatsComponent implements OnInit {
   }
 
 }
+
