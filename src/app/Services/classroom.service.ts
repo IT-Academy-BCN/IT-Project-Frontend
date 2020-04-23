@@ -1,11 +1,75 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs'; // rxjs es la libreria que trabaja con observables
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class ClassroomService {
   baseUrl = 'http://217.76.158.200:8090/api/students'
 
-  // datos (falsos) para obtener posición
+  constructor(private http: HttpClient) {}
+
+  /*  RUBEN: DESCOMENTAR ESTE BLOQUE
+  public studentsFP: StudentInfo[];
+  getInfoDb(): Observable<StudentInfo[]> {
+    return this.http.get<StudentInfo[]>(this.baseUrl).pipe(map(res => this.studentsFP = res))
+  }
+  */
+
+  /* RUBEN: COMENTAR ESTE BLOQUE */
+  getInfoDb(): StudentInfo[] {
+    return this.studentsFP;
+  }
+  private studentsFP: StudentInfo[] = [
+    {
+      id: "00990SDSoend.spcd",
+      firstName: "FLOR",
+      lastName: "LOPEZ PRUEBA",
+      seat: {
+          rowNumber: 1,
+          colNumber: 5,
+          classRoom: 1
+      },
+      courses: [
+          {
+              id: 7,
+              endDate: null,
+              itinerary: {
+                  id: 1,
+                  name: "FRONT END",
+              }
+          }
+      ]
+      // itinerary: 'Front End'
+    },
+    {
+      id: "0000000SDSoend.spcd",
+      firstName: "JUANCITO",
+      lastName: "PEREZ PRUEBA",
+      seat: {
+          rowNumber: 1,
+          colNumber: 5,
+          classRoom: 1
+      },
+      courses: [
+          {
+              id: 7,
+              endDate: null,
+              itinerary: {
+                  id: 1,
+                  name: "FRONT END",
+              }
+          }
+      ]
+     // itinerary: 'Back End'
+    }
+  ]
+
+
+
+
+  /* esto queda temporalmente porque se llama StudentSeat para el pop up */
+
   private students: StudentSeat[] = [
     {
         name: 'FABRIZIO',
@@ -429,37 +493,25 @@ export class ClassroomService {
         gender: 'F'
     }
 
-];
-
-  // ORIGINAL
-  // constructor() {
-  //   console.log('Service ready!');
-  //  }
-
-  constructor(private http: HttpClient) { }
-  // get students
-  public getStudentsInfo() {
-      return this.http.get(this.baseUrl);
-  }
+  ];
 
 
-
-   getStudentSeat(): StudentSeat[] {
+  getStudentSeat(): StudentSeat[] {
     return this.students;
   }
 
-  //adding random days (or%) in the course
 
-  addRandomDays(): StudentSeat[] {
-    for (let each of this.students){
+
+  addRandomDaysFP(): StudentInfo[] {
+    for (let each of this.studentsFP){
       each.timeInAcademy = Math.floor(Math.random() * 100)
     }
-    return this.students;
+    return this.studentsFP;
   }
 }
 
-// ORIGINAL
-// corregir interface con datos reales
+
+
 export interface StudentSeat {
   name: string;
   lastname: string;
@@ -471,9 +523,28 @@ export interface StudentSeat {
 }
 
 
-/* NEW */
-export interface StudentSeatFP {
-  id: string;
+/* FP */
+export interface StudentInfo {
+  id: string; // creo que no se necesita
   firstName: string;
   lastName: string;
+  seat: object;
+  courses: {
+    [key: number ]: Courses
+  };
+  timeInAcademy?: number;
 }
+
+export interface Courses {
+  id: number;
+  endDate: null;
+  itinerary: Itinerary;
+}
+
+export interface Itinerary {
+  id: number;
+  name: string;
+}
+
+
+
