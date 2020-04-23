@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ClassroomService, StudentSeat } from '../../../Services/classroom.service';
+import { ClassroomService, StudentInfo } from '../../../Services/classroom.service';
 
 @Component({
   selector: 'app-student-position',
@@ -7,31 +7,15 @@ import { ClassroomService, StudentSeat } from '../../../Services/classroom.servi
   styleUrls: ['./student-position.component.scss']
 })
 export class StudentPositionComponent implements OnInit {
-  students: StudentSeat[] = [];
+  /* students: StudentSeat[] = []; */
   @Input() student: any = {};
+  @Input() studentFP: any = {};
 
-  // ORIGINAL
-  // constructor(private _studentSeatService: ClassroomService) { }
-  constructor(private classroomService: ClassroomService) {}
-
+  constructor(private _studentSeatService: ClassroomService) { }
 
   ngOnInit() {
-     // ORIGINAL
-     // añadir el progreso aleatorio del alumno
-     //this._studentSeatService.addRandomDays();
-
-
-      this.classroomService.getStudentsInfo()
-      .subscribe(
-        (data) => { // Success
-          this.student = data;
-          console.log(data);
-        },
-        (error) => {
-          console.error(error);
-        }
-      );
-
-    }
-
+      // añadir el progreso aleatorio del alumno
+      this._studentSeatService.addRandomDaysFP();
   }
+
+}

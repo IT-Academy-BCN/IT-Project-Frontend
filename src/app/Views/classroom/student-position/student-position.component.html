@@ -2,13 +2,13 @@
 ngIf para colores front-end, back-end, net (clases) -->
 
 <ng-template #tooltipTemplate>
-    <div class="tooltip-color">{{ student.name }} {{ student.lastname }}</div>
+    <div class="tooltip-color">{{ studentFP.firstName | json }} {{ studentFP.lastName }}</div>
 </ng-template>
 
 
 <div class="student-container">
 
-    <button *ngIf="student.itinerary == 'Front End'" type="button" class="student front-end" [tooltip]="tooltipTemplate" placement="top">
+    <button *ngIf="studentFP.courses[0].itinerary.name == 'FRONT END'" type="button" class="student front-end" [tooltip]="tooltipTemplate" placement="top">
 
       <circle-progress class="circle-bar"
       [percent]= student.timeInAcademy
@@ -29,7 +29,7 @@ ngIf para colores front-end, back-end, net (clases) -->
     ></circle-progress>
     </button>
 
-    <button *ngIf="student.itinerary == 'Back End'" type="button" class="student back-end" [tooltip]="tooltipTemplate" placement="top">
+    <button *ngIf="studentFP.courses[0].itinerary.name == 'Back End'" type="button" class="student back-end" [tooltip]="tooltipTemplate" placement="top">
       <circle-progress class="circle-bar"
       [percent]= student.timeInAcademy
       [outerStrokeWidth]="4"
@@ -49,7 +49,7 @@ ngIf para colores front-end, back-end, net (clases) -->
     ></circle-progress>
 
     </button>
-    <button *ngIf="student.itinerary == '.Net'" type="button" class="student net" [tooltip]="tooltipTemplate" placement="top">
+    <button *ngIf="studentFP.courses[0].itinerary.name == '.Net'" type="button" class="student net" [tooltip]="tooltipTemplate" placement="top">
       <circle-progress class="circle-bar"
       [percent]= student.timeInAcademy
       [outerStrokeWidth]="4"
@@ -69,7 +69,7 @@ ngIf para colores front-end, back-end, net (clases) -->
     ></circle-progress>
 
     </button>
-    <button *ngIf="student.itinerary == ''" type="button" class="student empty">
+    <button *ngIf="studentFP.courses[0].itinerary.name == ''" type="button" class="student empty">
 
     </button>
 </div>
