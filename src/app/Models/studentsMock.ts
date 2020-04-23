@@ -1,6 +1,9 @@
-import { Student } from './student.model';
+export interface MockStudent {
+    name: string;
+    absence: number;
+}
 
-export const STUDENTS: Student[] = [
+export const STUDENTS: MockStudent[] = [
     {
         name: 'PANTINI, FABRIZIO',
         absence: 5

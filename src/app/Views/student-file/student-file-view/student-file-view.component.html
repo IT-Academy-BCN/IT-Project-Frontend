@@ -1,7 +1,7 @@
-<div class="d-flex justify-content-center mt-5">
-   <div class="mt-5">
-      <app-student-search></app-student-search> 
-   </div>
-</div> 
-<app-file-student></app-file-student> 
-<app-exercises></app-exercises>
+<div class="top-margin"></div> <!-- spacing below header -->
+<app-student-data *ngIf="student" 
+  class="container d-block" 
+  [student]="student" 
+  (newItinerary)="changeItinerary($event)">
+</app-student-data>
+<app-exercises [student]="student"></app-exercises>
