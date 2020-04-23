@@ -18,7 +18,7 @@ export const Itineraries: Record<ItineraryName, string> = {
   BackEndDotNet: 'Back-End - .NET',
 } as const;
 
-enum ExerciseStatusId {
+export enum ExerciseStatusId {
   None = 1,
   TurnedIn,
   Received,
@@ -44,7 +44,7 @@ interface Itinerary {
 interface Status {
   name: string;
   id: ExerciseStatusId;
-  date: Date;
+  date: string;
 }
 
 interface Teacher {

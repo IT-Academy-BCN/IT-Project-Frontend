@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { Exercise } from '../Views/student-file/student-file-view/tables/model/exercise';
 import { StudentExercise } from '../Models/exercise.model';
 
@@ -48,6 +48,7 @@ export class ExerciseService {
     return this.http
       .get<StudentExercise[]>(url)
       .pipe(
+        map(this.parseDate),
         catchError(this.handleError)
       );
   }
@@ -62,6 +63,17 @@ export class ExerciseService {
         return this.exercises[i];
       }
     }
+  }
+
+  private parseDate(exercises: StudentExercise[]) {
+    exercises.forEach(exercise => {
+      const date = exercise.status.date.split(' ')[0];
+      const day = date[0] + date[1];
+      const month = date[3] + date[4];
+      const year = date.slice(6);
+      exercise.status.date = `${month}/${day}/${year}`;
+    });
+    return exercises;
   }
 
   private handleError(error: HttpErrorResponse) {

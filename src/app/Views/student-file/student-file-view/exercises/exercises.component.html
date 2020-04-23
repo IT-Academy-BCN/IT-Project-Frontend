@@ -11,10 +11,10 @@
     <tbody>
       <tr *ngFor="let exercise of exercises" class="row text-center">
         <td class="col-3">{{ exercise.name }}</td>
-        <td class="col-3">{{ exercise.state }}</td>
-        <td class="col-3">{{ exercise.date | date:"dd/MM/yyyy" }}</td>
+        <td class="col-3">{{ exercise.status }}</td>
+        <td class="col-3">{{ exercise.statusDate | date:"dd/MM/yyyy" }}</td>
         <td class="col-3">
-          <app-exercise-modal [data]="exercise"></app-exercise-modal>
+          <app-exercise-modal [exercise]="exercise"></app-exercise-modal>
         </td>
       </tr>
     </tbody>
