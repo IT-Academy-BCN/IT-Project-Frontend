@@ -1,19 +1,19 @@
 @import '../../../../../styles.scss';
 
-button.submit-btn {
+.submit-btn {
   font-size: 0.9em;
   background-color: $pink;
   color: $white;
 }
-button.submit-btn:hover {
+.submit-btn:hover {
   text-decoration: underline;
 }
 
-button.grey-btn {
+.grey-btn {
   font-size: 0.9em;
   background-color: $dark-grey;
   color: $white;
 }
-button.grey-btn:hover {
+.grey-btn:hover {
   text-decoration: underline;
 }

@@ -18,7 +18,7 @@ export const Itineraries: Record<ItineraryName, string> = {
   BackEndDotNet: 'Back-End - .NET',
 } as const;
 
-export enum ExerciseStatusId {
+export enum StatusId {
   None = 1,
   TurnedIn,
   Received,
@@ -26,15 +26,22 @@ export enum ExerciseStatusId {
   Finished
 }
 
-export type ExerciseStatusName = keyof typeof ExerciseStatusId;
+export type StatusName = keyof typeof StatusId;
 
-export const Statuses: Record<ExerciseStatusName, string> = {
+export const Statuses: Record<StatusName, string> = {
   None: 'ninguno',
   TurnedIn: 'entregado',
   Received: 'recibido (revisión pendiente)',
   Checked: 'revisado (discusión pendiente)',
   Finished: 'finalizado'
 } as const;
+
+export interface StatusUpdateData {
+  studentId: string;
+  exerciseId: string;
+  status: StatusId;
+  date: Date;
+}
 
 interface Itinerary {
   id: ItineraryId;
@@ -43,7 +50,7 @@ interface Itinerary {
 
 interface Status {
   name: string;
-  id: ExerciseStatusId;
+  id: StatusId;
   date: string;
 }
 
