@@ -20,13 +20,13 @@
                     <th class="first p-2 table-bg">
                         Alumno
                     </th>
-                    <th class="table-bg" *ngFor="let titleExercises of students[0].exercises">
-                        {{ titleExercises.name }}
+                    <th class="table-bg" *ngFor="let exercise of ExercicesArray">
+                        {{ exercise.name }}
                     </th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let student of students | paginate: {itemsPerPage: 6, currentPage: selectedPage}">
+                <tr *ngFor="let student of allExercises | paginate: {itemsPerPage: 6, currentPage: selectedPage}">
                     <td class="first p-3 table-bg">
                         {{ student.firstName }} {{ student.lastName }}
                     </td>
@@ -51,6 +51,3 @@
 </div>
 
 <!-- Pagination Table Documentation: https://www.npmjs.com/package/ngx-pagination#demo -->
-
-
-
