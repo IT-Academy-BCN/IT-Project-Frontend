@@ -26,13 +26,13 @@ export enum ExerciseStatusId {
   Finished
 }
 
-type ExerciseStatusName = keyof typeof ExerciseStatusId;
+export type ExerciseStatusName = keyof typeof ExerciseStatusId;
 
 export const Statuses: Record<ExerciseStatusName, string> = {
   None: 'ninguno',
   TurnedIn: 'entregado',
-  Received: 'recibido - revisión pendiente',
-  Checked: 'revisado - discusión pendiente',
+  Received: 'recibido (revisión pendiente)',
+  Checked: 'revisado (discusión pendiente)',
   Finished: 'finalizado'
 } as const;
 

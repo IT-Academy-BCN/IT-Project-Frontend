@@ -3,14 +3,22 @@ import { Component, Input } from '@angular/core';
 import { ExerciseService } from '../../../../Services/exercise.service';
 import { StudentExercise, Statuses, ExerciseStatusId } from '../../../../Models/exercise.model';
 import { Student } from '../../../../Models/student.model';
+import { ExerciseModalComponent } from '../exercise-modal/exercise-modal.component'
 
 class ExerciseData {
   constructor(
     public id: string,
     public name: string,
-    public status: string,
+    public statusId: ExerciseStatusId,
+    public statusName: string,
     public statusDate: Date
   ) { }
+}
+
+export interface StatusUpdate {
+  exerciseId: string;
+  status: ExerciseStatusId;
+  date: Date;
 }
 
 @Component({
@@ -21,13 +29,24 @@ class ExerciseData {
 export class ExercisesComponent {
 
   @Input() set student(student: Student) {
-    this.getExercises(student.id)
-      .subscribe(this.updateExercisesData, this.displayErrorMessage);
+    if (student) {
+      this.getExercises(student.id)
+        .subscribe(this.updateExercisesData, this.displayErrorMessage);
+    }
   }
   private statuses = Statuses;
   public exercises: ExerciseData[] = [];
 
   constructor(private exerciseService: ExerciseService) { }
+
+  public updateExerciseStatus(updateData: StatusUpdate) {
+    console.log(updateData);
+  }
+
+  public openStatusUpdateModal(modal: ExerciseModalComponent, exerciseId: string) {
+    modal.exercise = exerciseId;
+    modal.modal.show();
+  }
 
   private getExercises(studentId: string) {
     return this.exerciseService.getStudentExercises(studentId);
@@ -38,16 +57,15 @@ export class ExercisesComponent {
       const exerciseData = new ExerciseData(
         exercise.id,
         exercise.name,
+        exercise.status.id,
         this.statuses[ExerciseStatusId[exercise.status.id]],
         new Date(exercise.status.date)
       );
       this.exercises.push(exerciseData);
     }
-    console.log(this.exercises);
   }
 
   private displayErrorMessage(error) {
     alert(error);
   }
-
 }

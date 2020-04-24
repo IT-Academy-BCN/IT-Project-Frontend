@@ -1,26 +1,38 @@
-<button type="button" class="btn submit-btn full-container" (click)="openModal(template)">
-    Cambiar estado </button>
-
-<ng-template #template>
-    <div class="modal-header">
-        <h3 class="modal-title pull-left">Revisión del ejercicio {{exercise.name}}</h3>
-        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-            <span aria-hidden="true">&times;</span>
+<div bsModal #statusUpdateModal="bs-modal" class="modal fade" tabindex="-1"
+     role="dialog" aria-labelledby="modal-title">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title pull-left" id="modal-title">
+          Seleccione la fecha y el nuevo estado
+        </h5>
+        <button type="button" class="close pull-right" aria-label="Close" 
+          (click)="statusUpdateModal.hide()">
+          <span aria-hidden="true">&times;</span>
         </button>
-    </div>
-    <div class="modal-body">
-        <div class="row">
-            <div class="col-md-2">
-                <label>Fecha</label>
-            </div>
-            <div class="col-xs-12 col-12 col-md-4 form-group">
-                <input type="text" placeholder="dd/mm/aaaa" class="form-control" bsDatepicker #dp="bsDatepicker" [bsConfig]="dpConfig" #date>
-            </div>
+      </div>
+      <div class="modal-body">
+        <div class="form-group d-flex px-5 align-items-baseline">
+          <label for="datepicker" class="mr-4 font-weight-bold">Fecha</label>
+          <input id="datepicker" type="text" placeholder="dd/mm/aaaa" class="form-control" 
+            bsDatepicker 
+            #dp="bsDatepicker"
+            [bsConfig]="dpConfig" #date>
         </div>
         <div class="row justify-content-between m-1">
-            <button type="submit" class="btn grey-btn" (click)="changeDone(date.value)">Entregado</button>
-            <button type="button" class="btn blue-btn col-3" (click)="changeCorrected(date.value)">Corregido</button>
-            <button type=" button " class="btn submit-btn col-3" (click)="changeReviewed(date.value)">A revisar</button>
+          <ng-container *ngFor="let status of statusList; let i = index">
+            <div class="col-3 px-2" *ngIf="status.name !== 'None'">
+              <button type="button"
+                class="btn h-100 w-100"
+                [class.submit-btn]="status.id === i + 2"
+                [class.grey-btn]="status.id !== i + 2"
+                (click)="updateStatus(status.id, date.value)">
+                {{ statusToDisplay[status.name] | titlecase }}
+              </button>
+            </div>
+          </ng-container>
         </div>
+      </div>
     </div>
-</ng-template>
+  </div>
+</div>

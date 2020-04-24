@@ -18,7 +18,7 @@ import { AlumnoService } from '../../Services/alumno.service';
 import { ExerciseService } from '../../Services/exercise.service';
 import { FormsModule } from '@angular/forms';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -34,6 +34,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     CommonModule,
     FormsModule,
     BsDatepickerModule.forRoot(),
+    ModalModule.forRoot(),
     StudentFileRoutingModule,
     SharedModule
   ],
