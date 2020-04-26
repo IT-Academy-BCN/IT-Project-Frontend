@@ -7,15 +7,13 @@ import { ClassroomService, StudentInfo } from '../../../Services/classroom.servi
   styleUrls: ['./student-position.component.scss']
 })
 export class StudentPositionComponent implements OnInit {
-  /* students: StudentSeat[] = []; */
-  @Input() student: any = {};
   @Input() studentFP: any = {};
 
-  constructor(private _studentSeatService: ClassroomService) { }
+  constructor(private classroomService: ClassroomService) { }
 
   ngOnInit() {
-      // añadir el progreso aleatorio del alumno
-      this._studentSeatService.addRandomDaysFP();
+    // añadir el progreso aleatorio del alumno
+    this.classroomService.addRandomDaysFP();
   }
 
 }

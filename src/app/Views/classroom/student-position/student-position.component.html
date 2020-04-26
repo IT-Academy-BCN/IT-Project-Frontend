@@ -2,16 +2,16 @@
 ngIf para colores front-end, back-end, net (clases) -->
 
 <ng-template #tooltipTemplate>
-    <div class="tooltip-color">{{ studentFP.firstName | json }} {{ studentFP.lastName }}</div>
+    <div class="tooltip-color">{{ studentFP.firstName }} {{ studentFP.lastName }}</div>
 </ng-template>
 
 
 <div class="student-container">
 
-    <button *ngIf="studentFP.courses[0].itinerary.name == 'FRONT END'" type="button" class="student front-end" [tooltip]="tooltipTemplate" placement="top">
+    <button *ngIf="studentFP.courses[0].itinerary.id == 2" type="button" class="student front-end" [tooltip]="tooltipTemplate" placement="top">
 
       <circle-progress class="circle-bar"
-      [percent]= student.timeInAcademy
+      [percent]= studentFP.timeInAcademy
       [outerStrokeWidth]="4"
       [innerStrokeWidth]="4"
       [outerStrokeColor]="'#D50283'"
@@ -29,9 +29,9 @@ ngIf para colores front-end, back-end, net (clases) -->
     ></circle-progress>
     </button>
 
-    <button *ngIf="studentFP.courses[0].itinerary.name == 'Back End'" type="button" class="student back-end" [tooltip]="tooltipTemplate" placement="top">
+    <button *ngIf="studentFP.courses[0].itinerary.id == 3" type="button" class="student back-end" [tooltip]="tooltipTemplate" placement="top">
       <circle-progress class="circle-bar"
-      [percent]= student.timeInAcademy
+      [percent]= studentFP.timeInAcademy
       [outerStrokeWidth]="4"
       [innerStrokeWidth]="4"
       [outerStrokeColor]="'#005F87'"
@@ -49,9 +49,9 @@ ngIf para colores front-end, back-end, net (clases) -->
     ></circle-progress>
 
     </button>
-    <button *ngIf="studentFP.courses[0].itinerary.name == '.Net'" type="button" class="student net" [tooltip]="tooltipTemplate" placement="top">
+    <button *ngIf="studentFP.courses[0].itinerary.id == 4" type="button" class="student net" [tooltip]="tooltipTemplate" placement="top">
       <circle-progress class="circle-bar"
-      [percent]= student.timeInAcademy
+      [percent]= studentFP.timeInAcademy
       [outerStrokeWidth]="4"
       [innerStrokeWidth]="4"
       [outerStrokeColor]="'#212121'"
@@ -69,10 +69,13 @@ ngIf para colores front-end, back-end, net (clases) -->
     ></circle-progress>
 
     </button>
-    <button *ngIf="studentFP.courses[0].itinerary.name == ''" type="button" class="student empty">
+
+    <!-- pending: assign color styles to COMMON BLOCK itinerary -->
+    <button *ngIf="studentFP.courses[0].itinerary.id == ''" type="button" class="student empty">
 
     </button>
 </div>
+
 <!--modal-->
 <ng-template #template>
   <div class="modal-header">
