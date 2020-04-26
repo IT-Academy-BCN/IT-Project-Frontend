@@ -10,11 +10,12 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./classroom-seats.component.scss']
 })
 export class ClassroomSeatsComponent implements OnInit {
+  /* this will be deleted once the seat position is asociated to the API data */
   students: StudentSeat[] = [];
   selectedStudent: StudentSeat;
   modalRef: BsModalRef; // modal
 
-  /* FP */
+  /* this is the good one! */
   studentsFP: StudentInfo[] = [];
 
   constructor( public classroomService: ClassroomService,
@@ -23,37 +24,27 @@ export class ClassroomSeatsComponent implements OnInit {
   }
 
   ngOnInit() {
-    /* RUBEN: DESCOMENTAR ESTE BLOQUE
+
+    // get the API data
     this.classroomService.getInfoDb()
     .subscribe(
       (data) => { // Success
         this.studentsFP = data;
-        // este log muestra contenido
         console.log(this.studentsFP);
       },
       (error) => {
         console.error(error);
       }
     );
-    // este log no muestra contenido
-    console.log(this.studentsFP);
-    */
-
-    /* RUBEN: COMENTAR ESTE BLOQUE */
-    this.studentsFP = this.classroomService.getInfoDb();
-    console.log(this.studentsFP);
 
 
-
-    
-
-    // esto por ahora queda porque lo llama el popup
+    // this is here temporarily, until solving the seat position
     this.students = this.classroomService.getStudentSeat();
     this.orderStudentsPosition();
 
   }
 
-
+  // pending to associate to StudentFP
   studentPopup(student: StudentSeat) {
     this.selectedStudent = student;
     console.log(`Position: ${student.position}`);
