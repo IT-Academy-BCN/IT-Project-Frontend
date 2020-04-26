@@ -47,8 +47,8 @@ ngIf para colores front-end, back-end, net (clases) -->
       [backgroundPadding]="'-8'"
       [backgroundStroke]="'#005F87'"
     ></circle-progress>
-
     </button>
+
     <button *ngIf="studentFP.courses[0].itinerary.id == 4" type="button" class="student net" [tooltip]="tooltipTemplate" placement="top">
       <circle-progress class="circle-bar"
       [percent]= studentFP.timeInAcademy
@@ -67,10 +67,28 @@ ngIf para colores front-end, back-end, net (clases) -->
       [backgroundPadding]="'-8'"
       [backgroundStroke]="'#212121'"
     ></circle-progress>
-
     </button>
 
-    <!-- pending: assign color styles to COMMON BLOCK itinerary -->
+    <button *ngIf="studentFP.courses[0].itinerary.id == 1" type="button" class="student net" [tooltip]="tooltipTemplate" placement="top">
+      <circle-progress class="circle-bar"
+      [percent]= studentFP.timeInAcademy
+      [outerStrokeWidth]="4"
+      [innerStrokeWidth]="4"
+      [outerStrokeColor]="'#F18F01'"
+      [innerStrokeColor]="'#fce8cc'"
+      [space]="-5"
+      [animation]="true"
+      [animationDuration]="300"
+      [showTitle]="false"
+      [showSubtitle]="false"
+      [showUnits]="false"
+      [backgroundColor]="'#F18F01'"
+      [backgroundOpacity]="'0.8'"
+      [backgroundPadding]="'-8'"
+      [backgroundStroke]="'#F18F01'"
+    ></circle-progress>
+    </button>
+
     <button *ngIf="studentFP.courses[0].itinerary.id == ''" type="button" class="student empty">
 
     </button>
