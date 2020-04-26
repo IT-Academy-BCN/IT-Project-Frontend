@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators';
 export class ClassroomSeatsComponent implements OnInit {
   /* this will be deleted once the seat position is asociated to the API data */
   students: StudentSeat[] = [];
-  selectedStudent: StudentSeat;
+  selectedStudent: StudentInfo;
   modalRef: BsModalRef; // modal
 
   /* this is the good one! */
@@ -45,13 +45,13 @@ export class ClassroomSeatsComponent implements OnInit {
   }
 
   // pending to associate to StudentFP
-  studentPopup(student: StudentSeat) {
+  studentPopup(student: StudentInfo) {
     this.selectedStudent = student;
-    console.log(`Position: ${student.position}`);
+    console.log(`Position: --DEFINIR POSICION---` + student);
   }
 
   // método temporal para visualizar student por consola
-  selectStudent(student: StudentSeat) {
+  selectStudent(student: StudentInfo) {
     this.selectedStudent = student;
     console.log(student);
     return student;
@@ -75,7 +75,7 @@ export class ClassroomSeatsComponent implements OnInit {
 
   // muestra el modal si hay contenido
   openModal(template: TemplateRef<any>) {
-    if(this.selectedStudent.name == '') {
+    if(this.selectedStudent.firstName == '') {
       console.log('No student to show');
     } else {
       this.modalRef = this.modalService.show(template);
