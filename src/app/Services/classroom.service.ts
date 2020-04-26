@@ -9,67 +9,15 @@ export class ClassroomService {
 
   constructor(private http: HttpClient) {}
 
-  /*  RUBEN: DESCOMENTAR ESTE BLOQUE
   public studentsFP: StudentInfo[];
   getInfoDb(): Observable<StudentInfo[]> {
-    return this.http.get<StudentInfo[]>(this.baseUrl).pipe(map(res => this.studentsFP = res))
+    return this.http.get<StudentInfo[]>(this.baseUrl).pipe(map(res => this.studentsFP = res));
   }
-  */
-
-  /* RUBEN: COMENTAR ESTE BLOQUE */
-  getInfoDb(): StudentInfo[] {
-    return this.studentsFP;
-  }
-  private studentsFP: StudentInfo[] = [
-    {
-      id: "00990SDSoend.spcd",
-      firstName: "FLOR",
-      lastName: "LOPEZ PRUEBA",
-      seat: {
-          rowNumber: 1,
-          colNumber: 5,
-          classRoom: 1
-      },
-      courses: [
-          {
-              id: 7,
-              endDate: null,
-              itinerary: {
-                  id: 1,
-                  name: "FRONT END",
-              }
-          }
-      ]
-      // itinerary: 'Front End'
-    },
-    {
-      id: "0000000SDSoend.spcd",
-      firstName: "JUANCITO",
-      lastName: "PEREZ PRUEBA",
-      seat: {
-          rowNumber: 1,
-          colNumber: 5,
-          classRoom: 1
-      },
-      courses: [
-          {
-              id: 7,
-              endDate: null,
-              itinerary: {
-                  id: 1,
-                  name: "FRONT END",
-              }
-          }
-      ]
-     // itinerary: 'Back End'
-    }
-  ]
 
 
 
 
-  /* esto queda temporalmente porque se llama StudentSeat para el pop up */
-
+  // this is here temporarily, until solving the seat position
   private students: StudentSeat[] = [
     {
         name: 'FABRIZIO',
@@ -495,13 +443,12 @@ export class ClassroomService {
 
   ];
 
-
   getStudentSeat(): StudentSeat[] {
     return this.students;
   }
 
 
-
+  // pending: assign real time remaining in ITAcademy to this loading
   addRandomDaysFP(): StudentInfo[] {
     for (let each of this.studentsFP){
       each.timeInAcademy = Math.floor(Math.random() * 100)
@@ -511,7 +458,7 @@ export class ClassroomService {
 }
 
 
-
+// this is here temporarily, until solving the seat position
 export interface StudentSeat {
   name: string;
   lastname: string;
