@@ -2,29 +2,29 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 /* components & modules */
-import { StudentFileRoutingModule } from './student-file-routing.module';
+import { StudentSearchViewComponent } from './student-search-view/student-search-view.component';
 import { StudentFileViewComponent} from './student-file-view/student-file-view';
-import { StudentSearchComponent} from './student-file-view/student-search/student-search.component';
-import { FileStudentComponent } from './student-file-view/file-student/file-student.component';
+import { StudentDataComponent } from './student-file-view/student-data/student-data.component';
 import { ExerciseModalComponent } from './student-file-view/exercise-modal/exercise-modal.component';
 import { ExercisesComponent } from './student-file-view/exercises/exercises.component';
 import { TablesComponent } from './student-file-view/tables/tables.component';
 import { TimeBarComponent } from './student-file-view/time-bar/time-bar.component';
+import { SharedModule } from '../../Shared/shared.module';
+import { StudentFileRoutingModule } from './student-file-routing.module';
 
 /* services*/
-import { StudentSearchService } from '../../Services/student-search.service';
+import { StudentService } from '../../Services/student.service';
 import { AlumnoService } from '../../Services/alumno.service';
 import { ExerciseService } from '../../Services/exercise.service';
-import { Select2Module } from 'ng2-select2';
 import { FormsModule } from '@angular/forms';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 
 @NgModule({
   declarations: [
+    StudentSearchViewComponent,
     StudentFileViewComponent,
-    StudentSearchComponent,
-    FileStudentComponent,
+    StudentDataComponent,
     ExerciseModalComponent,
     ExercisesComponent,
     TablesComponent,
@@ -32,13 +32,13 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
   ],
   imports: [
     CommonModule,
-    Select2Module,
     FormsModule,
     BsDatepickerModule.forRoot(),
-    StudentFileRoutingModule
+    StudentFileRoutingModule,
+    SharedModule
   ],
   providers: [
-    StudentSearchService,
+    StudentService,
     AlumnoService,
     ExerciseService
   ]

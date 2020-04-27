@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StudentSearchService } from '../../../Services/student-search.service';
+import { StudentService } from '../../../Services/student.service';
 
 @Component({
   selector: 'app-classroom-view',
@@ -8,9 +8,7 @@ import { StudentSearchService } from '../../../Services/student-search.service';
 })
 export class ClassroomViewComponent implements OnInit {
 
-   constructor(private search: StudentSearchService) {
-     search.page = 'classroom-view';
-   }
+   constructor(private studentService: StudentService) { }
   ngOnInit() {
   }
 

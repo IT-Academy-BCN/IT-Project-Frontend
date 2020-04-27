@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 /* models */
-import { Student } from '../../../Models/student.model';
-import { STUDENTS } from '../../../Models/studentsMock';
+import { STUDENTS, MockStudent } from '../../../Models/studentsMock';
 
 @Component({
   selector: 'app-statistics-view',
@@ -10,7 +9,7 @@ import { STUDENTS } from '../../../Models/studentsMock';
 })
 export class StatisticsViewComponent implements OnInit {
   students = STUDENTS;
-  selectedStudent: Student;
+  selectedStudent: MockStudent;
   
   constructor() { }
 
