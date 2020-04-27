@@ -4,8 +4,10 @@ import { Injectable } from "@angular/core";
   providedIn: "root",
 })
 export class UserService {
-  firstName: string = "";
-  lastName: string = "";
+  currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
   constructor() {}
+  firstName = this.currentUser.firstName;
+  lastName = this.currentUser.lastName;
+  token = this.currentUser.token;
 }

@@ -61,8 +61,15 @@ export class LoginViewComponent implements OnInit {
 
           this.router.navigateByUrl("/classroom-view");
           console.log(response.firstName);
-          this.userService.firstName = response.firstName;
-          this.userService.lastName = response.lastName;
+
+          localStorage.setItem(
+            "currentUser",
+            JSON.stringify({
+              firstName: response.firstName,
+              lastName: response.lastName,
+              token: response.token,
+            })
+          );
         } else {
           Swal.fire({ text: "Oops!, Something went wrong!" });
         }
