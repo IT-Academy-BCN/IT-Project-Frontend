@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import Swal from "sweetalert2";
-import { UserService } from "../../../Services/user.service";
 
 @Component({
   selector: "app-login-view",
@@ -13,11 +12,7 @@ export class LoginViewComponent implements OnInit {
   loginForm: FormGroup;
   submitted = false;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private router: Router,
-    private userService: UserService
-  ) {}
+  constructor(private formBuilder: FormBuilder, private router: Router) {}
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
