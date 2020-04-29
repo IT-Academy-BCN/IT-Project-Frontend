@@ -1,7 +1,10 @@
-<div class="top-margin"></div> <!-- spacing below header -->
-<app-student-data *ngIf="student" 
+<div class="student-container">
+  <div class="top-margin"></div> <!-- spacing below header -->
+  <app-student-data *ngIf="student" 
   class="container d-block" 
   [student]="student" 
   (newItinerary)="changeItinerary($event)">
-</app-student-data>
-<app-exercises [student]="student"></app-exercises>
+  </app-student-data>
+  <app-exercises [student]="student"></app-exercises>
+</div>
+
