@@ -12,6 +12,10 @@ export class HeaderComponent implements OnInit {
   faSignOutAlt = faSignOutAlt;
   user: User = new User();
 
+  currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  firstName = this.currentUser.firstName;
+  lastName = this.currentUser.lastName;
+
   constructor(private router: Router) {}
 
   // logout () {
@@ -25,6 +29,7 @@ export class HeaderComponent implements OnInit {
   // }
 
   logout() {
+    localStorage.removeItem("currentUser");
     this.router.navigateByUrl("/login");
   }
 
