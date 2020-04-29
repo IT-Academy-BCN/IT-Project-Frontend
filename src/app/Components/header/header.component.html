@@ -37,7 +37,7 @@
       <li class="nav-item">
         <a
           class="black-c nav-link"
-          routerLink="/student-file-view"
+          routerLink="/student-view"
           routerLinkActive="active"
           >Alumno</a
         >
@@ -47,7 +47,7 @@
     <div class="d-flex justify-content-around nombre">
       <img [src]="user.portrait | noimage" class="mx-2 img-thumb img-circle" />
       <span class="navbar-text mr-5 mt-2">
-        <h5>Nombre Apellido {{ user.firstName }} {{ user.lastName }}</h5></span
+        <h5>{{ firstName }} {{ lastName }}</h5></span
       >
     </div>
 
