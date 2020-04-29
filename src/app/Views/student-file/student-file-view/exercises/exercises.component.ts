@@ -1,8 +1,21 @@
 import { Component, Input } from '@angular/core';
 /* own */
 import { ExerciseService } from '../../../../Services/exercise.service';
-import { Exercise } from '../tables/model/exercise';
+import {
+  StudentExercise, Statuses, StatusId, StatusUpdateData
+} from '../../../../Models/exercise.model';
 import { Student } from '../../../../Models/student.model';
+import { ExerciseModalComponent } from '../exercise-modal/exercise-modal.component';
+
+class ExerciseData {
+  constructor(
+    public id: string,
+    public name: string,
+    public statusId: StatusId,
+    public statusName: string,
+    public statusDate: Date
+  ) { }
+}
 
 @Component({
   selector: 'app-exercises',
@@ -14,20 +27,54 @@ export class ExercisesComponent {
     // tslint:disable-next-line: variable-name
   private _student: Student;
   @Input() set student(student: Student) {
-    this._student = student;
-    this.getExercises();
+    if (student) {
+      this._student = student;
+      this.getExercises(student.id);
+    }
   }
-  get student() {
-    return this._student;
-  }
-
-  exercises: Exercise[] = [];
+  private statuses = Statuses;
+  public exercises: ExerciseData[] = [];
 
   constructor(private exerciseService: ExerciseService) { }
 
-  getExercises() {
-    this.exercises = this.exerciseService.getStudentExercises(this.student.id);
-    console.log(this.exercises);
+  public updateExerciseStatus(updateData: StatusUpdateData) {
+    this.exerciseService
+      .updateExerciseStatus(updateData);  // call to API must be implemented
+
+    // this mocks service response
+    const updated = this.exercises.find(exercise => exercise.id === updateData.exerciseId);
+    updated.statusId = updateData.status;
+    updated.statusName = this.statuses[StatusId[updated.statusId]];
+    updated.statusDate = updateData.date;
   }
 
+  public openStatusUpdateModal(modal: ExerciseModalComponent, exercise: ExerciseData) {
+    modal.exerciseId = exercise.id;
+    modal.statusId = exercise.statusId;
+    modal.studentId = this._student.id;
+    modal.modal.show();
+  }
+
+  private getExercises(studentId: string) {
+    this.exerciseService
+      .getStudentExercises(studentId)
+      .subscribe(this.updateExercisesData, this.displayErrorMessage);
+  }
+
+  private updateExercisesData = (exercises: StudentExercise[]) => {
+    for (const exercise of exercises) {
+      const exerciseData = new ExerciseData(
+        exercise.id,
+        exercise.name,
+        exercise.status.id,
+        this.statuses[StatusId[exercise.status.id]],
+        new Date(exercise.status.date)
+      );
+      this.exercises.push(exerciseData);
+    }
+  }
+
+  private displayErrorMessage(error) {
+    alert(error);
+  }
 }
