@@ -26,7 +26,7 @@
     "@types/select2": "^4.0.44",
     "bootstrap": "^4.3.1",
     "chart.js": "^2.9.3",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ng-circle-progress": "^1.5.1",
     "ng2-charts": "^2.3.0",
     "ng2-select2": "^1.0.0-beta.16",
