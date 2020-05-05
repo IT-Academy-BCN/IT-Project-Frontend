@@ -1,8 +1,6 @@
 import { Component, OnInit, TemplateRef} from '@angular/core';
 import { ClassroomService, StudentSeat, StudentInfo } from '../../../Services/classroom.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { Subject, Observable } from 'rxjs'; // para trabajar con observables
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-classroom-seats',
@@ -10,13 +8,16 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./classroom-seats.component.scss']
 })
 export class ClassroomSeatsComponent implements OnInit {
+  itineraries: any = [];
+
   /* this will be deleted once the seat position is asociated to the API data */
   students: StudentSeat[] = [];
   selectedStudent: StudentInfo;
   modalRef: BsModalRef; // modal
 
   /* this is the good one! */
-  studentsFP: StudentInfo[] = [];
+  public studentsFP: any = [];
+  // HECTOR public StudentsArray: any = [];
 
   constructor( public classroomService: ClassroomService,
     private modalService: BsModalService // modal
@@ -30,6 +31,7 @@ export class ClassroomSeatsComponent implements OnInit {
     .subscribe(
       (data) => { // Success
         this.studentsFP = data;
+         // se ejecuta en el service
         console.log(this.studentsFP);
       },
       (error) => {
@@ -37,12 +39,38 @@ export class ClassroomSeatsComponent implements OnInit {
       }
     );
 
-
     // this is here temporarily, until solving the seat position
     this.students = this.classroomService.getStudentSeat();
     this.orderStudentsPosition();
-
   }
+
+  // students per itinerary to show on "footer" circles
+
+  studentsPerItinerary() {
+    let numStudentsPerItinerary: Array<number> = [0,0,0,0]; // [common, front, back, .net]
+    let errors = 0;
+    this.studentsFP.forEach(element => {
+      let studentItinerary = element.courses[0].itinerary.id;
+      switch (studentItinerary) {
+        case 1:
+          numStudentsPerItinerary[0]++;
+          break;
+        case 2:
+          numStudentsPerItinerary[1]++;
+          break;
+        case 3:
+          numStudentsPerItinerary[2]++;
+          break;
+        case 4:
+          numStudentsPerItinerary[3]++;
+          break;
+        default: errors++;
+          break;
+      }
+    });
+    return numStudentsPerItinerary;
+  }
+
 
   // pending to associate to StudentFP
   studentPopup(student: StudentInfo) {
@@ -96,4 +124,7 @@ export class ClassroomSeatsComponent implements OnInit {
   }
 
 }
+
+
+
 
