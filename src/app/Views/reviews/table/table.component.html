@@ -39,6 +39,7 @@
     </div>
 </div>
 
+
 <!-- PAGINATION TABLE -->
 <div class="container-fluid mt-3 ml-3">
     <div class="box-wrap">
@@ -50,7 +51,32 @@
     </div>
 </div>
 
+<!-- LAYOUT TABLE -->
+<div class="container-fluid mt-3 ml-3">
+    <div class="table-wrap">
+        <table class="table table-hover table-sm text-center">
+            <thead>
+                <tr>
+                    <th class="first p-2 table-bg">
+                        Alumno
+                    </th>
+                    <th class="table-bg" *ngFor="let titleExercises of students[0].exercises">
+                        {{ titleExercises.name }}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let student of allStudents | paginate: {itemsPerPage: 6, currentPage: selectedPage}">
+                    <td class="first p-3 table-bg">
+                        {{ student.firstName | titlecase }} {{ student.lastName | titlecase | slice: 0: 10 }}
+                    </td>
+                    <td class="row-size text-center" *ngFor="let exercises of student.exercises; index as i" [ngClass]="[{'No entregado': 'table-bg-default', 'Entregado': 'table-bg-done', 'Corregido': 'table-bg-corrected', 'A revisar': 'table-bg-reviewed'}[ exercises.state ]]">
+                        <app-modal [data]="exercises"></app-modal>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
 <!-- Pagination Table Documentation: https://www.npmjs.com/package/ngx-pagination#demo -->
-
-
-

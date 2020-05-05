@@ -66,3 +66,17 @@ export class StudentExercise {
   itinerary: Itinerary;
   teacher: Teacher;
 }
+
+export class ExerciseResponse {
+  id : number;
+  name: string;
+  itinerary: number;
+  students: studentInSubject[];
+}
+interface studentInSubject {
+  id: number;
+  studentName: string;
+  studentLastName: string;
+  statusExercise: string;
+  date: number;
+}
