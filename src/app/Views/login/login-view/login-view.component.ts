@@ -54,7 +54,7 @@ export class LoginViewComponent implements OnInit {
         if (response.success == true) {
           Swal.fire({ text: "Good job! You are logged in!" });
 
-          this.router.navigateByUrl("/classroom-view");
+          this.router.navigateByUrl("/statistics-view");
           console.log(response.firstName);
 
           localStorage.setItem(
