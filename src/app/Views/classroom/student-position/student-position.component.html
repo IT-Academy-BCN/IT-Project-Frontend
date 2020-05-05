@@ -8,7 +8,7 @@ ngIf para colores front-end, back-end, net (clases) -->
 
 <div class="student-container">
 
-    <button *ngIf="studentFP.courses[0].itinerary.id == 2" type="button" class="student front-end" [tooltip]="tooltipTemplate" placement="top">
+    <button *ngIf="studentItinerary == 2" type="button" class="student front-end" [tooltip]="tooltipTemplate" placement="top">
 
       <circle-progress class="circle-bar"
       [percent]= studentFP.timeInAcademy
@@ -29,7 +29,7 @@ ngIf para colores front-end, back-end, net (clases) -->
     ></circle-progress>
     </button>
 
-    <button *ngIf="studentFP.courses[0].itinerary.id == 3" type="button" class="student back-end" [tooltip]="tooltipTemplate" placement="top">
+    <button *ngIf="studentItinerary == 3" type="button" class="student back-end" [tooltip]="tooltipTemplate" placement="top">
       <circle-progress class="circle-bar"
       [percent]= studentFP.timeInAcademy
       [outerStrokeWidth]="4"
@@ -49,7 +49,7 @@ ngIf para colores front-end, back-end, net (clases) -->
     ></circle-progress>
     </button>
 
-    <button *ngIf="studentFP.courses[0].itinerary.id == 4" type="button" class="student net" [tooltip]="tooltipTemplate" placement="top">
+    <button *ngIf="studentItinerary == 4" type="button" class="student net" [tooltip]="tooltipTemplate" placement="top">
       <circle-progress class="circle-bar"
       [percent]= studentFP.timeInAcademy
       [outerStrokeWidth]="4"
@@ -69,7 +69,7 @@ ngIf para colores front-end, back-end, net (clases) -->
     ></circle-progress>
     </button>
 
-    <button *ngIf="studentFP.courses[0].itinerary.id == 1" type="button" class="student net" [tooltip]="tooltipTemplate" placement="top">
+    <button *ngIf="studentItinerary == 1" type="button" class="student net" [tooltip]="tooltipTemplate" placement="top">
       <circle-progress class="circle-bar"
       [percent]= studentFP.timeInAcademy
       [outerStrokeWidth]="4"
@@ -89,7 +89,7 @@ ngIf para colores front-end, back-end, net (clases) -->
     ></circle-progress>
     </button>
 
-    <button *ngIf="studentFP.courses[0].itinerary.id == ''" type="button" class="student empty">
+    <button *ngIf="studentItinerary == ''" type="button" class="student empty">
 
     </button>
 </div>
