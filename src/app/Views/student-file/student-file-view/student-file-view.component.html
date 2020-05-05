@@ -1,5 +1,8 @@
 <div class="student-container">
   <div class="top-margin"></div> <!-- spacing below header -->
+  <div class="d-flex justify-content-center">
+    <app-student-search [origin]="'students'"></app-student-search>
+  </div>
   <app-student-data *ngIf="student" 
   class="container d-block" 
   [student]="student" 
