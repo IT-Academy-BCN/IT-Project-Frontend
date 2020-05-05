@@ -1,20 +1,20 @@
+import { Student } from './../Models/student.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs'; // rxjs es la libreria que trabaja con observables
 import { map } from 'rxjs/operators';
 
 @Injectable()
 export class ClassroomService {
-  baseUrl = 'http://217.76.158.200:8090/api/students'
+  baseUrl = 'http://217.76.158.200:8090/api/students';
 
   constructor(private http: HttpClient) {}
 
   public studentsFP: StudentInfo[];
-  getInfoDb(): Observable<StudentInfo[]> {
+  public itinerary: Itinerary[];
+
+  getInfoDb() {
     return this.http.get<StudentInfo[]>(this.baseUrl).pipe(map(res => this.studentsFP = res));
   }
-
-
 
 
   // this is here temporarily, until solving the seat position
@@ -451,10 +451,11 @@ export class ClassroomService {
   // pending: assign real time remaining in ITAcademy to this loading
   addRandomDaysFP(): StudentInfo[] {
     for (let each of this.studentsFP){
-      each.timeInAcademy = Math.floor(Math.random() * 100)
+      each.timeInAcademy = Math.floor(Math.random() * 100);
     }
     return this.studentsFP;
   }
+
 }
 
 
