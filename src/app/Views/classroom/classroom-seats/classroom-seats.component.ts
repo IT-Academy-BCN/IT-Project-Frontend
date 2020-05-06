@@ -31,8 +31,8 @@ export class ClassroomSeatsComponent implements OnInit {
     this.classroomService.getInfoDb()
     .subscribe(
       (data) => { // Success
-        this.studentsFP = data;
-        this.studentsPerItinerary();
+        this.studentsFP = data; // gets all Students info
+        this.studentsPerItinerary(); // to display total of students in footer circle
         console.log(this.studentsFP);
       },
       (error) => {
@@ -40,23 +40,17 @@ export class ClassroomSeatsComponent implements OnInit {
       }
     );
 
-    // this is here temporarily, until solving the seat position
-    this.students = this.classroomService.getStudentSeat();
-    this.orderStudentsPosition();
-
   }
 
 
   // students per itinerary to show on "footer" circles
   studentsPerItinerary() {
-    const numStudentsPerItinerary: Array<number> = []; // [1]:common-block, [2]:front, [3]:back, [4]:.net
-
-    this.studentsFP.forEach(function(elemento){
-      let studentItinerary = elemento.courses[0].itinerary.id;
-      numStudentsPerItinerary[studentItinerary] = (numStudentsPerItinerary[studentItinerary] || 0) + 1;
+    const numStudentsPerItinerary = {};
+    this.studentsFP.forEach(function(element){
+      let nameItinerary= element.courses[0].itinerary.name;
+      numStudentsPerItinerary[nameItinerary] = (numStudentsPerItinerary[nameItinerary] || 0) + 1;
     });
-
-    return this.itineraries = numStudentsPerItinerary;
+    return this.itineraries = Object.entries(numStudentsPerItinerary);
   }
 
 
@@ -73,6 +67,10 @@ export class ClassroomSeatsComponent implements OnInit {
     return student;
   }
 
+
+
+
+  // FP: esto no cambia nada... al menos en lo anterior. Está comentado en el OnInit
   // reordena los datos por el valor de la posición
   // para llamar a datos reales hay que verificar columna, fila, etc
   orderStudentsPosition() {

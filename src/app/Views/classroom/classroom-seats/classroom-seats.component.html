@@ -157,38 +157,26 @@
     </div>
     <!--student background-->
     <div class="container reference d-flex justify-content-around">
-        <div class="reference-box">
-            <div class="color-reference net"></div>
-            <p class="pt-2"><span class="strong">.Net</span>
-              <br>{{ itineraries[4] }} alumnos
-            </p>
-        </div>
-        <div class="reference-box">
-            <div class="color-reference frontend"></div>
-            <p class="pt-2"><span class="strong">Front End</span>
-              <br>{{ itineraries[2] }} alumnos
-            </p>
-        </div>
-        <div class="reference-box">
-            <div class="color-reference backend"></div>
-            <p class="pt-2"><span class="strong">Back End</span>
-              <br>{{ itineraries[3] }} alumnos
-            </p>
-        </div>
-        <div class="reference-box">
-            <div class="color-reference commonblock"></div>
-            <p class="pt-2"><span class="strong">Common block</span>
-              <br>{{ itineraries[1] }} alumnos
-            </p>
+
+      <!-- display numb of students per itinerary -->
+      <div *ngFor="let itinerary of itineraries | slice:0:4; let i = index" class="reference-box">
+        <!-- [i+1] because position [0] is empty (no itinerary with this index) -->
+        <div [ngClass]="{'commonblock': i === 1, 'frontend':i === 3, 'backend':i === 0, 'net':i === 2}" style="width: 40px; height: 40px; border-radius: 100%; margin: auto;"></div>
+        <p class="pt-2"><span class="strong">{{ itineraries[i][0] }}</span>
+          <br>{{ itineraries[i][1] }} alumnos
+        </p>
       </div>
+
+      <!-- seats LIBRE -->
       <div class="reference-box">
-            <div class="color-reference empty"></div>
-            <p class="pt-2"><span class="strong">Libre</span>
-              <br>XXX lugares
-            </p>
-        </div>
+          <div class="color-reference empty"></div>
+          <p class="pt-2"><span class="strong">LIBRE</span>
+            <br>XXX lugares
+          </p>
+      </div>
+
     </div>
-</div>
+  </div>
 
 
 <!--modal / student popup-->
