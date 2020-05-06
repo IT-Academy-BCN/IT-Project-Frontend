@@ -8,7 +8,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
   styleUrls: ['./classroom-seats.component.scss']
 })
 export class ClassroomSeatsComponent implements OnInit {
-  itineraries: any = [];
+
 
   /* this will be deleted once the seat position is asociated to the API data */
   students: StudentSeat[] = [];
@@ -17,7 +17,8 @@ export class ClassroomSeatsComponent implements OnInit {
 
   /* this is the good one! */
   public studentsFP: any = [];
-  // HECTOR public StudentsArray: any = [];
+  public itineraries: any = [];
+
 
   constructor( public classroomService: ClassroomService,
     private modalService: BsModalService // modal
@@ -31,7 +32,7 @@ export class ClassroomSeatsComponent implements OnInit {
     .subscribe(
       (data) => { // Success
         this.studentsFP = data;
-         // se ejecuta en el service
+        this.studentsPerItinerary();
         console.log(this.studentsFP);
       },
       (error) => {
@@ -42,33 +43,20 @@ export class ClassroomSeatsComponent implements OnInit {
     // this is here temporarily, until solving the seat position
     this.students = this.classroomService.getStudentSeat();
     this.orderStudentsPosition();
+
   }
 
-  // students per itinerary to show on "footer" circles
 
+  // students per itinerary to show on "footer" circles
   studentsPerItinerary() {
-    let numStudentsPerItinerary: Array<number> = [0,0,0,0]; // [common, front, back, .net]
-    let errors = 0;
-    this.studentsFP.forEach(element => {
-      let studentItinerary = element.courses[0].itinerary.id;
-      switch (studentItinerary) {
-        case 1:
-          numStudentsPerItinerary[0]++;
-          break;
-        case 2:
-          numStudentsPerItinerary[1]++;
-          break;
-        case 3:
-          numStudentsPerItinerary[2]++;
-          break;
-        case 4:
-          numStudentsPerItinerary[3]++;
-          break;
-        default: errors++;
-          break;
-      }
+    const numStudentsPerItinerary: Array<number> = []; // [1]:common-block, [2]:front, [3]:back, [4]:.net
+
+    this.studentsFP.forEach(function(elemento){
+      let studentItinerary = elemento.courses[0].itinerary.id;
+      numStudentsPerItinerary[studentItinerary] = (numStudentsPerItinerary[studentItinerary] || 0) + 1;
     });
-    return numStudentsPerItinerary;
+
+    return this.itineraries = numStudentsPerItinerary;
   }
 
 
