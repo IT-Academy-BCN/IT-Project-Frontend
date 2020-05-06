@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, TemplateRef, OnInit } from '@angular/core';
 import { PerAbsence } from './model/perabsence.model';
 import {StatisticsService} from './../../../Services/statistics.service';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+
 
 @Component({
   selector: 'app-tables',
@@ -9,17 +11,30 @@ import {StatisticsService} from './../../../Services/statistics.service';
 })
 export class TablesComponent implements OnInit {
 
-  
-  constructor(private statisticsService: StatisticsService) {}
+  modalRef: BsModalRef; // modal
+
+  constructor( private statisticsService: StatisticsService,
+    private modalService: BsModalService // modal
+  ) {
+  }
+
   tooManyAbsences:PerAbsence[] = [];
   maxAbsences:Number = 12;
- 
+
   ngOnInit() {
-    
+
     this.statisticsService.get_absenceStudents()
     .subscribe((tooManyAbsences: PerAbsence[])=>{
         console.log(tooManyAbsences);
         this.tooManyAbsences = tooManyAbsences;
         });
+  }
+
+  clickDateAbsences(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
+
+  closeModal() {
+    this.modalService._hideModal(1);
   }
 }
