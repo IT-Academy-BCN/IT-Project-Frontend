@@ -1,0 +1,12 @@
+.margen_superior {
+  padding-top: 100px;
+}
+
+.reviews-container {
+  min-height: 100vh;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 79px;
+}
+/*# sourceMappingURL=reviews-view.component.css.map */

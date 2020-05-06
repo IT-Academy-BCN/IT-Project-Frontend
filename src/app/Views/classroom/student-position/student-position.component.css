@@ -1,0 +1,172 @@
+/* You can add global styles to this file, and also import other style files */
+.white-c {
+  color: #FFF;
+}
+
+.white-bg {
+  background-color: #FFF;
+}
+
+.light-grey-c {
+  color: #E8E8E8;
+}
+
+.light-grey-bg {
+  background-color: #E8E8E8;
+}
+
+.dark-grey-c {
+  color: #666;
+}
+
+.dark-grey-bg {
+  background-color: #666;
+}
+
+.black-c {
+  color: #212121;
+}
+
+.black-bg {
+  background-color: #212121;
+}
+
+.pink-c {
+  color: #D50283;
+}
+
+.pink-bg {
+  background-color: #D50283;
+}
+
+.blue-c {
+  color: #005F87;
+}
+
+.blue-bg {
+  background-color: #005F87;
+}
+
+/* ANIMATION */
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+p {
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.swal2-styled {
+  padding: 6px 12px !important;
+  font-weight: 400 !important;
+  width: 120px;
+  height: 40px;
+}
+
+.swal2-styled.swal2-confirm {
+  background-color: #D50283 !important;
+}
+
+.swal2-styled:focus {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.swal2-styled:hover .swal2-actions:not(.swal2-loading) {
+  text-decoration: underline;
+  background-image: none !important;
+}
+
+/* STYLES */
+.student-container {
+  background-color: #FFF;
+  height: 50px;
+  width: 50px;
+  padding-top: 2.5px;
+  padding-left: 2.5px;
+  margin-top: 4.5px;
+  margin-left: 2px;
+  position: relative;
+}
+
+.student {
+  text-align: center;
+  background-color: #FFF;
+  height: 45px;
+  width: 45px;
+  border-radius: 100%;
+  margin: auto;
+  border: none;
+}
+
+.front-end {
+  /* background-color: $pink; */
+}
+
+.back-end {
+  /* background-color: $blue; */
+}
+
+.net {
+  /*   background-color: $black; */
+}
+
+.empty {
+  border: solid 1px #CCCCCC;
+  background-color: #E8E8E8;
+}
+
+.circle-bar {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 4;
+}
+/*# sourceMappingURL=student-position.component.css.map */

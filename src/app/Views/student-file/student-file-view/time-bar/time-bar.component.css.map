@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "time-bar.component.scss"
+    ],
+    "names": [],
+    "file": "time-bar.component.css"
+}

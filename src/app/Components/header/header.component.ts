@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { User } from "../../Models/user.model";
-import { Router } from "@angular/router";
+import { Router, RouterLink, RouterLinkActive } from "@angular/router";
 
 @Component({
   selector: "app-header",
@@ -33,5 +33,5 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl("/login");
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

@@ -1,0 +1,12 @@
+.student-container {
+  min-height: 100vh;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 79px;
+}
+
+.top-margin {
+  height: 92px;
+}
+/*# sourceMappingURL=student-file-view.component.css.map */
