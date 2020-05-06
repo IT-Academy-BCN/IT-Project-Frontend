@@ -12,9 +12,16 @@ import { ReviewsViewComponent } from './reviews-view/reviews-view.component';
 import { TableComponent }   from './table/table.component'; 
 import { ModalComponent } from './modal/modal.component';
 import { ReviewsItSearchComponent } from './reviews-it-search/reviews-it-search.component';
+import { beautifyStringPipe } from '../../Pipes/beautifyStringPipe'
 
 @NgModule({
-  declarations: [ReviewsViewComponent,TableComponent,ModalComponent, ReviewsItSearchComponent],
+  declarations: [
+    ReviewsViewComponent,
+    TableComponent,
+    ModalComponent, 
+    ReviewsItSearchComponent,
+    beautifyStringPipe,
+  ],
   imports: [
     CommonModule,
     BsDatepickerModule.forRoot(),
