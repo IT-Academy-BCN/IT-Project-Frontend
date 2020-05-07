@@ -42,14 +42,30 @@
               </button>
           </div>
           <div class="modal-body">
-            <h2 id="info"></h2>
-            <h2>
-              <ng-container *ngFor='let absence of tooManyAbsences'>
-                  <div class="text-center" *ngIf="absence.firstName == studentAbsence">
-                      {{absence.firstName}} {{absence.lastName}} ({{absence.absences}})
-                  </div>
-              </ng-container>
-            </h2>
+            <h3>
+                <ng-container *ngFor='let absence of tooManyAbsences'>
+                    <div class="text-center" *ngIf="absence.id == studentAbsence">
+                        {{absence.firstName}} {{absence.lastName}} ({{absence.absences}})
+                    </div>
+                </ng-container>
+            </h3>
+            <table class="table">
+              <thead>
+                  <tr class="text-center">
+                      <th scope="col">Fecha</th>
+                      <th scope="col">Motivo</th>
+                  </tr>
+              </thead>
+
+              <tbody>
+                  <ng-container *ngFor='let dayAbsence of daysAbsences'>
+                    <tr class="text-center" *ngIf="dayAbsence.userStudent == studentAbsence">
+                        <td>{{dayAbsence.dateMissing | date: 'yyyy-MM-dd'}}</td>
+                        <td></td>
+                    </tr>
+                  </ng-container>
+              </tbody>
+            </table>
           </div>
         </ng-template>
 

@@ -1,6 +1,8 @@
 import { Component, TemplateRef, OnInit } from '@angular/core';
 import { PerAbsence } from './model/perabsence.model';
+import { PerDayAbsence } from './model/perdayabsence.model';
 import { StatisticsService } from './../../../Services/statistics.service';
+import { AbsencesService } from './../../../Services/absences.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 
@@ -14,11 +16,14 @@ export class TablesComponent implements OnInit {
   modalRef: BsModalRef; // modal
 
   constructor( private statisticsService: StatisticsService,
+    private absencesService: AbsencesService,
     private modalService: BsModalService // modal
   ) {
   }
 
+
   tooManyAbsences:PerAbsence[] = [];
+  daysAbsences:PerDayAbsence[] = [];
   maxAbsences:Number = 12;
   studentAbsence:string = "";
 
@@ -28,6 +33,12 @@ export class TablesComponent implements OnInit {
     .subscribe((tooManyAbsences: PerAbsence[])=>{
         console.log(tooManyAbsences);
         this.tooManyAbsences = tooManyAbsences;
+        });
+
+    this.absencesService.get_absenceStudents()
+    .subscribe((daysAbsences: PerDayAbsence[])=>{
+        console.log(daysAbsences);
+        this.daysAbsences = daysAbsences;
         });
 
   }
@@ -43,7 +54,8 @@ export class TablesComponent implements OnInit {
   consultAbsence(absence){
     //console.log(absence.firstName + " " + absence.lastName + " " + absence.absences);
     //(<HTMLInputElement>document.getElementById("info")).innerHTML += absence.firstName;
-    this.studentAbsence = absence.firstName;
+    this.studentAbsence = absence.id;
+    console.log(this.studentAbsence);
   }
 
 
