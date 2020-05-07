@@ -15,13 +15,13 @@
 
                 <tbody>
                     <ng-container *ngFor='let absence of tooManyAbsences'>
-                        <tr class="text-center" *ngIf="absence.absences > maxAbsences, else showUnstyled" (click)="clickDateAbsences(template)" style="background-color: #eb7171">
+                        <tr class="text-center" *ngIf="absence.absences > maxAbsences, else showUnstyled" (click)="clickDateAbsences(template); consultAbsence(absence);" style="background-color: #eb7171">
                             <td>{{absence.firstName}}</td>
                             <td>{{absence.lastName}}</td>
                             <td>{{absence.absences}}</td>
                         </tr>
                         <ng-template #showUnstyled>
-                            <tr class="text-center" (click)="clickDateAbsences(template)">
+                            <tr class="text-center" (click)="clickDateAbsences(template); consultAbsence(absence);">
                                 <td>{{absence.firstName}}</td>
                                 <td>{{absence.lastName}}</td>
                                 <td>{{absence.absences}}</td>
@@ -42,7 +42,14 @@
               </button>
           </div>
           <div class="modal-body">
-
+            <h2 id="info"></h2>
+            <h2>
+              <ng-container *ngFor='let absence of tooManyAbsences'>
+                  <div class="text-center" *ngIf="absence.firstName == studentAbsence">
+                      {{absence.firstName}} {{absence.lastName}} ({{absence.absences}})
+                  </div>
+              </ng-container>
+            </h2>
           </div>
         </ng-template>
 

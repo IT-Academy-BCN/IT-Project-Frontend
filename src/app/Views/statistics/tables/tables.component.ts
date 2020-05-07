@@ -1,6 +1,6 @@
 import { Component, TemplateRef, OnInit } from '@angular/core';
 import { PerAbsence } from './model/perabsence.model';
-import {StatisticsService} from './../../../Services/statistics.service';
+import { StatisticsService } from './../../../Services/statistics.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 
@@ -20,6 +20,7 @@ export class TablesComponent implements OnInit {
 
   tooManyAbsences:PerAbsence[] = [];
   maxAbsences:Number = 12;
+  studentAbsence:string = "";
 
   ngOnInit() {
 
@@ -28,6 +29,7 @@ export class TablesComponent implements OnInit {
         console.log(tooManyAbsences);
         this.tooManyAbsences = tooManyAbsences;
         });
+
   }
 
   clickDateAbsences(template: TemplateRef<any>) {
@@ -37,4 +39,12 @@ export class TablesComponent implements OnInit {
   closeModal() {
     this.modalService._hideModal(1);
   }
+
+  consultAbsence(absence){
+    //console.log(absence.firstName + " " + absence.lastName + " " + absence.absences);
+    //(<HTMLInputElement>document.getElementById("info")).innerHTML += absence.firstName;
+    this.studentAbsence = absence.firstName;
+  }
+
+
 }
