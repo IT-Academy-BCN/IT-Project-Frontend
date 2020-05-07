@@ -17,6 +17,8 @@ export class StudentFileViewComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
+ 
+
   ngOnInit() {
       // beware: https://angular.io/guide/router#snapshot-the-no-observable-alternative
     const studentId = this.route.snapshot.params.id;

@@ -27,7 +27,11 @@ export class AppComponent implements OnInit {
     } else {
       this.showHeader = true;
     }
+    if(this.router.url != "/students/:id"){
+      document.getElementById("studentsItem").classList.remove("active");
+    }
   }
+  
 }
 
 
