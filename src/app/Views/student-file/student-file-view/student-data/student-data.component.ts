@@ -105,11 +105,10 @@ export class StudentDataComponent implements OnInit{
   ngOnInit(): void {
 
     /*
-      At app.component.ts we can find this two lines
+      At classroom-view/reviews-view/statistics-view.component.ts we can find this lines onInit
       
-      if(this.router.url != "/students/:id"){
         document.getElementById("studentsItem").classList.remove("active");
-      }
+
       This code, and the line below, allows us to change the item 'Alumno' color to $pink when we are in a student-file-view.
       It is not the best option to do this, but it is the only one we have been able to find at this time.
     */ 
