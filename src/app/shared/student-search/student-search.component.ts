@@ -31,6 +31,7 @@ export class StudentSearchComponent implements OnInit {
 
   ngOnInit() {
     this.fetchStudentsData();
+
   }
 
   updateSelection(selection) {
@@ -59,20 +60,25 @@ export class StudentSearchComponent implements OnInit {
   }
     // this is a callback, must remain in arrow form so that this.studentsData is not undefined
     // or this.studentsData can be passed as function parameter
-  private fillStudentsData = (students: StudentInList[]) => {
+  
+    private fillStudentsData = (students: StudentInList[]) => {
     const studentsData = [];
     for (const student of students) {
       const studentData: Select2OptionData = {
         id: student.id,
         text: `${student.firstName} ${student.lastName}`,
       };
+      
       studentsData.push(studentData);
     }
+  
+    studentsData.unshift("Buscar alumno...");
     this.studentsData = studentsData;
       // suboptimal solution, students should be pushed directly into this.studentsData
       // but that way select2 does not update after receiving API data, can't figure out why
       // side effect of this: first item in array is automatically selected
   }
+
     // should be improved
   private displayErrorMessage(error) {
     alert(error);
