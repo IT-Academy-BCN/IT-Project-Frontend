@@ -11,8 +11,11 @@ import Swal from "sweetalert2";
 export class LoginViewComponent implements OnInit {
   loginForm: FormGroup;
   submitted = false;
+  loading: boolean;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {}
+  constructor(private formBuilder: FormBuilder, private router: Router) {
+    //this.loading = true;
+  }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -39,6 +42,8 @@ export class LoginViewComponent implements OnInit {
     // stop there if form is invalid
     if (this.loginForm.invalid) {
       return;
+    } else {
+      this.loading = true;
     }
 
     fetch("http://217.76.158.200:8090/api/login", {
