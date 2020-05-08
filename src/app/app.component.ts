@@ -16,9 +16,7 @@ export class AppComponent implements OnInit {
   constructor( private _router: Router ) {
     this.router = _router;
   }
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
   modifyHeader() { // This method is called many times
 
     console.log(this.router.url); // This prints a loot of routes on console

@@ -2,7 +2,7 @@
   // and prevents hard-coding of constants everywhere else in the code
   // itinerary ideally belongs to another module
 
-enum ItineraryId {
+export enum ItineraryId {
   CommonBlock = 1,
   FrontEnd,
   BackEndJava,
@@ -65,4 +65,36 @@ export class StudentExercise {
   status: Status;
   itinerary: Itinerary;
   teacher: Teacher;
+}
+
+export class ExerciseResponseList {
+  ExercisesResponse: ExerciseResponse[];
+}
+interface ExerciseResponse {
+  id : number;
+  name: string;
+  itinerary: number;
+  students: studentInSubject[];
+}
+interface studentInSubject {
+  id: number;
+  studentName: string;
+  studentLastName: string;
+  statusExercise: string;
+  date: number;
+}
+
+export class Student_Review {
+  id: number;
+  firstName: string;
+  lastName: string;
+  exercises: exercisesList[];
+}
+
+export interface exercisesList {
+  id: number;
+  name: string;
+  state: string;
+  date: Date;
+  itinerary: string;
 }
