@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { StudentReview } from '../../../Models/studentsReview';
 import { ReviewsService } from '../../../Services/reviews.service';
 import { StudentService } from '../../../Services/student.service';
-import { ExerciseResponseList, Student_Review, exercisesList, Itineraries, ItineraryId } from '../../../Models/exercise.model';
+import { ExerciseResponseList, Student_Review, exercisesList, Itineraries, ItineraryId} from '../../../Models/exercise.model';
 import { StudentInList } from '../../../Models/student.model';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -15,19 +16,35 @@ export class TableComponent implements OnInit {
 
   selectedPage: number = 1;
   students: StudentReview[] = [];
-  allStudentsList: any=[];
+  allStudentsList: any = [];
   exer: any = [];
   allStudents: any = [];
-  public students_:Student_Review[] = [];
-  private itineraries = Itineraries;
+  students_: Student_Review[];
+  itineraries = Itineraries;
+  itinerary;
+  itinerarySelected;
+  itArrayConversor = { 'Bloque común': 1, 'Front-end': 2, 'Back-end': 3, '.Net': 4, null: 0 };
+
+  // Dropdown comunication
+  clickEventsubscription: Subscription;
 
   constructor(private reviewService: ReviewsService,
-    private studentsService: StudentService) { }
+    private studentsService: StudentService) {
+
+    // Dropdown comunication
+    this.clickEventsubscription = this.reviewService.getDropdownEvent().subscribe(data => {
+      this.itinerary = this.itArrayConversor[data];
+      this.itinerarySelected = true;
+      this.onDropdownChange(this.itinerary);
+    });
+  }
 
   ngOnInit() {
-    // this.students = this.reviewStudents.getStudentsReview(); // Funcionamiento default //
-
     this.requestStudents(); // Obtenemos primero los estudiantes
+  }
+
+  onDropdownChange(value: number) {
+    this.requestStudents();
   }
 
   requestStudents() {
@@ -58,7 +75,7 @@ export class TableComponent implements OnInit {
 
     // Se puede implementar una solucion mas elegante uniformando la db con la respuesta que da en la consulta a ejercicios (ver exercise.model --> Statuses)
     let statusObj = { "FINISHED": "Corregido", "": "No entregado", "To define1": "Entregado", "To define2": "A revisar", "To define3": "" }
-
+    this.students_ = [];
     this.allStudents.forEach(student => {
 
       let student_ = {} as Student_Review;
@@ -82,13 +99,17 @@ export class TableComponent implements OnInit {
         });
 
         exercise_.itinerary = this.itineraries[ItineraryId[exercise.itinerary]];
-        student_.exercises.push(exercise_);
+        if (exercise.itinerary == this.itinerary || !this.itinerarySelected) { //all = 0
+          student_.exercises.push(exercise_);
+        }
       });
-
-      this.students_.push(student_);
+      if (parseInt(student.courses[0].itinerary.id) == this.itinerary || !this.itinerarySelected) { //all = 0
+        this.students_.push(student_);
+      }
     });
-    this.allStudentsList=this.students_[0]; // solucion creada para evitar el error de carga inicial del html
-  
+
+    this.allStudentsList = this.students_[0]; // solucion creada para evitar el error de carga inicial del html
+
     return this.students_;
   }
 
