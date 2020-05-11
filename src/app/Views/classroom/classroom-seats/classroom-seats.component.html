@@ -218,6 +218,6 @@
         </div>
         <button type="button" class="btn button-modal ml-1 mr-2 mt-3" (click)="confirm(); modalRef.hide()">Guardar</button>
         <button type="button" class="btn button-modal ml-1 mr-2 mt-3" (click)="decline(); modalRef.hide()">Cancelar</button>
-        <button type="button" class="btn button-modal ml-1 mt-3">Ir a perfil</button>
+        <button type="button" class="btn button-modal ml-1 mt-3" (click)="modalRef.hide()" [routerLink]="['/student/',selectedStudent.id]">Ir a perfil</button>
     </div>
 </ng-template>

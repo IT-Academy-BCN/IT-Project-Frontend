@@ -12,12 +12,12 @@ export class ClassroomSeatsComponent implements OnInit {
 
   /* this will be deleted once the seat position is asociated to the API data */
   students: StudentSeat[] = [];
-  selectedStudent: StudentInfo;
   modalRef: BsModalRef; // modal
 
   /* this is the good one! */
   public studentsFP: any = [];
   public itineraries: any = [];
+  selectedStudent: StudentInfo;
 
 
   constructor( public classroomService: ClassroomService,
@@ -45,7 +45,7 @@ export class ClassroomSeatsComponent implements OnInit {
 
   // students per itinerary to show on "footer" circles
   studentsPerItinerary() {
-    const numStudentsPerItinerary = {};
+    let numStudentsPerItinerary = {};
     this.studentsFP.forEach(function(element){
       let nameItinerary= element.courses[0].itinerary.name;
       numStudentsPerItinerary[nameItinerary] = (numStudentsPerItinerary[nameItinerary] || 0) + 1;
