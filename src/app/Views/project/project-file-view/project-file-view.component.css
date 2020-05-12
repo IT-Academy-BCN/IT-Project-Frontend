@@ -124,8 +124,20 @@ p {
   background-image: none !important;
 }
 
+.top-margin {
+  padding-top: 100px;
+}
+
+.common-container {
+  min-height: 100vh;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 79px;
+}
+
 h1 {
-  color: #212121;
+  color: #D50283;
 }
 
 h2 {
@@ -136,7 +148,13 @@ p {
   color: #212121;
 }
 
-.faltes tbody tr:hover {
-  cursor: pointer;
+.submit-btn {
+  font-size: 0.9em;
+  background-color: #D50283;
+  color: #FFF;
 }
-/*# sourceMappingURL=tables.component.css.map */
+
+.submit-btn:hover {
+  text-decoration: underline;
+}
+/*# sourceMappingURL=project-file-view.component.css.map */

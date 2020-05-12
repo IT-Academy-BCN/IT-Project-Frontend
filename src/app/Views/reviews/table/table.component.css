@@ -81,6 +81,9 @@
 
 th,
 td {
+  max-width: 10em;
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
   padding-right: 1em;
   padding-left: 1em;
