@@ -18,6 +18,8 @@ import { StatisticsModule } from "./Views/statistics/statistics.module";
 import { ReviewsModule } from "./Views/reviews/reviews.module";
 import { ClassroomModule } from "./Views/classroom/classroom.module";
 import { ProjectModule } from "./Views/project/project.module";
+
+
 /* components */
 import { HeaderComponent } from "./Components/header/header.component";
 import { FooterComponent } from "./Components/footer/footer.component";
@@ -52,6 +54,7 @@ import { HttpClientModule } from "@angular/common/http";
     ProjectModule,
     ReactiveFormsModule,
     ReviewsModule,
+    ProjectModule,
     ClassroomModule,
     LoginModule,
     BrowserAnimationsModule,

@@ -1,15 +1,32 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChartsModule } from 'ng2-charts';
-/* components & modules */
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+/* ngx-bootstrap */
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+/* ngx-pagination */
+import { NgxPaginationModule } from 'ngx-pagination';
+/* modules & components */
+import { ProjectRoutingModule } from './project-routing.module';
+import { ProjectViewComponent } from './project-view/project-view.component';
 import { ProjectFileRoutingModule } from './project-routing.module';
 import { ProjectFileViewComponent } from './project-file-view/project-file-view.component';
+
 @NgModule({
-  declarations: [ ProjectFileViewComponent ],
+  declarations: [
+    ProjectViewComponent,
+    ProjectFileViewComponent
+  ],
   imports: [
     CommonModule,
     ChartsModule,
     ProjectFileRoutingModule,
+    BsDatepickerModule.forRoot(),
+    ModalModule.forRoot(),
+    NgxPaginationModule,
+    ProjectRoutingModule,
+    TooltipModule.forRoot()
   ]
 })
 export class ProjectModule { }
