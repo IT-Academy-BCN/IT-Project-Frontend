@@ -58,3 +58,42 @@ button.forgot-password:hover {
     color: $pink;
     line-height: 1.125em;
 }
+
+/*** MODAL LOADING ***/
+
+.modal-loading{
+  padding: 0px;
+  margin: 0px;
+}
+#contenedor_carga {
+  background-color: rgba(255, 255, 255, 1);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+  z-index: 10000;
+}
+#carga {
+  border: 15px solid #E8E8E8;
+  border-top-color: #D50283;
+  border-top-style: solid;
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  -webkit-animation: girar 1.5s linear infinite;
+  -o-animation: girar 1.5s linear infinite;
+  animation: girar 1.5s linear infinite;
+}
+
+@keyframes girar {
+  from { transform: rotate(0deg);}
+  to { transform: rotate(360deg);}
+}
