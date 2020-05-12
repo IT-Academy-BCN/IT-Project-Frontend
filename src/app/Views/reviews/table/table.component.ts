@@ -25,6 +25,7 @@ export class TableComponent implements OnInit {
   itinerarySelected;
   itArrayConversor = { 'Bloque común': 1, 'Front-end': 2, 'Back-end': 3, '.Net': 4, null: 0 };
 
+
   // Dropdown comunication
   clickEventsubscription: Subscription;
 
@@ -45,6 +46,7 @@ export class TableComponent implements OnInit {
 
   onDropdownChange(value: number) {
     this.requestStudents();
+    this.selectedPage = 1;
   }
 
   requestStudents() {
