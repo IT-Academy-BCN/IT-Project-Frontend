@@ -6,51 +6,26 @@
       <table class="table table-hover table-sm text-center">
           <thead>
               <tr>
-                  <th class="p-2 table-bg">
-                      Nombre
-                  </th>
-                  <th class="p-2 table-bg">
-                      Fecha Inicio
-                  </th>
-                  <th class="p-2 table-bg">
-                      Iteraciones
-                  </th>
+                  <th class="p-2 table-bg">Nombre</th>
+                  <th class="p-2 table-bg">Fecha Inicio</th>
+                  <th class="p-2 table-bg">Iteraciones</th>
               </tr>
           </thead>
+
           <tbody>
-              <tr>
-                  <td class="p-3 table-bg">
-                      Angular Frontend
-                  </td>
-                  <td class="p-3 table-bg">
+              <ng-container *ngFor='let project of projects'>
+                    <tr>
+                        <td class="p-3 table-bg" title="{{project.description}}">
+                          {{project.name}}
+                        </td>
+                        <td class="p-3 table-bg">
+                          {{project.initialDate | date: 'yyyy-MM-dd'}}
+                        </td>
+                        <td class="p-3 table-bg">
 
-                  </td>
-                  <td class="p-3 table-bg">
-                      6
-                  </td>
-              </tr>
-              <tr>
-                  <td class="p-3 table-bg">
-                      Backend Java
-                  </td>
-                  <td class="p-3 table-bg">
-
-                  </td>
-                  <td class="p-3 table-bg">
-                      6
-                  </td>
-              </tr>
-              <tr>
-                  <td class="p-3 table-bg">
-                      Backend .Net
-                  </td>
-                  <td class="p-3 table-bg">
-
-                  </td>
-                  <td class="p-3 table-bg">
-                      3
-                  </td>
-            </tr>
+                        </td>
+                    </tr>
+              </ng-container>
           </tbody>
       </table>
   </div>
