@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { Router } from '@angular/router';
 import { Select2OptionData } from 'ng2-select2';
 import { StudentInList } from '../../Models/student.model';
@@ -13,7 +13,10 @@ export class StudentSearchComponent implements OnInit {
 
   public selectedStudent = '';
 
-    // documentation for select2: https://github.com/NejcZdovc/ng2-select2
+  // for classroom use
+  @Output() userSearch = new EventEmitter<string>();
+
+  // documentation for select2: https://github.com/NejcZdovc/ng2-select2
   public studentsData: Select2OptionData[] = [];
   public select2options: Select2Options = {
     theme: 'bootstrap',
@@ -43,8 +46,8 @@ export class StudentSearchComponent implements OnInit {
     // console.log(this.search);
     switch (this.origin) {
       case 'classroom':
-        console.warn('mostrar alumno en el diagrama');
-        // console.log(this.studentSearchService.selectedStudent);
+        // this output allows classroom to get the search made by user
+        this.userSearch.emit(this.selectedStudent);
         break;
       case 'students':
         this.router.navigate(['/student', this.selectedStudent]);
@@ -60,7 +63,7 @@ export class StudentSearchComponent implements OnInit {
   }
     // this is a callback, must remain in arrow form so that this.studentsData is not undefined
     // or this.studentsData can be passed as function parameter
-  
+
     private fillStudentsData = (students: StudentInList[]) => {
     const studentsData = [];
     for (const student of students) {
@@ -68,10 +71,10 @@ export class StudentSearchComponent implements OnInit {
         id: student.id,
         text: `${student.firstName} ${student.lastName}`,
       };
-      
+
       studentsData.push(studentData);
     }
-  
+
     studentsData.unshift("Buscar alumno...");
     this.studentsData = studentsData;
       // suboptimal solution, students should be pushed directly into this.studentsData
