@@ -1,6 +1,6 @@
 <div class="m-3">
 
-  <form class="form-inline">
+  <form class="form-inline" action="#">
 
     <select2 id="search-select"
              class="form-control mr-2 "
@@ -12,10 +12,10 @@
              <option></option>
     </select2>
 
-    <button [disabled]="selectedStudent ? '' : 'disabled'"
+    <input [disabled]="selectedStudent ? '' : 'disabled'"
             (click)="onSubmit()"
             class="btn btn-outline-pink"
-            type="submit">Buscar</button>
+            type="buton" value="Buscar">
 
   </form>
 
