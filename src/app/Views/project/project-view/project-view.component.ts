@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PerProjects } from './model/perprojects.model';
+import { ProjectsService } from './../../../Services/projects.service';
+
 
 @Component({
   selector: 'app-project-view',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private projectsService: ProjectsService
+  ) { }
 
-  ngOnInit(): void  {
+  projects:PerProjects[] = [];
+
+  ngOnInit() {
+
+    this.projectsService.get_projects()
+    .subscribe((projects: PerProjects[])=>{
+        //console.log(projects);
+        this.projects = projects;
+        });
   }
 
 }
