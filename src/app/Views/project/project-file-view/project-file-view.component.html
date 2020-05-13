@@ -32,16 +32,18 @@
       </tr>
     </thead>
     <tbody>
+      <ng-container *ngFor='let project of projects'>
         <tr>
-          <td class="align-middle">A</td>
-          <td class="align-middle">B</td>
-          <td class="align-middle">C</td>
+          <td class="align-middle">{{ project.id }}</td>
+          <td class="align-middle">{{ project.initialDate | date: 'yyyy-MM-dd'}}</td>
+          <td class="align-middle">sin datos</td>
           <td class="align-middle">
             <button type="button" class="btn submit-btn full-container" (click)="seeDevelopers(templateDevelopers)">
               Ver
             </button>
           </td>
         </tr>
+      </ng-container>
     </tbody>
   </table>
 
