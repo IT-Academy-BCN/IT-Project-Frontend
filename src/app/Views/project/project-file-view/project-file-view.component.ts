@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { PerProjects } from '../model/perprojects.model';
+import { ProjectsService } from './../../../Services/projects.service';
 
 @Component({
   selector: 'app-project-file-view',
@@ -12,10 +14,19 @@ export class ProjectFileViewComponent implements OnInit {
   allProjects: any = [];
 
   constructor( 
-    private modalService: BsModalService // modal
+    private modalService: BsModalService, // modal
+    private projectsService: ProjectsService
     ) { }
 
+    projects:PerProjects[] = [];
+
   ngOnInit() {
+    
+    this.projectsService.get_projects()
+    .subscribe((projects: PerProjects[])=>{
+        //console.log(projects);
+        this.projects = projects;
+        });
   } 
 
   seeDevelopers(template) {

@@ -8,7 +8,7 @@
       </div>
       <div class="col-lg-6">
         <span class="font-weight-bold mr-2">Número de iteraciones: </span>
-        <span>6</span>
+        <span> - </span>
       </div>
       <div class="col-lg-6">
         <span class="font-weight-bold mr-2">ACTIVA / NO ACTIVA</span>
@@ -17,7 +17,7 @@
     <div class="col">
       <div class="col-lg-6">
         <span class="font-weight-bold mr-2">Descripción del proyecto: </span>
-        <p>Lorem Ipsum</p>
+        <p>Lorem ipsum mandangum</p>
       </div>
     </div>
   </div>
@@ -32,16 +32,18 @@
       </tr>
     </thead>
     <tbody>
+      <ng-container *ngFor="let project of projects">
         <tr>
-          <td class="align-middle">A</td>
-          <td class="align-middle">B</td>
-          <td class="align-middle">C</td>
+          <td class="align-middle">{{ project.id }}</td>
+          <td class="align-middle">{{ project.initialDate | date: 'yyyy-MM-dd' }}</td>
+          <td class="align-middle">sin datos</td>
           <td class="align-middle">
             <button type="button" class="btn submit-btn full-container" (click)="seeDevelopers(templateDevelopers)">
               Ver
             </button>
           </td>
         </tr>
+      </ng-container>
     </tbody>
   </table>
 
