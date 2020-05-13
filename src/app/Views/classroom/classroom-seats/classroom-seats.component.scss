@@ -72,15 +72,16 @@ span.strong {font-weight: 700;}
 .selectedBackground {position: relative; top: -23px;
   animation: bounceIn 1s 3;
   -webkit-animation: bounceIn 1s 3; /*Chrome, Safari, Opera*/}
-.selectedBackground::before {
-  content: '▼';
+.selectedBackground::before, .selectedBackground::after {
   position: relative;
   left: 20px;
+
+}
+.selectedBackground::before {
+  content: '▼';
 }
 .selectedBackground::after {
   content: '▲';
-  position: relative;
-  left: 20px;
 }
 @keyframes bounceIn {
   0% { transform: scale(1);}

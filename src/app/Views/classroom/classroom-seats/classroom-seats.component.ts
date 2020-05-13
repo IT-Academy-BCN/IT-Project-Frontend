@@ -46,13 +46,14 @@ export class ClassroomSeatsComponent implements OnInit {
 
   // this looks for changes coming from the user search
   ngOnChanges(changes: { [property: string]: SimpleChange }) {
-    let aux;
+    var prevSearchs = document.querySelectorAll(".selectedBackground");
+    prevSearchs.forEach(element => {
+      element.classList.remove("selectedBackground");
+    });
 
     let existe = this.studentsFP.find(element => element.id === this.userSearchSelected);
     if (existe != undefined){
-
-      aux = document.getElementById(this.userSearchSelected);
-      aux.classList.add('selectedBackground');
+      (document.getElementById(this.userSearchSelected)).classList.add('selectedBackground');
     }
 
   }
