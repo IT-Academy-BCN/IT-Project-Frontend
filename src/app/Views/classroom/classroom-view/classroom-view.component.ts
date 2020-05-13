@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { StudentService } from '../../../Services/student.service';
 
 @Component({
@@ -8,8 +8,15 @@ import { StudentService } from '../../../Services/student.service';
 })
 export class ClassroomViewComponent implements OnInit {
 
-   constructor(private studentService: StudentService) { }
+  @Input() userSearchSelected;
+
+  constructor(private studentService: StudentService) { }
   ngOnInit() {
+  }
+
+  // userSearch gets the selection made by the user and storages it in userSearchSelected
+  userSearch($event) {
+    this.userSearchSelected = $event;
   }
 
 }
