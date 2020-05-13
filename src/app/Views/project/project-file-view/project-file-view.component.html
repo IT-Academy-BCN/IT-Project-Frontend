@@ -1,0 +1,73 @@
+<div class="container my-5 top-margin common-container">
+  <h1>Proyecto nº X</h1>
+  <div class="row mb-4">
+    <div class="col">
+      <div class="col-lg-6">
+        <span class="font-weight-bold mr-2">Fecha inicial:</span>
+        <span>Mayo 2020</span>
+      </div>
+      <div class="col-lg-6">
+        <span class="font-weight-bold mr-2">Número de iteraciones: </span>
+        <span>6</span>
+      </div>
+      <div class="col-lg-6">
+        <span class="font-weight-bold mr-2">ACTIVA / NO ACTIVA</span>
+      </div>   
+    </div>
+    <div class="col">
+      <div class="col-lg-6">
+        <span class="font-weight-bold mr-2">Descripción del proyecto: </span>
+        <p>Lorem Ipsum</p>
+      </div>
+    </div>
+  </div>
+  
+  <table class="table table-hover text-center">
+    <thead>
+      <tr>
+        <th>Id Iteración</th>
+        <th>Fecha inicial</th>
+        <th>Fecha final</th>
+        <th>Desarrolladores</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="align-middle">A</td>
+          <td class="align-middle">B</td>
+          <td class="align-middle">C</td>
+          <td class="align-middle">
+            <button type="button" class="btn submit-btn full-container" (click)="seeDevelopers(templateDevelopers)">
+              Ver
+            </button>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<!-- TEMPLATE FOR POPUP -->
+
+<ng-template #templateDevelopers let-modal>
+  <div class="modal-header">
+    <h1>Desarrolladores</h1>
+    <button type="button" class="close pull-right buttonX" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+  <div class="modal-body">
+    <h3>
+      <div class="text-center">
+        Iteración nº
+      </div>
+    </h3>
+    <table class="table">
+      <tbody>
+        <tr class="text-center">
+          <th>Manolito Gafotas</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>
