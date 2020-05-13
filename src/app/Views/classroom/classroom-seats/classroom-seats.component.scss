@@ -43,6 +43,9 @@ p {
     margin: auto;
 }
 
+span.strong {font-weight: 700;}
+
+
 // STUDENT GRID STYLES
 .student-grid {
     //border: 1px solid blue;
@@ -65,7 +68,38 @@ p {
     background-color: $white;
 }
 
+// selectedStudentSearch
+.selectedBackground {position: relative; top: -23px;
+  animation: bounceIn 1s 3;
+  -webkit-animation: bounceIn 1s 3; /*Chrome, Safari, Opera*/}
+.selectedBackground::before {
+  content: '▼';
+  position: relative;
+  left: 20px;
+}
+.selectedBackground::after {
+  content: '▲';
+  position: relative;
+  left: 20px;
+}
+@keyframes bounceIn {
+  0% { transform: scale(1);}
+  60% { transform: scale(1.3);}
+  100% { transform: scale(1);}
+  }
+  /* Chrome, Safari, Opera */
+  @-webkit-keyframes bounceIn {
+  0% { transform: scale(1);}
+  60% { transform: scale(1.3);}
+  100% { transform: scale(1);}
+  }
+
+
 // ITINERARY COLORS
+.commonblock {
+  background-color: $yellow;
+}
+
 .frontend {
     background-color: $pink;
 }
