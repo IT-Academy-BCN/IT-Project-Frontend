@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef} from '@angular/core';
+import { Component, OnInit, Input, TemplateRef, SimpleChange } from '@angular/core';
 import { ClassroomService, StudentSeat, StudentInfo } from '../../../Services/classroom.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
@@ -18,6 +18,8 @@ export class ClassroomSeatsComponent implements OnInit {
   public studentsFP: any = [];
   public itineraries: any = [];
   selectedStudent: StudentInfo;
+
+  @Input() userSearchSelected: string;
 
 
   constructor( public classroomService: ClassroomService,
@@ -40,6 +42,20 @@ export class ClassroomSeatsComponent implements OnInit {
       }
     );
 
+  }
+
+
+  // this looks for changes coming from the user search
+  ngOnChanges(changes: { [property: string]: SimpleChange }) {
+    var prevSearchs = document.querySelectorAll(".selectedBackground");
+    prevSearchs.forEach(element => {
+      element.classList.remove("selectedBackground");
+    });
+
+    let existe = this.studentsFP.find(element => element.id === this.userSearchSelected);
+    if (existe != undefined){
+      (document.getElementById(this.userSearchSelected)).classList.add('selectedBackground');
+    }
   }
 
 
@@ -69,8 +85,6 @@ export class ClassroomSeatsComponent implements OnInit {
 
 
 
-
-  // FP: esto no cambia nada... al menos en lo anterior. Está comentado en el OnInit
   // reordena los datos por el valor de la posición
   // para llamar a datos reales hay que verificar columna, fila, etc
   orderStudentsPosition() {
