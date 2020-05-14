@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ClassroomService, StudentSeat } from '../../../Services/classroom.service';
+import { ClassroomService } from '../../../Services/classroom.service';
 
 @Component({
   selector: 'app-student-position',
@@ -7,14 +7,22 @@ import { ClassroomService, StudentSeat } from '../../../Services/classroom.servi
   styleUrls: ['./student-position.component.scss']
 })
 export class StudentPositionComponent implements OnInit {
-  /* students: StudentSeat[] = []; */
-  @Input() student: any = {};
+  @Input() studentFP: any = {};
+  @Input() studentItinerary: any = {};
 
-  constructor(private _studentSeatService: ClassroomService) { }
+  constructor(private classroomService: ClassroomService) { }
 
   ngOnInit() {
-      // añadir el progreso aleatorio del alumno
-      this._studentSeatService.addRandomDays();
+    // añadir el progreso aleatorio del alumno
+    this.classroomService.addRandomDaysFP();
+
+    // get the number of itinerary for each student
+    this.itineraryNumber(this.studentFP);
+  }
+
+  itineraryNumber(data) {
+    this.studentItinerary = data.courses[0].itinerary.id;
+    return this.studentItinerary;
   }
 
 }
