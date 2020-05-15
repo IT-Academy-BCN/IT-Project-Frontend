@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,gBAAgB,CAAC;EACf,WAAW,EAAE,KAAK;CACnB;;AAED,AAAA,kBAAkB,CAAC;EACjB,UAAU,EAAE,KAAK;EACjB,QAAQ,EAAE,MAAM;EAChB,OAAO,EAAE,KAAK;EACd,QAAQ,EAAE,QAAQ;EAClB,cAAc,EAAE,IAAI;CACrB;;AAED,AAAA,EAAE,CAAA;EACA,MAAM,EAAE,OAAO;CAChB",
-    "sources": [
-        "project-view.component.scss"
-    ],
-    "names": [],
-    "file": "project-view.component.css"
-}
