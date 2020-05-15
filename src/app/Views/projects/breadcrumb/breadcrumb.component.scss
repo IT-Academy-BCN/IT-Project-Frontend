@@ -1,0 +1,11 @@
+@import '../../../../styles.scss';
+// BREADCRUMBS
+span:not(.symbol):hover {
+    color: $white;
+    background-color: $pink;
+}
+
+span {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}

@@ -1,0 +1,139 @@
+.white-c {
+    color: #FFF;
+}
+
+.white-bg {
+    background-color: #FFF;
+}
+
+.light-grey-c {
+    color: #E8E8E8;
+}
+
+.light-grey-bg {
+    background-color: #E8E8E8;
+}
+
+.dark-grey-c {
+    color: #666;
+}
+
+.dark-grey-bg {
+    background-color: #666;
+}
+
+.black-c {
+    color: #212121;
+}
+
+.black-bg {
+    background-color: #212121;
+}
+
+.pink-c {
+    color: #D50283;
+}
+
+.pink-bg {
+    background-color: #D50283;
+}
+
+.blue-c {
+    color: #005F87;
+}
+
+.blue-bg {
+    background-color: #005F87;
+}
+
+.box-wrap {
+    width: 80%;
+    margin: 0 auto;
+    margin-left: 10em;
+}
+
+.badge-grey {
+    background-color: #666;
+    color: #FFF;
+    cursor: default;
+    padding: 6px;
+}
+
+.badge-blue {
+    background-color: #005F87;
+    color: #FFF;
+    cursor: default;
+    padding: 6px;
+}
+
+.badge-pink {
+    background-color: #D50283;
+    color: #FFF;
+    cursor: default;
+    padding: 6px;
+}
+
+.badge-lightgrey {
+    background-color: #E8E8E8;
+    cursor: default;
+    padding: 6px;
+}
+
+th,
+td {
+    white-space: nowrap;
+    padding-right: 1em;
+    padding-left: 1em;
+    cursor: default;
+}
+
+.first {
+    position: absolute;
+    width: 10em;
+    margin-left: -10em;
+}
+
+.table-wrap {
+    overflow-x: scroll;
+    width: 80%;
+    margin: 0 auto;
+    margin-left: 10em;
+}
+
+.table-bg {
+    background-color: #E8E8E8;
+}
+
+.row-size {
+    min-width: 190px;
+    padding: 16px;
+}
+
+.table-bg-default {
+    background-color: #FFF;
+}
+
+.table-bg-done {
+    background-color: #666;
+    color: #FFF;
+}
+
+.table-bg-corrected {
+    background-color: #005F87;
+    color: #FFF;
+}
+
+.table-bg-reviewed {
+    background-color: #D50283;
+    color: #FFF;
+}
+
+.pagination-layout::ng-deep .ngx-pagination .current {
+    padding: 0.1875rem 0.625rem;
+    background: #D50283;
+    color: #FFF;
+    cursor: default;
+}
+
+
+/*# sourceMappingURL=projects-table.component.css.map */

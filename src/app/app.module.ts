@@ -17,6 +17,7 @@ import { StudentFileModule } from "./Views/student-file/student-file.module";
 import { StatisticsModule } from "./Views/statistics/statistics.module";
 import { ReviewsModule } from "./Views/reviews/reviews.module";
 import { ClassroomModule } from "./Views/classroom/classroom.module";
+import { ProjectsModule } from "./Views/projects/projects.module";
 /* components */
 import { HeaderComponent } from "./Components/header/header.component";
 import { FooterComponent } from "./Components/footer/footer.component";
@@ -50,6 +51,7 @@ import { HttpClientModule } from "@angular/common/http";
     ReactiveFormsModule,
     ReviewsModule,
     ClassroomModule,
+    ProjectsModule,
     LoginModule,
     BrowserAnimationsModule,
     TooltipModule.forRoot(),

@@ -1,0 +1,15 @@
+<!-- Breadcrumb menu lista -->
+<div class="col text-left">
+    <ng-container *ngIf="page == 1 || page == 2 || page == 3">
+        <span (click)="setPage(1)" class="badge ml-1 page1">General</span>
+        <ng-container *ngIf="page == 2 || page == 3">
+            <span class="badge ml-1 symbol">></span>
+            <span (click)="setPage(2)" class="badge ml-1 page2">{{ itineraryName }}</span>
+            <ng-container *ngIf="page == 3">
+                <span class="badge ml-1 symbol">></span>
+                <span (click)="setPage(3)" class="badge ml-1 page3">Iteración {{ itinerationNum }}</span>
+            </ng-container>
+        </ng-container>
+    </ng-container>
+
+</div>

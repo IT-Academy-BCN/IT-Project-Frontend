@@ -1,0 +1,150 @@
+<!-- LAYOUT TABLE -->
+<div class="container-fluid mt-3 ml-3">
+
+    <!-- DETAILED INFORMATION FRAME -->
+    <app-info-frame [it]="iteration" [proj]="itinerary_" [page]="page"></app-info-frame>
+
+    <!-- BREADCRUMB MENU LISTA -->
+    <app-breadcrumb (pageOut)="getMessage($event)" [data1]="page" [data2]="itineraryName" [data3]="itinerationNum"></app-breadcrumb>
+
+
+    <!-- ITINERARY TABLE -->
+    <ng-container *ngIf="page == 1">
+        <table class="table table-striped table-bordered table-hover table-sm text-center">
+            <thead>
+                <tr>
+                    <th class=" p-2 table-bg">
+                        Grupo
+                    </th>
+                    <th class="table-bg">
+                        Fecha de inicio
+                    </th>
+                    <th class="table-bg">
+                        Iteración
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr (click)="getItinerary(itinerary)" *ngFor="let itinerary of AllProjects">
+                    <td class="p-3">
+                        {{ itinerary.name}}
+                    </td>
+                    <td class="row-size text-center">
+                        {{ itinerary.initialDate | date:"dd/MM/yy"}}
+                    </td>
+                    <td class="row-size text-center">
+                        {{ itinerary.iterationsNumber }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+
+    <!-- ITERATION TABLE -->
+    <ng-container *ngIf="page == 2">
+
+        <table class="table table-striped table-bordered table-hover table-sm text-center">
+            <thead>
+                <tr>
+                    <th class="table-bg">
+                        Iteración
+                    </th>
+                    <th class="table-bg">
+                        Fecha de inicio
+                    </th>
+                    <th class="table-bg">
+                        Fecha de finalización
+                    </th>
+                    <th class="table-bg">
+                        Desarrolladores
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr (click)="getDevelopers(iteration)" *ngFor="let iteration of Itinerary">
+                    <td class="row-size text-center">
+                        {{ iteration.itNumber}}
+                    </td>
+                    <td class="row-size text-center">
+                        {{ iteration.initialDate | date:"dd/MM/yy"}}
+                    </td>
+                    <td class="row-size text-center">
+                        {{ iteration.endingDate | date:"dd/MM/yy" }}
+                    </td>
+                    <td title={{devsList}} (mouseover)="getFrameDeveloper(iteration)" class="row-size text-center">
+                        {{ iteration.developers?.length }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+
+    <!-- DEVELOPERS TABLE -->
+    <ng-container *ngIf="page == 3">
+
+        <table class="table table-striped table-bordered table-hover table-sm text-center">
+            <thead>
+                <tr>
+                    <th class="p-2 table-bg">
+                        Nombre
+                    </th>
+                    <th class="table-bg">
+                        Apellidos
+                    </th>
+                    <th class="table-bg">
+                        Ex-estudiante?
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let developer of Developers">
+                    <td class="row-size text-center">
+                        {{ developer.name}}
+                    </td>
+                    <td class="row-size text-center">
+                        {{ developer.surname}}
+                    </td>
+                    <td class="row-size text-center">
+                        {{ developer.exStudent }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- ADD NEW DEVELOPER FORM -->
+        <ng-container *ngIf="isActive == true">
+            <div class='col-sm-12'>
+                <form class="form-horizontal" #addNew="ngForm" (ngSubmit)="addDeveloper()">
+                    <div class="row">
+
+                        <div class="form-group col-4">
+                            <label class=" control-label">Nombre</label>
+                            <input type="text" class="form-control" [(ngModel)]="newDev.name" name="name" required #name="ngModel">
+                        </div>
+                        <div [hidden]="name.untouched"></div>
+                        <div class="form-group col-4">
+                            <label class="control-label">Apellidos</label>
+                            <input type="text" class="form-control" [(ngModel)]="newDev.surname" name="surname" required #surname="ngModel">
+                        </div>
+                        <div [hidden]="surname.untouched"></div>
+                        <div class="form-group col-4">
+                            <label class="control-label">Es ex-estudiante?</label>
+                            <select class="form-control" [(ngModel)]="newDev.newDev" name="newDev" required #isActive="ngModel">
+                                        <option value="true">Si</option>
+                                        <option value="false">No</option>
+                                    </select>
+                        </div>
+                        <div [hidden]="newDev.untouched"></div>
+                    </div>
+                    <input type="button" [disabled]="!addNew.form.valid" value="Añadir" (click)="addDeveloper()" class="btn btn-primary" />
+                    <input type="button" class="btn btn-danger" (click)="clearSearch()" value="Limpiar">
+                    <div [hidden]="!submitted">
+                        [Aqui podria ir un mensaje de confirmación de envio a la API"]
+                    </div>
+                </form>
+            </div>
+        </ng-container>
+
+    </ng-container>
+
+</div>

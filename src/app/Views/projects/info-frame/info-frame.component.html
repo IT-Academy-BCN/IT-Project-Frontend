@@ -1,0 +1,52 @@
+<ng-container *ngIf="page == 3">
+    <div class="container iteration-box mb-3">
+        <div class="p-3">
+
+            <h4><b>Iteración ID: {{ iteration.itNumber}}</b></h4>
+            <div class="row">
+                <div class="col-3 dates">
+                    <label>Fecha Inicio: 
+                <p>{{ iteration.initialDate | date:"dd/MM/yy"}}</p>
+            </label>
+                    <br>
+                    <label>Fecha Fin: 
+                <p>{{ iteration.endingDate | date:"dd/MM/yy" }}</p>
+            </label>
+                </div>
+                <div class="desContainer col-9">
+                    <label>Descripción de la Iteración:</label>
+                    <br>
+                    <textarea cols="100" rows="4" readonly autoresize>{{ iteration.description }}</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<ng-container *ngIf="page == 2">
+    <div class="container iteration-box mb-3">
+        <div class="p-3">
+            <h4><b>Proyecto: {{ itineraries_.name}}</b></h4>
+            <div class="row">
+                <div class="col-3 dates-proj">
+                    <label>Fecha Inicio: 
+                    <p>{{ itineraries_.initialDate | date:"dd/MM/yy"}}</p>
+                </label>
+                    <br>
+                    <label>Nº Iteraciones: 
+                    <p>{{ itineraries_.iterationsNumber }}</p>
+                </label>
+                    <br>
+                    <!-- <label>Activo?:    //Pendiente añadir a DB
+                        <p>no data</p>
+                    </label> -->
+                </div>
+                <div class="desContainer col-9">
+                    <label>Descripción del Proyecto:</label>
+                    <br>
+                    <!-- Revisar si se ajusta a todas las resoluciones cols y rows -->
+                    <textarea cols="100" rows="4" readonly autoresize>no data</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

@@ -1,0 +1,44 @@
+@import '../../../../styles.scss';
+textarea {
+    resize: none;
+    height: auto;
+    border-color: #dee2e6;
+    background-color: transparent;
+    color: #FFF;
+}
+
+.dates-proj p {
+    margin-bottom: -5px;
+    margin-top: -5px;
+}
+
+.iteration-box {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    position: relative;
+    box-sizing: border-box;
+    $border: 5px;
+    color: #FFF;
+    background-clip: padding-box;
+    /* !importante */
+    border: solid $border transparent;
+    /* !importante */
+    border-radius: 1em;
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        margin: -$border;
+        /* !importante */
+        border-radius: inherit;
+        /* !importante */
+        background: linear-gradient(to right, rgb(185, 185, 185), rgb(211, 206, 206));
+        opacity: .7;
+    }
+}

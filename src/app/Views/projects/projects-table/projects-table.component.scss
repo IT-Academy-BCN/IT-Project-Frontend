@@ -1,0 +1,62 @@
+@import '../../../../assets/colors.scss';
+// GENERAL
+.box-wrap {
+    width: 80%;
+    margin: 0 auto;
+    margin-left: 10em;
+}
+
+// TABLE
+th,
+td {
+    max-width: 10em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 1em;
+    padding-left: 1em;
+    cursor: default;
+}
+
+.first {
+    position: absolute;
+    width: 10em;
+    margin-left: -10em;
+}
+
+.table-wrap {
+    overflow-x: scroll;
+    width: 80%;
+    margin: 0 auto;
+    margin-left: 10em;
+}
+
+.table-bg {
+    background-color: $light-grey;
+}
+
+.row-size {
+    min-width: 190px;
+    padding: 16px;
+}
+
+// BREADCRUMBS
+span:not(.symbol):hover {
+    color: $white;
+    background-color: $pink;
+}
+
+span {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+//VALIDATION 
+.ng-valid[required],
+.ng-valid.required {
+    border-left: 5px solid #42A948;
+}
+
+.ng-invalid:not(form) {
+    border-left: 5px solid #A94442;
+}
