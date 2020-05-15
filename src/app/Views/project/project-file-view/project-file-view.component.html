@@ -1,5 +1,7 @@
 <div class="container my-5 top-margin common-container">
-  <h1>Proyecto nº X</h1>
+  <ng-container *ngFor="let project of projects">
+    <h1 *ngIf="project.id == singleProject">{{ project.name}}</h1>
+  </ng-container>
   <div class="row mb-4">
     <div class="col">
       <div class="col-lg-6">
@@ -16,11 +18,15 @@
     </div>
     <div class="col">
       <div class="col-lg-6">
-        <span class="font-weight-bold mr-2">Descripción del proyecto: </span>
-        <p>Lorem Ipsum</p>
+        <span class="font-weight-bold mr-2">Descripción del proyecto:</span>
+        <ng-container *ngFor="let project of projects">
+          <p *ngIf="project.id == singleProject">{{ project.description }}</p>
+        </ng-container>
       </div>
     </div>
   </div>
+
+
   
   <table class="table table-hover text-center">
     <thead>
@@ -33,7 +39,7 @@
     </thead>
     <tbody>
       <ng-container *ngFor='let project of projects'>
-        <tr>
+        <tr *ngIf="project.id == singleProject">
           <td class="align-middle">{{ project.id }}</td>
           <td class="align-middle">{{ project.initialDate | date: 'yyyy-MM-dd'}}</td>
           <td class="align-middle">sin datos</td>

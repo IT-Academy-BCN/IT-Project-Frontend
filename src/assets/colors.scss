@@ -5,7 +5,8 @@ $dark-grey: #666;
 $black: #212121;
 $pink: #D50283;
 $blue: #005F87;
-$colors: ( "white": #FFF, "light-grey": #E8E8E8, "dark-grey": #666, "black": #212121, "pink": #D50283, "blue": #005F87);
+$yellow: #F18F01;
+$colors: ( "white": #FFF, "light-grey": #E8E8E8, "dark-grey": #666, "black": #212121, "pink": #D50283, "blue": #005F87, "yellow": #F18F01);
 @each $color in $colors {
     .#{nth($color, 1)}-c {
         color: nth($color, 2);

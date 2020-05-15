@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { ActivatedRoute } from '@angular/router';
 import { PerProjects } from '../project-view/model/perprojects.model';
 import { ProjectsService } from './../../../Services/projects.service';
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
 @Component({
   selector: 'app-project-file-view',
@@ -12,10 +14,13 @@ export class ProjectFileViewComponent implements OnInit {
 
   modalRef: BsModalRef; // modal
   projects: PerProjects[] = [];
+  oneProject: PerProjects[] = [];
+  singleProject: number;
 
   constructor( 
     private modalService: BsModalService, // modal
-    private projectsService: ProjectsService
+    private projectsService: ProjectsService,
+    private route: ActivatedRoute
     ) { }
 
 
@@ -26,8 +31,16 @@ export class ProjectFileViewComponent implements OnInit {
           //console.log(projects);
           this.projects = projects;
           });
+      
+      // collect idProject by the url (project-view.component.ts --> toProject())
+      // and put it into a instance to refer it in HTML. 
+      // Then, we can compare each project id with our project id. 
+      let idProject = +this.route.snapshot.paramMap.get("id");
+      this.singleProject = idProject;
+      console.log(idProject);
+      
+
     } 
-    
   seeDevelopers(template) {
      this.modalRef = this.modalService.show(template);
    }
