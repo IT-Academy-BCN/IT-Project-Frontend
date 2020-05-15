@@ -14,8 +14,8 @@
 
           <tbody>
               <ng-container *ngFor='let project of projects'>
-                    <tr>
-                        <td class="p-3 table-bg" title="{{project.description}}">
+                    <tr (click)="toProject(project)">
+                        <td id="nom" class="p-3 table-bg" title="{{project.description}}">
                           {{project.name}}
                         </td>
                         <td class="p-3 table-bg">

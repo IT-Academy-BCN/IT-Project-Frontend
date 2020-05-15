@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PerProjects } from './model/perprojects.model';
 import { ProjectsService } from './../../../Services/projects.service';
-
 
 @Component({
   selector: 'app-project-view',
@@ -10,8 +10,12 @@ import { ProjectsService } from './../../../Services/projects.service';
 })
 export class ProjectViewComponent implements OnInit {
 
+  id: number;
+  private sub: any;
+
   constructor(
-    private projectsService: ProjectsService
+    private projectsService: ProjectsService,
+    private router: Router
   ) { }
 
   projects:PerProjects[] = [];
@@ -23,6 +27,13 @@ export class ProjectViewComponent implements OnInit {
         //console.log(projects);
         this.projects = projects;
         });
+  }
+
+  toProject(project){
+      this.id = project.id;
+      //console.log(project.name);
+      //console.log(project.id);
+      this.router.navigate(['/project-view', this.id]);
   }
 
 }
