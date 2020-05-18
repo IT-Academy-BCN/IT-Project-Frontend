@@ -2,16 +2,16 @@
 ngIf para colores front-end, back-end, net (clases) -->
 
 <ng-template #tooltipTemplate>
-    <div class="tooltip-color">{{ student.name }} {{ student.lastname }}</div>
+    <div class="tooltip-color">{{ studentFP.firstName }} {{ studentFP.lastName }}</div>
 </ng-template>
 
 
 <div class="student-container">
 
-    <button *ngIf="student.itinerary == 'Front End'" type="button" class="student front-end" [tooltip]="tooltipTemplate" placement="top">
+    <button *ngIf="studentItinerary == 2" type="button" class="student front-end" [tooltip]="tooltipTemplate" placement="top">
 
       <circle-progress class="circle-bar"
-      [percent]= student.timeInAcademy
+      [percent]= studentFP.timeInAcademy
       [outerStrokeWidth]="4"
       [innerStrokeWidth]="4"
       [outerStrokeColor]="'#D50283'"
@@ -29,9 +29,9 @@ ngIf para colores front-end, back-end, net (clases) -->
     ></circle-progress>
     </button>
 
-    <button *ngIf="student.itinerary == 'Back End'" type="button" class="student back-end" [tooltip]="tooltipTemplate" placement="top">
+    <button *ngIf="studentItinerary == 3" type="button" class="student back-end" [tooltip]="tooltipTemplate" placement="top">
       <circle-progress class="circle-bar"
-      [percent]= student.timeInAcademy
+      [percent]= studentFP.timeInAcademy
       [outerStrokeWidth]="4"
       [innerStrokeWidth]="4"
       [outerStrokeColor]="'#005F87'"
@@ -47,11 +47,11 @@ ngIf para colores front-end, back-end, net (clases) -->
       [backgroundPadding]="'-8'"
       [backgroundStroke]="'#005F87'"
     ></circle-progress>
-
     </button>
-    <button *ngIf="student.itinerary == '.Net'" type="button" class="student net" [tooltip]="tooltipTemplate" placement="top">
+
+    <button *ngIf="studentItinerary == 4" type="button" class="student net" [tooltip]="tooltipTemplate" placement="top">
       <circle-progress class="circle-bar"
-      [percent]= student.timeInAcademy
+      [percent]= studentFP.timeInAcademy
       [outerStrokeWidth]="4"
       [innerStrokeWidth]="4"
       [outerStrokeColor]="'#212121'"
@@ -67,12 +67,33 @@ ngIf para colores front-end, back-end, net (clases) -->
       [backgroundPadding]="'-8'"
       [backgroundStroke]="'#212121'"
     ></circle-progress>
-
     </button>
-    <button *ngIf="student.itinerary == ''" type="button" class="student empty">
+
+    <button *ngIf="studentItinerary == 1" type="button" class="student net" [tooltip]="tooltipTemplate" placement="top">
+      <circle-progress class="circle-bar"
+      [percent]= studentFP.timeInAcademy
+      [outerStrokeWidth]="4"
+      [innerStrokeWidth]="4"
+      [outerStrokeColor]="'#F18F01'"
+      [innerStrokeColor]="'#fce8cc'"
+      [space]="-5"
+      [animation]="true"
+      [animationDuration]="300"
+      [showTitle]="false"
+      [showSubtitle]="false"
+      [showUnits]="false"
+      [backgroundColor]="'#F18F01'"
+      [backgroundOpacity]="'0.8'"
+      [backgroundPadding]="'-8'"
+      [backgroundStroke]="'#F18F01'"
+    ></circle-progress>
+    </button>
+
+    <button *ngIf="studentItinerary == ''" type="button" class="student empty">
 
     </button>
 </div>
+
 <!--modal-->
 <ng-template #template>
   <div class="modal-header">

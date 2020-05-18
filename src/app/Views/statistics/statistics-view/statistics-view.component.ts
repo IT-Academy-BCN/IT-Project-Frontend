@@ -14,6 +14,7 @@ export class StatisticsViewComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    document.getElementById("studentsItem").classList.remove("active");
   }
 
 }

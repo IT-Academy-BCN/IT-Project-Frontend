@@ -43,6 +43,9 @@ p {
     margin: auto;
 }
 
+span.strong {font-weight: 700;}
+
+
 // STUDENT GRID STYLES
 .student-grid {
     //border: 1px solid blue;
@@ -66,6 +69,10 @@ p {
 }
 
 // ITINERARY COLORS
+.commonblock {
+  background-color: $yellow;
+}
+
 .frontend {
     background-color: $pink;
 }

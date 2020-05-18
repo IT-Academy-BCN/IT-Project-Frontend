@@ -10,6 +10,7 @@ export class ReviewsViewComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    document.getElementById("studentsItem").classList.remove("active");
   }
 
 }
