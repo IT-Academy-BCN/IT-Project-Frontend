@@ -76,7 +76,7 @@ export class TableComponent implements OnInit {
         exercise.students.forEach(studentInSubject => {
 
           if (student.id == studentInSubject.id) {  //This must be done with the IDs when API response will be modified
-            exercise_.state = statusObj[studentInSubject.statusExercise];
+            exercise_.state = statusObj[studentInSubject.status];
             exercise_.date = studentInSubject.date;
           }
         });
