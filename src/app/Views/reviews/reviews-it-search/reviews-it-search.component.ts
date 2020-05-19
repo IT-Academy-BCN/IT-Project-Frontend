@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ReviewsService } from '../../../Services/reviews.service';
 
 @Component({
   selector: 'app-reviews-it-search',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReviewsItSearchComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ReviewsService:ReviewsService) { }
 
   ngOnInit() {
   }
-
+  selectedItemChanged(value: string){
+    this.ReviewsService.sendDropdownOption(value);
+  }
 }

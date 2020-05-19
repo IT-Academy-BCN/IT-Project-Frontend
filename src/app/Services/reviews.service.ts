@@ -1,24 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
+import { throwError, Observable, Subject } from 'rxjs';
 import { ExerciseResponseList } from '../Models/exercise.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReviewsService {
-  
+
   constructor(private http: HttpClient) { }
+
+  public subject = new Subject<string>();
+
+  sendDropdownOption(value: string) {
+    this.subject.next(value);
+  }
+
+  getDropdownEvent(): Observable<any> {
+    return this.subject.asObservable();
+  }
 
   public getAllExercises() {
     const apiURL = "http://217.76.158.200:8090/api/exercises";
     return this.http.get<ExerciseResponseList[]>(apiURL)
       .pipe(catchError(this.handleError))
-  };
-
-  public getExercisesPerItinerary(itinerary: number) {
-    //Pendiente implementar
   };
 
   private handleError(error: HttpErrorResponse) {
