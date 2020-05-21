@@ -134,7 +134,6 @@
                                         <option value="false">No</option>
                                     </select>
                         </div>
-                        <div [hidden]="newDev.untouched"></div>
                     </div>
                     <input type="button" [disabled]="!addNew.form.valid" value="Añadir" (click)="addDeveloper()" class="btn btn-primary" />
                     <input type="button" class="btn btn-danger" (click)="clearSearch()" value="Limpiar">
