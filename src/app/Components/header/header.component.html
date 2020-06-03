@@ -1,79 +1,44 @@
 <div class="container-fluid p-0 shadow-sm fixed-top">
-  <nav class="navbar navbar-light bg-light justify-content-between navBarGrid">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between ">
     <div class="navbar-brand ml-2 logo">
-      <img
-        src="../../../../assets/img/IT-logo.png"
-        height="40"
-        class="d-inline-block align-top"
-        alt="Logo IT Academy"
-      />
+      <img src="../../../../assets/img/IT-logo.png" height="40" class="d-inline-block align-top"
+        alt="Logo IT Academy" />
     </div>
-
-    <ul class="nav nav-pills menuNav" id="pills-tab" role="tablist">
-      <li class="nav-item">
-        <a
-          class="black-c nav-link mr-1"
-          routerLink="/classroom-view"
-          routerLinkActive="active"
-          >Aula</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          class="black-c nav-link mr-1"
-          routerLink="/reviews-view"
-          routerLinkActive="active"
-          >Revisión</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          class="black-c nav-link mr-1"
-          routerLink="/statistics-view"
-          routerLinkActive="active"
-          >Estadísticas</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          id="studentsItem"
-          class="black-c nav-link"
-          routerLink="/student-view"
-          routerLinkActive="active"
-          >Alumno</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          class="black-c nav-link"
-          routerLink="/project-view"
-          routerLinkActive="active"
-          >Proyecto</a
-        >
-      </li>
-    </ul>
-
-    <div class="d-flex justify-content-around nombre">
-      <img [src]="user.portrait | noimage" class="mx-2 img-thumb img-circle" />
-      <span class="navbar-text mr-5 mt-2">
-        <h5>{{ firstName }} {{ lastName }}</h5></span
-      >
+    <div class="pl-3">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarIT"
+        aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
     </div>
-
-    <button
-      (click)="logout()"
-      type="submit"
-      class="btn submit-btn salir for-large-screens"
-    >
-      <fa-icon [icon]="faSignOutAlt" class="mr-2"></fa-icon>Salir
-    </button>
-
-    <button
-      (click)="logout()"
-      type="submit"
-      class="btn submit-btn salir for-small-screens"
-    >
-      <fa-icon [icon]="faSignOutAlt"></fa-icon>
-    </button>
+    <div class="collapse navbar-collapse mainNav justify-content-between" id="navbarIT">
+      <ul class="nav nav-pills pt-1 pb-1 pl-2 menuNav" id="pills-tab" role="tablist">
+        <li class="nav-item">
+          <a class="black-c nav-link mr-1" routerLink="/classroom-view" routerLinkActive="active">Aula</a>
+        </li>
+        <li class="nav-item">
+          <a class="black-c nav-link mr-1" routerLink="/reviews-view" routerLinkActive="active">Revisión</a>
+        </li>
+        <li class="nav-item">
+          <a class="black-c nav-link mr-1" routerLink="/statistics-view" routerLinkActive="active">Estadísticas</a>
+        </li>
+        <li class="nav-item">
+          <a id="studentsItem" class="black-c nav-link" routerLink="/student-view" routerLinkActive="active">Alumno</a>
+        </li>
+        <li class="nav-item">
+          <a class="black-c nav-link" routerLink="/project-view" routerLinkActive="active">Proyecto</a>
+        </li>
+      </ul>
+      <div class="d-flex justify-content-lg-around pt-1 pb-1 align-items-center inline-block">
+        <div class="d-flex justify-content-between nombre">
+          <img [src]="user.portrait | noimage" class="mx-2 img-thumb img-circle" />
+          <span class="navbar-text mr-5 mt-2">
+            <h5>{{ firstName }} {{ lastName }}</h5>
+          </span>
+        </div>
+        <button (click)="logout()" type="submit" class="btn submit-btn salir for-large-screens">
+          <fa-icon [icon]="faSignOutAlt" class="mr-2"></fa-icon>Salir
+        </button>
+      </div>
+    </div>
   </nav>
 </div>
