@@ -1,20 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProjectViewComponent } from './project-view/project-view.component';
-<<<<<<< HEAD
 import { ProjectFileViewComponent } from './project-file-view/project-file-view.component';
+import { AuthGuard } from '../../Guards/auth.guard';
 
 const routes: Routes = [
-  { path: 'project-view',  component: ProjectViewComponent },
-  { path: 'project-view/:id', component: ProjectFileViewComponent },
+  { path: 'project-view',  component: ProjectViewComponent, canActivate: [AuthGuard] },
+  { path: 'project-view/:id', component: ProjectFileViewComponent, canActivate: [AuthGuard] },
 ]
-=======
 
-const routes: Routes = [
-  { path: 'project-view',  component: ProjectViewComponent },
-];
-
->>>>>>> 00b3082015ea613c853b5edef49a5efae75bf242
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
