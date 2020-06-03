@@ -1,0 +1,71 @@
+.white-c {
+  color: #FFF;
+}
+
+.white-bg {
+  background-color: #FFF;
+}
+
+.light-grey-c {
+  color: #E8E8E8;
+}
+
+.light-grey-bg {
+  background-color: #E8E8E8;
+}
+
+.dark-grey-c {
+  color: #666;
+}
+
+.dark-grey-bg {
+  background-color: #666;
+}
+
+.black-c {
+  color: #212121;
+}
+
+.black-bg {
+  background-color: #212121;
+}
+
+.pink-c {
+  color: #D50283;
+}
+
+.pink-bg {
+  background-color: #D50283;
+}
+
+.blue-c {
+  color: #005F87;
+}
+
+.blue-bg {
+  background-color: #005F87;
+}
+
+.btn-outline-pink {
+  color: #D50283;
+  border-color: #D50283;
+}
+
+.btn-outline-pink:hover {
+  color: #FFF;
+  background-color: #D50283;
+}
+
+.field-container > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.progress-bar {
+  background-color: #D50283;
+}
+/*# sourceMappingURL=student-data.component.css.map */

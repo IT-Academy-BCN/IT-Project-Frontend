@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,OAAO,CAAC;EACJ,KAAK,EAAE,IAAI;CACd;;AAGD,AAAA,oBAAoB,CAAC;EACjB,UAAU,EAAE,KAAK;EACjB,QAAQ,EAAE,MAAM;EAChB,OAAO,EAAE,KAAK;EACd,QAAQ,EAAE,QAAQ;EAClB,cAAc,EAAE,IAAI;CACvB",
+    "sources": [
+        "classroom-view.component.scss"
+    ],
+    "names": [],
+    "file": "classroom-view.component.css"
+}

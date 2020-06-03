@@ -1,0 +1,5 @@
+<app-header *ngIf="showHeader"></app-header>
+
+<router-outlet (activate)="modifyHeader()"></router-outlet>
+
+<app-footer></app-footer>

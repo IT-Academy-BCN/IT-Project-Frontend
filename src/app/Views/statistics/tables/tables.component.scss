@@ -1,0 +1,16 @@
+@import '../../../../styles.scss';
+h1 {
+    color: $black;
+}
+
+h2 {
+    color: $black;
+}
+
+p {
+    color: $black;
+}
+
+.faltes tbody tr:hover{
+    cursor: pointer;
+}

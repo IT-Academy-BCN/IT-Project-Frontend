@@ -1,0 +1,248 @@
+/* You can add global styles to this file, and also import other style files */
+.white-c {
+  color: #FFF;
+}
+
+.white-bg {
+  background-color: #FFF;
+}
+
+.light-grey-c {
+  color: #E8E8E8;
+}
+
+.light-grey-bg {
+  background-color: #E8E8E8;
+}
+
+.dark-grey-c {
+  color: #666;
+}
+
+.dark-grey-bg {
+  background-color: #666;
+}
+
+.black-c {
+  color: #212121;
+}
+
+.black-bg {
+  background-color: #212121;
+}
+
+.pink-c {
+  color: #D50283;
+}
+
+.pink-bg {
+  background-color: #D50283;
+}
+
+.blue-c {
+  color: #005F87;
+}
+
+.blue-bg {
+  background-color: #005F87;
+}
+
+/* ANIMATION */
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+p {
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.swal2-styled {
+  padding: 6px 12px !important;
+  font-weight: 400 !important;
+  width: 120px;
+  height: 40px;
+}
+
+.swal2-styled.swal2-confirm {
+  background-color: #D50283 !important;
+}
+
+.swal2-styled:focus {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.swal2-styled:hover .swal2-actions:not(.swal2-loading) {
+  text-decoration: underline;
+  background-image: none !important;
+}
+
+/* STYLES */
+p {
+  color: #666;
+  font-size: 1em;
+}
+
+.students-background {
+  background-color: #E8E8E8;
+  width: 100%;
+  min-width: 1100px;
+}
+
+.board {
+  height: 30px;
+  width: 100%;
+  background-color: #666;
+  text-align: center;
+  color: #FFF;
+  font-size: 1.2em;
+  margin-top: 80px;
+}
+
+.reference {
+  width: 100%;
+  min-width: 400px;
+  margin: 25px auto;
+  height: 50px;
+}
+
+.reference-box {
+  width: 20%;
+  text-align: center;
+}
+
+.color-reference {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  margin: auto;
+}
+
+.student-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 4fr 4fr 2fr 4fr 2fr;
+      grid-template-columns: 2fr 4fr 4fr 2fr 4fr 2fr;
+  -ms-grid-rows: 60px 60px 60px 60px;
+      grid-template-rows: 60px 60px 60px 60px;
+  grid-column-gap: 15px;
+  grid-row-gap: 30px;
+}
+
+.table-2 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  background-color: #FFF;
+}
+
+.table-4 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  background-color: #FFF;
+}
+
+.frontend {
+  background-color: #D50283;
+}
+
+.backend {
+  background-color: #005F87;
+}
+
+.net {
+  background-color: #212121;
+}
+
+.empty {
+  background-color: #CCCCCC;
+}
+
+.button-modal {
+  background-color: #D50283;
+  color: #FFF;
+}
+
+.button-modal:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.buttonX {
+  color: #D50283;
+}
+
+h1 {
+  color: #666;
+}
+
+h2 {
+  font-size: 1.25em;
+  font-weight: 400;
+  color: #D50283;
+}
+
+label {
+  font-size: .9em;
+  color: #666;
+}
+
+.last_updated {
+  border: solid 1px #666;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+  padding: 0 10px;
+}
+/*# sourceMappingURL=classroom-seats.component.css.map */

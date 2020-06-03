@@ -1,0 +1,221 @@
+/* You can add global styles to this file, and also import other style files */
+.white-c {
+  color: #FFF;
+}
+
+.white-bg {
+  background-color: #FFF;
+}
+
+.light-grey-c {
+  color: #E8E8E8;
+}
+
+.light-grey-bg {
+  background-color: #E8E8E8;
+}
+
+.dark-grey-c {
+  color: #666;
+}
+
+.dark-grey-bg {
+  background-color: #666;
+}
+
+.black-c {
+  color: #212121;
+}
+
+.black-bg {
+  background-color: #212121;
+}
+
+.pink-c {
+  color: #D50283;
+}
+
+.pink-bg {
+  background-color: #D50283;
+}
+
+.blue-c {
+  color: #005F87;
+}
+
+.blue-bg {
+  background-color: #005F87;
+}
+
+/* ANIMATION */
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+p {
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.swal2-styled {
+  padding: 6px 12px !important;
+  font-weight: 400 !important;
+  width: 120px;
+  height: 40px;
+}
+
+.swal2-styled.swal2-confirm {
+  background-color: #D50283 !important;
+}
+
+.swal2-styled:focus {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.swal2-styled:hover .swal2-actions:not(.swal2-loading) {
+  text-decoration: underline;
+  background-image: none !important;
+}
+
+.navbar .navbar-text {
+  color: #212121;
+}
+
+button.submit-btn {
+  font-size: 1.125em;
+  background-color: #D50283;
+  color: #FFF;
+  width: 120px;
+  height: 40px;
+}
+
+button.submit-btn:hover {
+  color: #FFF;
+  text-decoration: underline;
+}
+
+.img-thumb {
+  width: 60px;
+  height: 60px;
+}
+
+.img-circle {
+  border-radius: 100%;
+  width: 60px;
+}
+
+a:hover {
+  color: #FFF;
+  background-color: #D50283;
+  border-radius: 0.25rem;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  background-color: transparent !important;
+  color: #D50283 !important;
+}
+
+@media (max-width: 998px) {
+  .navBarGrid {
+    display: -ms-grid !important;
+    display: grid !important;
+    max-height: 100%;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: "logo salir" "nombre nombre" "menuNav menuNav";
+  }
+  .nombre {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: nombre;
+    display: inline-block !important;
+  }
+  .menuNav {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: menuNav;
+  }
+  .logo {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: logo;
+  }
+  .salir {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: salir;
+    display: inline-block;
+    max-width: 8em;
+    min-height: 2em;
+    margin-left: auto;
+    margin-right: 0em;
+  }
+}
+
+@media (min-width: 576px) {
+  .for-small-screens {
+    display: none;
+  }
+}
+
+@media (max-width: 575px) {
+  .for-large-screens {
+    display: none;
+  }
+  button.submit-btn {
+    width: 46px;
+  }
+}
+/*# sourceMappingURL=header.component.css.map */

@@ -1,0 +1,99 @@
+@import '../../../../styles.scss';
+
+/* STYLES */
+
+h1 {
+    font-size: 2.5em;
+    color: $pink;
+}
+
+label {
+    font-size: 1.25em;
+    color: $black;
+}
+
+.main-container {
+    padding-top: 12vh;
+    padding-bottom: 20vh;
+}
+
+.login-title {
+    background-color: $light-grey;
+    height: 70px;
+    color: $black;
+}
+
+button.submit-btn {
+    font-size: 1.125em;
+    background-color: $pink;
+    color: $white;
+    width: 120px;
+}
+
+button.submit-btn:hover {
+    color: $white;
+    text-decoration: underline;
+}
+
+button.forgot-password {
+    color: $blue;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+button.forgot-password:hover {
+    text-decoration: underline;
+}
+
+
+/* VALIDATION CLASSES */
+
+.invalid {
+    border: 2px solid $pink;
+    color: $pink;
+}
+
+.text-invalid {
+    color: $pink;
+    line-height: 1.125em;
+}
+
+/*** MODAL LOADING ***/
+
+.modal-loading{
+  padding: 0px;
+  margin: 0px;
+}
+#contenedor_carga {
+  background-color: rgba(255, 255, 255, 1);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+  z-index: 10000;
+}
+#carga {
+  border: 15px solid #E8E8E8;
+  border-top-color: #D50283;
+  border-top-style: solid;
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  -webkit-animation: girar 1.5s linear infinite;
+  -o-animation: girar 1.5s linear infinite;
+  animation: girar 1.5s linear infinite;
+}
+
+@keyframes girar {
+  from { transform: rotate(0deg);}
+  to { transform: rotate(360deg);}
+}

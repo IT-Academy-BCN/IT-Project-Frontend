@@ -1,0 +1,48 @@
+<div class="container container-padding">
+    <div>
+        <div *ngFor="let student of alumnes">
+            <button type="button" class="btn btn-primary" (click)="selectStudent(student); openModal(template)">
+                {{student.name}} </button>
+        </div>
+    </div>
+</div>
+
+<ng-template #template>
+    <div class="modal-header">
+        <h1 class="modal-title pull-left">Alumno</h1>
+        <button type="button" class="close pull-right buttonX" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <!-- <h2 class="mt-1 mb-3">{{selectedStudent.name | uppercase}}</h2> -->
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+            <label class="form-check-label" for="exampleRadios1">
+                Front-End
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+                Back-End
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+            <label class="form-check-label" for="exampleRadios3">
+                .Net
+            </label>
+        </div>
+        <div class="form-check disabled mb-2">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4" disabled>
+            <label class="form-check-label" for="exampleRadios4">
+                Android
+            </label>
+        </div>
+        <button type="button" class="btn button-modal ml-1 mr-2 mt-3" (click)="confirm(); modalRef.hide()">Guardar</button>
+        <button type="button" class="btn button-modal ml-1 mr-2 mt-3" (click)="decline(); modalRef.hide()">Cancelar</button>
+        <button type="button" class="btn button-modal ml-1 mt-3">Ir a perfil</button>
+    </div>
+</ng-template>
+

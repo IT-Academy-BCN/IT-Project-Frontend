@@ -1,0 +1,19 @@
+@import '../../../../../styles.scss';
+
+.submit-btn {
+  font-size: 0.9em;
+  background-color: $pink;
+  color: $white;
+}
+.submit-btn:hover {
+  text-decoration: underline;
+}
+
+.grey-btn {
+  font-size: 0.9em;
+  background-color: $dark-grey;
+  color: $white;
+}
+.grey-btn:hover {
+  text-decoration: underline;
+}

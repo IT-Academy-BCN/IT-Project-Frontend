@@ -1,0 +1,95 @@
+<div class="container">
+    <!-- Table 8 absences -->
+    <div class="row d-flex justify-content-around mt-4">
+        <div class="col faltes">
+            <h2 class="text-center mt-5">Alumnos con más de 8 faltas</h2>
+            <table class="table table-hover">
+
+                <thead>
+                    <tr class="text-center">
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">Faltas</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <ng-container *ngFor='let absence of tooManyAbsences'>
+                        <tr class="text-center" *ngIf="absence.absences > maxAbsences, else showUnstyled" (click)="clickDateAbsences(template); consultAbsence(absence);" style="background-color: #eb7171">
+                            <td>{{absence.firstName}}</td>
+                            <td>{{absence.lastName}}</td>
+                            <td>{{absence.absences}}</td>
+                        </tr>
+                        <ng-template #showUnstyled>
+                            <tr class="text-center" (click)="clickDateAbsences(template); consultAbsence(absence);">
+                                <td>{{absence.firstName}}</td>
+                                <td>{{absence.lastName}}</td>
+                                <td>{{absence.absences}}</td>
+                            </tr>
+                        </ng-template>
+                    </ng-container>
+                </tbody>
+
+            </table>
+        </div>
+
+        <!--modal / absences popup-->
+        <ng-template #template>
+          <div class="modal-header">
+              <h1>Ausencias</h1>
+              <button type="button" class="close pull-right buttonX" aria-label="Close" (click)="modalRef.hide()">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+            <h3>
+                <ng-container *ngFor='let absence of tooManyAbsences'>
+                    <div class="text-center" *ngIf="absence.id == studentAbsence">
+                        {{absence.firstName}} {{absence.lastName}} ({{absence.absences}})
+                    </div>
+                </ng-container>
+            </h3>
+            <table class="table">
+              <thead>
+                  <tr class="text-center">
+                      <th scope="col">Fecha</th>
+                      <th scope="col">Motivo</th>
+                  </tr>
+              </thead>
+
+              <tbody>
+                  <ng-container *ngFor='let dayAbsence of daysAbsences'>
+                    <tr class="text-center" *ngIf="dayAbsence.userStudent == studentAbsence">
+                        <td>{{dayAbsence.dateMissing | date: 'yyyy-MM-dd'}}</td>
+                        <td></td>
+                    </tr>
+                  </ng-container>
+              </tbody>
+            </table>
+          </div>
+        </ng-template>
+
+        <!-- Table almost done -->
+        <div class="col">
+            <h2 class="text-center mt-5">Alumnos a dos semanas de finalizar</h2>
+            <table class="table table-hover">
+
+                <thead>
+                    <tr class="text-center">
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Primer Apellido</th>
+                        <th scope="col">Fecha Finalización</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <!-- <tr class="text-center" *ngFor="let alumno of almostDone">
+            <td>{{alumno.name}}</td>
+            <td>{{alumno.lastname}}</td>
+            <td>{{alumno.limitDate | date:'dd/MM/yyyy'}}</td>
+          </tr>-->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,237 @@
+/* You can add global styles to this file, and also import other style files */
+.white-c {
+  color: #FFF;
+}
+
+.white-bg {
+  background-color: #FFF;
+}
+
+.light-grey-c {
+  color: #E8E8E8;
+}
+
+.light-grey-bg {
+  background-color: #E8E8E8;
+}
+
+.dark-grey-c {
+  color: #666;
+}
+
+.dark-grey-bg {
+  background-color: #666;
+}
+
+.black-c {
+  color: #212121;
+}
+
+.black-bg {
+  background-color: #212121;
+}
+
+.pink-c {
+  color: #D50283;
+}
+
+.pink-bg {
+  background-color: #D50283;
+}
+
+.blue-c {
+  color: #005F87;
+}
+
+.blue-bg {
+  background-color: #005F87;
+}
+
+/* ANIMATION */
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+p {
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.swal2-styled {
+  padding: 6px 12px !important;
+  font-weight: 400 !important;
+  width: 120px;
+  height: 40px;
+}
+
+.swal2-styled.swal2-confirm {
+  background-color: #D50283 !important;
+}
+
+.swal2-styled:focus {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.swal2-styled:hover .swal2-actions:not(.swal2-loading) {
+  text-decoration: underline;
+  background-image: none !important;
+}
+
+/* STYLES */
+h1 {
+  font-size: 2.5em;
+  color: #D50283;
+}
+
+label {
+  font-size: 1.25em;
+  color: #212121;
+}
+
+.main-container {
+  padding-top: 12vh;
+  padding-bottom: 20vh;
+}
+
+.login-title {
+  background-color: #E8E8E8;
+  height: 70px;
+  color: #212121;
+}
+
+button.submit-btn {
+  font-size: 1.125em;
+  background-color: #D50283;
+  color: #FFF;
+  width: 120px;
+}
+
+button.submit-btn:hover {
+  color: #FFF;
+  text-decoration: underline;
+}
+
+button.forgot-password {
+  color: #005F87;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+button.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* VALIDATION CLASSES */
+.invalid {
+  border: 2px solid #D50283;
+  color: #D50283;
+}
+
+.text-invalid {
+  color: #D50283;
+  line-height: 1.125em;
+}
+
+/*** MODAL LOADING ***/
+.modal-loading {
+  padding: 0px;
+  margin: 0px;
+}
+
+#contenedor_carga {
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  z-index: 10000;
+}
+
+#carga {
+  border: 15px solid #E8E8E8;
+  border-top-color: #D50283;
+  border-top-style: solid;
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  -webkit-animation: girar 1.5s linear infinite;
+  animation: girar 1.5s linear infinite;
+}
+
+@-webkit-keyframes girar {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes girar {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+/*# sourceMappingURL=login-view.component.css.map */

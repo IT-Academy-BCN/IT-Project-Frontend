@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,WAAW,CAAC;EACV,MAAM,EAAE,IAAI;CACb",
+    "sources": [
+        "student-search-view.component.scss"
+    ],
+    "names": [],
+    "file": "student-search-view.component.css"
+}
