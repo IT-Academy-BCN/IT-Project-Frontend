@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import Swal from "sweetalert2";
+import { LoginService } from '../../../Services/login.service';
 
 @Component({
   selector: "app-login-view",
@@ -13,7 +14,11 @@ export class LoginViewComponent implements OnInit {
   submitted = false;
   loading: boolean;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private loginService: LoginService,
+    private router: Router
+    ) {
     //this.loading = true;
   }
 
@@ -44,6 +49,7 @@ export class LoginViewComponent implements OnInit {
       return;
     } else {
       this.loading = true;
+      this.loginService.loading = true;
     }
 
     fetch("http://217.76.158.200:8090/api/login", {
@@ -72,6 +78,8 @@ export class LoginViewComponent implements OnInit {
           );
         } else {
           Swal.fire({ text: "Oops!, Something went wrong!" });
+          this.loading = false;
+          this.loginService.loading = false;
         }
       });
   }
