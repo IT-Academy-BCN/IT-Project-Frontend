@@ -26,6 +26,10 @@ export class AppComponent implements OnInit {
       this.showHeader = true;
     }
   }
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 00b3082015ea613c853b5edef49a5efae75bf242
 }
 
 

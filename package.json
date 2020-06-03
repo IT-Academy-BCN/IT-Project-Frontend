@@ -26,7 +26,11 @@
     "@types/select2": "^4.0.44",
     "bootstrap": "^4.3.1",
     "chart.js": "^2.9.3",
+<<<<<<< HEAD
     "jquery": "^3.5.1",
+=======
+    "jquery": "^3.4.1",
+>>>>>>> 00b3082015ea613c853b5edef49a5efae75bf242
     "ng-circle-progress": "^1.5.1",
     "ng2-charts": "^2.3.0",
     "ng2-select2": "^1.0.0-beta.16",
@@ -35,12 +39,21 @@
     "ngx-renderer": "^1.0.0",
     "popper.js": "^1.16.1",
     "select2": "^4.0.12",
+<<<<<<< HEAD
     "sweetalert": "^2.1.2",
     "sweetalert2": "^9.10.12",
     "tslib": "^1.10.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.803.24",
+=======
+    "sweetalert2": "^9.10.12",
+    "sweetalert": "^2.1.2",
+    "tslib": "^1.10.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^0.803.26",
+>>>>>>> 00b3082015ea613c853b5edef49a5efae75bf242
     "@angular/cli": "^8.3.23",
     "@angular/compiler-cli": "~8.2.14",
     "@angular/core": "^8.2.14",

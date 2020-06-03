@@ -135,8 +135,11 @@ h2 {
 p {
   color: #212121;
 }
+<<<<<<< HEAD
 
 .faltes tbody tr:hover {
   cursor: pointer;
 }
+=======
+>>>>>>> 00b3082015ea613c853b5edef49a5efae75bf242
 /*# sourceMappingURL=tables.component.css.map */

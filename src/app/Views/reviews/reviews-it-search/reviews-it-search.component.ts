@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
+=======
+import { ReviewsService } from '../../../Services/reviews.service';
+>>>>>>> 00b3082015ea613c853b5edef49a5efae75bf242
 
 @Component({
   selector: 'app-reviews-it-search',
@@ -7,9 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReviewsItSearchComponent implements OnInit {
 
+<<<<<<< HEAD
   constructor() { }
 
   ngOnInit() {
   }
 
+=======
+  constructor(private ReviewsService:ReviewsService) { }
+
+  ngOnInit() {
+  }
+  selectedItemChanged(value: string){
+    this.ReviewsService.sendDropdownOption(value);
+  }
+>>>>>>> 00b3082015ea613c853b5edef49a5efae75bf242
 }

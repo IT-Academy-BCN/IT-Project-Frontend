@@ -1,8 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { Router } from '@angular/router';
 import { PerProjects } from '../../../Models/perprojects.model';
 import { ProjectsService } from './../../../Services/projects.service';
 
+=======
+import { PerProjects } from './model/perprojects.model';
+import { ProjectsService } from './../../../Services/projects.service';
+
+
+>>>>>>> 00b3082015ea613c853b5edef49a5efae75bf242
 @Component({
   selector: 'app-project-view',
   templateUrl: './project-view.component.html',
@@ -10,12 +17,17 @@ import { ProjectsService } from './../../../Services/projects.service';
 })
 export class ProjectViewComponent implements OnInit {
 
+<<<<<<< HEAD
   id: number;
   private sub: any;
 
   constructor(
     private projectsService: ProjectsService,
     private router: Router
+=======
+  constructor(
+    private projectsService: ProjectsService
+>>>>>>> 00b3082015ea613c853b5edef49a5efae75bf242
   ) { }
 
   projects:PerProjects[] = [];
@@ -29,6 +41,7 @@ export class ProjectViewComponent implements OnInit {
         });
   }
 
+<<<<<<< HEAD
   toProject(project){
       this.id = project.id;
       //console.log(project.name);
@@ -36,4 +49,6 @@ export class ProjectViewComponent implements OnInit {
       this.router.navigate(['/project-view', this.id]);
   }
 
+=======
+>>>>>>> 00b3082015ea613c853b5edef49a5efae75bf242
 }

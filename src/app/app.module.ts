@@ -29,7 +29,10 @@ import { SweetAlert2Module } from "@sweetalert2/ngx-sweetalert2";
 /*HTTP API client*/
 import { HttpClientModule } from "@angular/common/http";
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 00b3082015ea613c853b5edef49a5efae75bf242
 @NgModule({
   declarations: [
     AppComponent,

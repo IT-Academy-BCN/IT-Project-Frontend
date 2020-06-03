@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Student } from '../../../../Models/student.model';
+=======
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Student } from '../../../../Models/student.model';
+import { Router } from "@angular/router";
+
+>>>>>>> 00b3082015ea613c853b5edef49a5efae75bf242
 
 interface StudentData {
   fullName: string;
@@ -18,7 +25,11 @@ interface StudentData {
   templateUrl: './student-data.component.html',
   styleUrls: ['./student-data.component.scss']
 })
+<<<<<<< HEAD
 export class StudentDataComponent {
+=======
+export class StudentDataComponent implements OnInit{
+>>>>>>> 00b3082015ea613c853b5edef49a5efae75bf242
 
     // tslint:disable-next-line: variable-name
   private _student;
@@ -48,7 +59,11 @@ export class StudentDataComponent {
     portrait: ''
   };
 
+<<<<<<< HEAD
   constructor() { }
+=======
+  constructor(private router: Router) { }
+>>>>>>> 00b3082015ea613c853b5edef49a5efae75bf242
 
   public changeItinerary(newItinerary: string) {
     this.newItinerary.emit(newItinerary);
@@ -99,4 +114,21 @@ export class StudentDataComponent {
     );
     return percentage;
   }
+<<<<<<< HEAD
+=======
+
+  ngOnInit(): void {
+
+    /*
+      At classroom-view/reviews-view/statistics-view.component.ts we can find this lines onInit
+      
+        document.getElementById("studentsItem").classList.remove("active");
+
+      This code, and the line below, allows us to change the item 'Alumno' color to $pink when we are in a student-file-view.
+      It is not the best option to do this, but it is the only one we have been able to find at this time.
+    */ 
+
+    document.getElementById("studentsItem").classList.add("active");
+  }
+>>>>>>> 00b3082015ea613c853b5edef49a5efae75bf242
 }

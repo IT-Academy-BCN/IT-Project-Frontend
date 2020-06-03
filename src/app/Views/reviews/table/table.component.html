@@ -21,14 +21,22 @@
                     <th class="first p-2 table-bg">
                         Alumno
                     </th>
+<<<<<<< HEAD
                     <th class="table-bg" *ngFor="let titleExercise of allStudentsList.exercises">
+=======
+                    <th title="{{titleExercise.name}}" class="table-bg" *ngFor="let titleExercise of allStudentsList.exercises">
+>>>>>>> 00b3082015ea613c853b5edef49a5efae75bf242
                         {{ titleExercise.name | slice: 0: 12 }}
                     </th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let student of students_ | paginate: {itemsPerPage: 6, currentPage: selectedPage}">
+<<<<<<< HEAD
                     <td class="first p-3 table-bg">
+=======
+                    <td title="{{student.firstName}} {{student.lastName}}" class="first p-3 table-bg">
+>>>>>>> 00b3082015ea613c853b5edef49a5efae75bf242
                         {{ student.firstName | titlecase | beautifyString | slice: 0: 10 }} {{ student.lastName | titlecase | beautifyString | slice: 0: 10}}
                     </td>
                     <td class="row-size text-center" *ngFor="let exercises of student.exercises; index as i" [ngClass]="[{'No entregado': 'table-bg-default', 'Entregado': 'table-bg-done', 'Corregido': 'table-bg-corrected', 'A revisar': 'table-bg-reviewed'}[ exercises.state ]]">

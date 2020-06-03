@@ -136,8 +136,13 @@ label {
 }
 
 .main-container {
+<<<<<<< HEAD
   padding-top: 12vh;
   padding-bottom: 20vh;
+=======
+  padding-top: 15vh;
+  padding-bottom: 10vh;
+>>>>>>> 00b3082015ea613c853b5edef49a5efae75bf242
 }
 
 .login-title {
@@ -179,6 +184,7 @@ button.forgot-password:hover {
   color: #D50283;
   line-height: 1.125em;
 }
+<<<<<<< HEAD
 
 /*** MODAL LOADING ***/
 .modal-loading {
@@ -234,4 +240,6 @@ button.forgot-password:hover {
             transform: rotate(360deg);
   }
 }
+=======
+>>>>>>> 00b3082015ea613c853b5edef49a5efae75bf242
 /*# sourceMappingURL=login-view.component.css.map */

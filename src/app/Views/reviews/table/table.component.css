@@ -81,9 +81,12 @@
 
 th,
 td {
+<<<<<<< HEAD
   max-width: 10em;
   overflow: hidden;
   text-overflow: ellipsis;
+=======
+>>>>>>> 00b3082015ea613c853b5edef49a5efae75bf242
   white-space: nowrap;
   padding-right: 1em;
   padding-left: 1em;

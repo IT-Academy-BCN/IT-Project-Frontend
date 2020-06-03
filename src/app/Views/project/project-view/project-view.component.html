@@ -3,7 +3,11 @@
 <!-- LAYOUT TABLE -->
 <div class="container-fluid mt-3 ml-3">
   <div class="table-wrap">
+<<<<<<< HEAD
       <table class="table table-hover text-center">
+=======
+      <table class="table table-hover table-sm text-center">
+>>>>>>> 00b3082015ea613c853b5edef49a5efae75bf242
           <thead>
               <tr>
                   <th class="p-2 table-bg">Nombre</th>
@@ -14,8 +18,13 @@
 
           <tbody>
               <ng-container *ngFor='let project of projects'>
+<<<<<<< HEAD
                     <tr (click)="toProject(project)">
                         <td id="nom" class="p-3 table-bg" title="{{project.description}}">
+=======
+                    <tr>
+                        <td class="p-3 table-bg" title="{{project.description}}">
+>>>>>>> 00b3082015ea613c853b5edef49a5efae75bf242
                           {{project.name}}
                         </td>
                         <td class="p-3 table-bg">

@@ -34,4 +34,8 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void { }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 00b3082015ea613c853b5edef49a5efae75bf242
 }
