@@ -46,6 +46,14 @@
   background-color: #005F87;
 }
 
+.yellow-c {
+  color: #F18F01;
+}
+
+.yellow-bg {
+  background-color: #F18F01;
+}
+
 .btn-outline-pink {
   color: #D50283;
   border-color: #D50283;
@@ -67,5 +75,9 @@
 
 .progress-bar {
   background-color: #D50283;
+}
+
+.active {
+  color: #D50283;
 }
 /*# sourceMappingURL=student-data.component.css.map */

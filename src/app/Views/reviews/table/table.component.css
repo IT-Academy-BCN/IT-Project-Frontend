@@ -46,6 +46,14 @@
   background-color: #005F87;
 }
 
+.yellow-c {
+  color: #F18F01;
+}
+
+.yellow-bg {
+  background-color: #F18F01;
+}
+
 .box-wrap {
   width: 80%;
   margin: 0 auto;
@@ -81,6 +89,9 @@
 
 th,
 td {
+  max-width: 10em;
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
   padding-right: 1em;
   padding-left: 1em;
