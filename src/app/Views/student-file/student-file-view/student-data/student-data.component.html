@@ -1,6 +1,5 @@
 <div class="row">
-  <img [src]="'../../../../assets/img/' + studentData.portrait"
-    (error)="loadFallbackImg($event)"
+  <img [src]="'../../../../assets/img/' + studentData.portrait" (error)="loadFallbackImg($event)"
     class="col-4 col-md-3 col-lg-2">
   <div class="col-8 col-md-9 col-lg-10 d-flex flex-column">
     <h2>{{ studentData.fullName | titlecase }}</h2>
@@ -15,10 +14,7 @@
         <span>
           {{ studentData.itinerary }}
         </span>
-        <button 
-          class="btn btn-sm btn-outline-pink ml-3"
-          data-toggle="modal"
-          data-target="#changeItinerary">
+        <button class="btn btn-sm btn-outline-pink ml-3" data-toggle="modal" data-target="#changeItinerary">
           Cambiar
         </button>
       </div>
@@ -41,51 +37,41 @@
   </div>
 </div>
 
+
 <div class="progress mt-4">
-  <div class="progress-bar" 
-    role="progressbar" 
-    [style.width]="studentData.progress + '%'" 
-    aria-valuenow="student.percentage" 
-    aria-valuemin="0" 
-    aria-valuemax="100">
+  <div class="progress-bar" role="progressbar" [style.width]="studentData.progress + '%'"
+    aria-valuenow="student.percentage" aria-valuemin="0" aria-valuemax="100">
     Cursado: {{ studentData.progress }}%
   </div>
 </div>
 
-<div class="modal fade" 
-  id="changeItinerary" 
-  tabindex="-1" 
-  role="dialog" 
-  aria-labelledby="modalLabel" 
+<div class="modal fade" id="changeItinerary" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title" id="modalLabel">Cambio de itinerario</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-              </button>
-          </div>
-          <div class="modal-body">
-              Elija el nuevo itinerario de <b>{{ studentData.fullName | titlecase }}</b>
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                Cancelar
-              </button>
-              <button type="button" class="btn btn-outline-pink" data-dismiss="modal" 
-                (click)='changeItinerary("Back-end")'>
-                Back-end
-              </button>
-              <button type="button" class="btn btn-outline-pink" data-dismiss="modal" 
-                (click)='changeItinerary("Front-end")'>
-                Front-end
-              </button>
-              <button type="button" class="btn btn-outline-pink" data-dismiss="modal" 
-                (click)='changeItinerary(".Net")'>
-                .Net
-              </button>
-          </div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalLabel">Cambio de itinerario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <div class="modal-body">
+        Elija el nuevo itinerario de <b>{{ studentData.fullName | titlecase }}</b>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cancelar
+        </button>
+        <button type="button" class="btn btn-outline-pink" data-dismiss="modal" (click)='changeItinerary("Back-end")'>
+          Back-end
+        </button>
+        <button type="button" class="btn btn-outline-pink" data-dismiss="modal" (click)='changeItinerary("Front-end")'>
+          Front-end
+        </button>
+        <button type="button" class="btn btn-outline-pink" data-dismiss="modal" (click)='changeItinerary(".Net")'>
+          .Net
+        </button>
+      </div>
+    </div>
   </div>
 </div>

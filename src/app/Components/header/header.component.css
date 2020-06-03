@@ -187,6 +187,7 @@ a:hover {
     -ms-grid-column-span: 2;
     grid-area: menuNav;
   }
+  
   .logo {
     /* -ms-grid-row: 1;
     -ms-grid-column: 1; */
