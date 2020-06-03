@@ -45,7 +45,7 @@ export class ProjectFileViewComponent implements OnInit {
 
     }
 
-  getDevelopers(iteration){
+  getDevelopers(){
     this.page = 2;
   }
   //
