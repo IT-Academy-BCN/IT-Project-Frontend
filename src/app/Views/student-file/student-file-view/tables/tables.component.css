@@ -47,6 +47,14 @@
   background-color: #005F87;
 }
 
+.yellow-c {
+  color: #F18F01;
+}
+
+.yellow-bg {
+  background-color: #F18F01;
+}
+
 /* ANIMATION */
 .animated {
   -webkit-animation-duration: 1s;

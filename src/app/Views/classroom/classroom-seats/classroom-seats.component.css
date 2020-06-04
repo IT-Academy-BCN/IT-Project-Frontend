@@ -47,6 +47,14 @@
   background-color: #005F87;
 }
 
+.yellow-c {
+  color: #F18F01;
+}
+
+.yellow-bg {
+  background-color: #F18F01;
+}
+
 /* ANIMATION */
 .animated {
   -webkit-animation-duration: 1s;
@@ -165,6 +173,10 @@ p {
   margin: auto;
 }
 
+span.strong {
+  font-weight: 700;
+}
+
 .student-grid {
   display: -ms-grid;
   display: grid;
@@ -190,6 +202,10 @@ p {
   -ms-grid-columns: 1fr 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr 1fr;
   background-color: #FFF;
+}
+
+.commonblock {
+  background-color: #F18F01;
 }
 
 .frontend {

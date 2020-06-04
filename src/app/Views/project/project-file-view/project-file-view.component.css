@@ -132,114 +132,38 @@ p {
   background-image: none !important;
 }
 
-/* STYLES */
+.top-margin {
+  padding-top: 100px;
+}
+
+.common-container {
+  min-height: 100vh;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 79px;
+}
+
 h1 {
-  font-size: 2.5em;
   color: #D50283;
+  margin-bottom: 1em;
 }
 
-label {
-  font-size: 1.25em;
+h2 {
   color: #212121;
 }
 
-.main-container {
-  padding-top: 12vh;
-  padding-bottom: 20vh;
-}
-
-.login-title {
-  background-color: #E8E8E8;
-  height: 70px;
+p {
   color: #212121;
 }
 
-button.submit-btn {
-  font-size: 1.125em;
+.submit-btn {
+  font-size: 0.9em;
   background-color: #D50283;
   color: #FFF;
-  width: 120px;
 }
 
-button.submit-btn:hover {
-  color: #FFF;
+.submit-btn:hover {
   text-decoration: underline;
 }
-
-button.forgot-password {
-  color: #005F87;
-  background-color: transparent;
-  border: none;
-  padding: 0;
-}
-
-button.forgot-password:hover {
-  text-decoration: underline;
-}
-
-/* VALIDATION CLASSES */
-.invalid {
-  border: 2px solid #D50283;
-  color: #D50283;
-}
-
-.text-invalid {
-  color: #D50283;
-  line-height: 1.125em;
-}
-
-/*** MODAL LOADING ***/
-.modal-loading {
-  padding: 0px;
-  margin: 0px;
-}
-
-#contenedor_carga {
-  background-color: white;
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  -webkit-transition: all 1s ease;
-  transition: all 1s ease;
-  z-index: 10000;
-}
-
-#carga {
-  border: 15px solid #E8E8E8;
-  border-top-color: #D50283;
-  border-top-style: solid;
-  height: 100px;
-  width: 100px;
-  border-radius: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  -webkit-animation: girar 1.5s linear infinite;
-  animation: girar 1.5s linear infinite;
-}
-
-@-webkit-keyframes girar {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-
-@keyframes girar {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-/*# sourceMappingURL=login-view.component.css.map */
+/*# sourceMappingURL=project-file-view.component.css.map */

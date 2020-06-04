@@ -1,35 +1,36 @@
 <div class="container my-5 margen_superior reviews-container">
 
-<!-- LAYOUT TABLE -->
-<div class="container-fluid mt-3 ml-3">
-  <div class="table-wrap">
-      <table class="table table-hover table-sm text-center">
-          <thead>
-              <tr>
-                  <th class="p-2 table-bg">Nombre</th>
-                  <th class="p-2 table-bg">Fecha Inicio</th>
-                  <th class="p-2 table-bg">Iteraciones</th>
-              </tr>
-          </thead>
-
-          <tbody>
-              <ng-container *ngFor='let project of projects'>
-                    <tr>
-                        <td class="p-3 table-bg" title="{{project.description}}">
-                          {{project.name}}
-                        </td>
-                        <td class="p-3 table-bg">
-                          {{project.initialDate | date: 'yyyy-MM-dd'}}
-                        </td>
-                        <td class="p-3 table-bg">
-
-                        </td>
-                    </tr>
-              </ng-container>
-          </tbody>
-      </table>
+  <!-- LAYOUT TABLE -->
+  <div class="container-fluid mt-3 ml-3">
+    <div class="table-wrap">
+        <table class="table table-hover table-sm text-center">
+            <thead>
+                <tr>
+                    <th class="p-2 table-bg">Nombre</th>
+                    <th class="p-2 table-bg">Fecha Inicio</th>
+                    <th class="p-2 table-bg">Iteraciones</th>
+                </tr>
+            </thead>
+  
+            <tbody>
+                <ng-container *ngFor='let project of projects'>
+                      <tr (click)="toProject(project)">
+                          <td id="nom" class="p-3 table-bg" title="{{project.description}}">
+                            {{project.name}}
+                          </td>
+                          <td class="p-3 table-bg">
+                            {{project.initialDate | date: 'yyyy-MM-dd'}}
+                          </td>
+                          <td class="p-3 table-bg">
+  
+                          </td>
+                      </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
   </div>
-</div>
-
-
-</div>
+  
+  
+  </div>
+  
