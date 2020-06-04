@@ -21,22 +21,21 @@
 
       <div class="col-lg-6">
         <span class="font-weight-bold mr-2">Fecha de alta: </span>
-        <span>{{ studentData.startDate }}</span>
+        <span>{{ studentData.startDate | date: 'dd-MM-yyyy' }}</span>
       </div>
 
       <div class="col-lg-6">
         <span class="font-weight-bold mr-2">Fecha límite: </span>
-        <span>{{ studentData.limitDate }}</span>
+        <span>{{ studentData.endDate }}</span>
       </div>
 
       <div class="col-lg-12">
         <span class="font-weight-bold mr-2">Faltas: </span>
-        <span>{{ studentData.absences }}</span>
+        <span>{{ studentData.totalAbsences }}</span>
       </div>
     </div>
   </div>
 </div>
-
 
 <div class="progress mt-4">
   <div class="progress-bar" role="progressbar" [style.width]="studentData.progress + '%'"
