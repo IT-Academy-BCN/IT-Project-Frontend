@@ -31,8 +31,6 @@ export class ProjectViewComponent implements OnInit {
 
   toProject(project){
       this.id = project.id;
-      //console.log(project.name);
-      //console.log(project.id);
       this.router.navigate(['/project-view', this.id]);
   }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ActivatedRoute } from '@angular/router';
-import { PerProjects } from '../project-view/model/perprojects.model';
+import { PerProjects, Itinerary } from '../project-view/model/perprojects.model';
 import { ProjectsService } from './../../../Services/projects.service';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
@@ -14,7 +14,7 @@ export class ProjectFileViewComponent implements OnInit {
 
   modalRef: BsModalRef; // modal
   projects: PerProjects[] = [];
-  oneProject: PerProjects[] = [];
+  iterations: Itinerary[] = [];
   singleProject: number;
 
   constructor( 
@@ -26,12 +26,10 @@ export class ProjectFileViewComponent implements OnInit {
     public today: Date = new Date();
     public prova: number = 3;
 
-
     ngOnInit() {
 
       this.projectsService.get_projects()
       .subscribe((projects: PerProjects[])=>{
-          //console.log(projects);
           this.projects = projects;
           });
       
@@ -40,10 +38,20 @@ export class ProjectFileViewComponent implements OnInit {
       // Then, we can compare each project id with our project id. 
       let idProject = +this.route.snapshot.paramMap.get("id");
       this.singleProject = idProject;
-      console.log(idProject);
-      
 
+      // To get iterations by itinerary
+      this.projectsService.getItineraryById(idProject)
+         .subscribe(
+             (data) => {
+               this.iterations = data['iterations'];
+             },
+             (error) => {
+               console.log(error);
+             }
+           );
     }
+
+  
 
   getDevelopers(){
     this.page = 2;
