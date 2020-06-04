@@ -175,26 +175,27 @@ a:hover {
         grid-template-areas: "logo salir" "nombre nombre" "menuNav menuNav";
   }
   .nombre {
-    -ms-grid-row: 2;
-    -ms-grid-column: 1;
+    /* -ms-grid-row: 2;
+    -ms-grid-column: 1; */
     -ms-grid-column-span: 2;
     grid-area: nombre;
     display: inline-block !important;
   }
   .menuNav {
-    -ms-grid-row: 3;
-    -ms-grid-column: 1;
+    /* -ms-grid-row: 3;
+    -ms-grid-column: 1; */
     -ms-grid-column-span: 2;
     grid-area: menuNav;
   }
+  
   .logo {
-    -ms-grid-row: 1;
-    -ms-grid-column: 1;
+    /* -ms-grid-row: 1;
+    -ms-grid-column: 1; */
     grid-area: logo;
   }
   .salir {
-    -ms-grid-row: 1;
-    -ms-grid-column: 2;
+    /* -ms-grid-row: 1;
+    -ms-grid-column: 2; */
     grid-area: salir;
     display: inline-block;
     max-width: 8em;
