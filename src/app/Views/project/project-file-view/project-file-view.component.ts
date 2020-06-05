@@ -25,6 +25,7 @@ export class ProjectFileViewComponent implements OnInit {
     public page: number = 1;
     public today: Date = new Date();
     public prova: number = 3;
+    public idIteration: number;
 
     ngOnInit() {
 
@@ -53,9 +54,12 @@ export class ProjectFileViewComponent implements OnInit {
 
   
 
-  getDevelopers(){
+  getDevelopers(iteration){
     this.page = 2;
+    this.idIteration = iteration.id;
+    //console.log("Id de la iteració: " + this.idIteration);
   }
+  
   //
   // NEED IT TO RUN MODAL. IF MODAL ISN'T ACTIVE, THIS IS USELESS.
   //
