@@ -8,9 +8,9 @@ interface StudentData {
   gender: string;
   email: string;
   itinerary: string;
-  startDate: string;
-  limitDate: string;
-  absences: string;
+  startDate: number | string;
+  endDate: any;
+  totalAbsences: number | string;
   progress: string;
   portrait: string;
 }
@@ -31,7 +31,7 @@ export class StudentDataComponent implements OnInit{
 
   @Output() newItinerary = new EventEmitter<string>();
 
-  private waitingData = 'esperando datos';
+  private waitingData:any = 'esperando datos';
   private noData = 'sin datos';
   public genderMap = {
     M: 'masculino',
@@ -44,8 +44,8 @@ export class StudentDataComponent implements OnInit{
     email: this.waitingData,
     itinerary: this.waitingData,
     startDate: this.waitingData,
-    limitDate: this.waitingData,
-    absences: this.waitingData,
+    endDate: this.waitingData,
+    totalAbsences: this.waitingData,
     progress: this.waitingData,
     portrait: ''
   };
@@ -68,21 +68,23 @@ export class StudentDataComponent implements OnInit{
       : this.noData;
     this.studentData.gender = student.gender ? student.gender : this.noData;
     this.studentData.email = student.email ? student.email : this.noData;
-    this.studentData.itinerary = student.itinerary ? student.itinerary : this.noData;
-    this.studentData.startDate = String(student.startDate ? student.startDate : this.noData);
-    this.studentData.limitDate = String(student.limitDate ? student.limitDate : this.noData);
-    this.studentData.absences = String(student.absences ? student.absences : this.noData);
+    this.studentData.itinerary = student.courses[0].itinerary.name ? student.courses[0].itinerary.name : this.noData;
+    this.studentData.startDate = student.courses[0].beginDate ? student.courses[0].beginDate : this.noData;
+    this.studentData.endDate = student.courses[0].endDate !== null ? student.courses[0].endDate : this.noData;
+    this.studentData.totalAbsences = student.totalAbsences ? student.totalAbsences : this.noData;
     this.studentData.progress = String(this.calculateProgress(
-      student.startDate,
-      student.limitDate
+      this.studentData.startDate,
+      this.studentData.endDate
     ));
     this.studentData.portrait = student.portrait;
+    console.log(this.studentData.totalAbsences);
+    console.log(this.studentData.endDate);
   }
 
-  private calculateProgress(startDate: Date, limitDate: Date) {
+  private calculateProgress(startDate: number | string, endDate: number | any) {
     const valueOfToday = new Date().valueOf();
 
-    let valueOfStartDate: number;
+    let valueOfStartDate: any;
     if (startDate) {
       valueOfStartDate = startDate.valueOf();
     } else {  // mock values to test progress bar presentation
@@ -90,12 +92,13 @@ export class StudentDataComponent implements OnInit{
     }
 
     let valueOfLimitDate: number;
-    if (limitDate) {
-      valueOfLimitDate = limitDate.valueOf();
+    if (endDate !== 'sin datos') {
+      valueOfLimitDate = endDate.valueOf();
     } else {  // mock values to test progress bar presentation
       valueOfLimitDate = valueOfToday + Math.random() * 0.1 * valueOfToday;
     }
-
+    console.log(startDate)
+    console.log(endDate)
     const percentage = Math.round(
       ((valueOfToday - valueOfStartDate) / (valueOfLimitDate - valueOfStartDate)) * 100
     );
