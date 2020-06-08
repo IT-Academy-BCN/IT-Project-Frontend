@@ -1,0 +1,12 @@
+{
+    "header": {
+        "item1": "Classroom",
+        "item2": "Review",
+        "item3": "Statistics",
+        "item4": "Student",
+        "item5": "Project",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
+    }
+}
