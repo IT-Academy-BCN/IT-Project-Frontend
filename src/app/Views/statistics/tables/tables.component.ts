@@ -27,7 +27,8 @@ export class TablesComponent implements OnInit {
   daysAbsences:PerDayAbsence[] = [];
   maxAbsences:Number = 12;
   studentAbsence:string = "";
-  almostDone:Almostdone[] = []; 
+  almostDone:Almostdone[] = [];
+  
 
   ngOnInit() {
 
