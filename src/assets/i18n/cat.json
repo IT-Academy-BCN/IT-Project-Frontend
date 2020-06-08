@@ -5,9 +5,12 @@
         "item3": "Estadístiques",
         "item4": "Alumne",
         "item5": "Projecte",
+        "logout": "Sortir",
         "englishLabel": "Anglès",
         "spanishLabel": "Castellà",
         "catalanLabel": "Català"
-
+    },
+    "footer": {
+        "text": "Fet amb ♥ per els estudiants de l'ITAcademy 2019 / 2020"
     }
 }

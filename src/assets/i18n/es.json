@@ -5,8 +5,12 @@
         "item3": "Estadísticas",
         "item4": "Alumno",
         "item5": "Proyecto",
+        "logout": "Salir",
         "englishLabel": "Inglés",
         "spanishLabel": "Castellano",
         "catalanLabel": "Catalán"
+    },
+    "footer": {
+        "text": "Hecho con ♥ por los estudiantes de ITAcademy 2019 / 2020"
     }
 }

@@ -5,8 +5,12 @@
         "item3": "Statistics",
         "item4": "Student",
         "item5": "Project",
+        "logout": "Logout",
         "englishLabel": "English",
         "spanishLabel": "Spanish",
         "catalanLabel": "Catalan"
+    },
+    "footer": {
+        "text": "Made with ♥ by IT Academy students 2019 / 2020"
     }
 }

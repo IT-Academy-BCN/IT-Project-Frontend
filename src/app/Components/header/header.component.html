@@ -36,8 +36,8 @@
             <h5>{{ firstName }} {{ lastName }}</h5>
           </span>
         </div>
-        <div>
-          <select
+        <div class="mr-3">
+          <select class="selectLanguage"
             [ngModel]="selectedLanguage"
             (ngModelChange)="toogleLanguage($event)">
             <option value="es">
@@ -52,7 +52,7 @@
           </select>
         </div>
         <button (click)="logout()" type="submit" class="btn submit-btn salir for-large-screens">
-          <fa-icon [icon]="faSignOutAlt" class="mr-2"></fa-icon>Salir
+          <fa-icon [icon]="faSignOutAlt" class="mr-2"></fa-icon>{{ 'header.logout' | translate }}
         </button>
       </div>
     </div>
