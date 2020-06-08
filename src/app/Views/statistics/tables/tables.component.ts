@@ -1,6 +1,7 @@
 import { Component, TemplateRef, OnInit } from '@angular/core';
 import { PerAbsence } from './model/perabsence.model';
 import { PerDayAbsence } from './model/perdayabsence.model';
+import { Almostdone } from './model/almostdone.model';
 import { StatisticsService } from './../../../Services/statistics.service';
 import { AbsencesService } from './../../../Services/absences.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
@@ -26,6 +27,7 @@ export class TablesComponent implements OnInit {
   daysAbsences:PerDayAbsence[] = [];
   maxAbsences:Number = 12;
   studentAbsence:string = "";
+  almostDone:Almostdone[] = []; 
 
   ngOnInit() {
 
@@ -40,6 +42,8 @@ export class TablesComponent implements OnInit {
         console.log(daysAbsences);
         this.daysAbsences = daysAbsences;
         });
+
+    
 
   }
 
