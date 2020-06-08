@@ -19,10 +19,10 @@
                             {{project.name}}
                           </td>
                           <td class="p-3 table-bg">
-                            {{project.initialDate | date: 'yyyy-MM-dd'}}
+                            {{project.initialDate | date: 'dd-MM-yyyy'}}
                           </td>
                           <td class="p-3 table-bg">
-  
+                            {{project.iterations?.length}}
                           </td>
                       </tr>
                 </ng-container>
