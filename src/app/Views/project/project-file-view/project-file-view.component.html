@@ -1,56 +1,100 @@
 <div class="container my-5 top-margin common-container">
-    <ng-container *ngFor="let project of projects">
-      <h1 *ngIf="project.id == singleProject">{{ project.name}}</h1>
-    </ng-container>
-    <div class="row mb-4">
-      <div class="col">
-        <div class="col-lg-6">
-          <span class="font-weight-bold mr-2">Fecha inicial:</span>
-          <span>Mayo 2020</span>
-        </div>
-        <div class="col-lg-6">
-          <span class="font-weight-bold mr-2">Número de iteraciones: </span>
-          <span>6</span>
-        </div>
-        <ng-container>
-          <div class="col-lg-6" *ngIf="prova == 1, else showRed">
-            <span class="font-weight-bold mr-2" style="color: seagreen">ACTIVA</span>
+    
+    <ng-container *ngIf='page == 1'>
+      <ng-container *ngFor="let project of projects">
+        <h1 *ngIf="project.id == singleProject">{{ project.name}}</h1>
+      </ng-container>
+      <div class="row mb-4">
+        <div class="col">
+          <div class="col-lg-6">
+            <span class="font-weight-bold mr-2">Fecha inicial:</span>
+            <ng-container *ngFor="let project of projects">
+              <span *ngIf="project.id == singleProject">{{project.initialDate | date: 'dd-MM-yyyy'}}</span>
+            </ng-container>
           </div>
-          <ng-template #showRed>
-            <div class="col-lg-6">
-              <span class="font-weight-bold mr-2" style="color: red">NO ACTIVA</span>
+          <div class="col-lg-6">
+            <span class="font-weight-bold mr-2">Número de iteraciones: </span>
+            <ng-container *ngFor="let project of projects">
+              <span *ngIf="project.id == singleProject">{{project.iterations?.length}}</span>
+            </ng-container>
+          </div>
+            <div class="col-lg-6" *ngIf="prova == 1, else showRed">
+              <span class="font-weight-bold mr-2" style="color: seagreen">ACTIVA</span>
             </div>
-          </ng-template>
-        </ng-container>
-      </div>
-      <div class="col">
-        <div class="col-lg-6">
-          <span class="font-weight-bold mr-2">Descripción del proyecto:</span>
-          <ng-container *ngFor="let project of projects">
-            <p *ngIf="project.id == singleProject">{{ project.description }}</p>
-          </ng-container>
+            <ng-template #showRed>
+              <div class="col-lg-6">
+                <span class="font-weight-bold mr-2" style="color: red">NO ACTIVA</span>
+              </div>
+            </ng-template>
+        </div>
+        <div class="col">
+          <div class="col-lg-6">
+            <span class="font-weight-bold mr-2">Descripción del proyecto:</span>
+            <ng-container *ngFor="let project of projects">
+              <p *ngIf="project.id == singleProject">{{ project.description }}</p>
+            </ng-container>
+          </div>
         </div>
       </div>
-    </div>
-  
-  
+    </ng-container>
+
+    <ng-container *ngIf='page == 2'>
+      <ng-container *ngFor="let iteration of iterations">
+        <h1 *ngIf='idIteration == iteration.id'>Iteración nº {{ iteration.id}}</h1>
+      </ng-container>
+      <div class="row mb-4">
+        <div class="col">
+          <div class="col-lg-6">
+            <span class="font-weight-bold mr-2">Fecha de inicio:</span>
+            <ng-container *ngFor="let iteration of iterations">
+              <span *ngIf='idIteration == iteration.id'>{{iteration.initialDate | date: 'dd-MM-yyyy'}}</span>
+            </ng-container>
+          </div>
+          <div class="col-lg-6">
+            <span class="font-weight-bold mr-2">Fecha de fin:</span>
+            <ng-container *ngFor="let iteration of iterations">
+              <span *ngIf='idIteration == iteration.id'>{{iteration.endDate | date: 'dd-MM-yyyy'}}</span>
+            </ng-container>
+          </div>
+            <div class="col-lg-6" *ngIf="prova == 1, else showRed">
+              <span class="font-weight-bold mr-2" style="color: seagreen">ACTIVA</span>
+            </div>
+            <ng-template #showRed>
+              <div class="col-lg-6">
+                <span class="font-weight-bold mr-2" style="color: red">NO ACTIVA</span>
+              </div>
+            </ng-template>
+        </div>
+        <div class="col">
+          <div class="col-lg-6">
+            <span class="font-weight-bold mr-2">Descripción del proyecto:</span>
+            <ng-container *ngFor="let iteration of iterations">
+              <p *ngIf='idIteration == iteration.id'>{{ iteration.description }}</p>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+
+    
     <ng-container *ngIf='page == 1'>
       <table class="table table-hover text-center">
         <thead>
           <tr>
-            <th>Id Iteración</th>
+            <th>Iteración</th>
             <th>Fecha inicial</th>
             <th>Fecha final</th>
             <th>Desarrolladores</th>
           </tr>
         </thead>
         <tbody>
-          <ng-container *ngFor='let project of projects'>
-            <tr *ngIf="project.id == singleProject" (click)="getDevelopers()">
-              <td class="align-middle">{{ project.id }}</td>
-              <td class="align-middle">{{ project.initialDate | date: 'yyyy-MM-dd'}}</td>
-              <td class="align-middle">sin datos</td>
-              <td class="align-middle">5 
+          <ng-container *ngFor='let iteration of iterations'>
+            <tr (click)="getDevelopers(iteration)">
+              <td class="align-middle">{{ iteration.id }}</td>
+              <td class="align-middle">{{ iteration.initialDate | date: 'dd-MM-yyyy'}}</td>
+              <td class="align-middle">{{ iteration.endDate | date: 'dd-MM-yyyy'}}</td>
+              <td class="align-middle">Nº de desarrolladores que han participado. API waiting 
                 <!-- <button type="button" class="btn submit-btn full-container" (click)="seeDevelopers(templateDevelopers)">
                   Ver
                 </button> -->
@@ -61,18 +105,20 @@
       </table>
     </ng-container>
     
-  
+    <!-- Waiting Api Data to fill -->
     <ng-container *ngIf='page == 2'>
       <table class="table table-hover text-center">
         <thead>
           <tr>
             <th>Nombre</th>
             <th>Apellido</th>
+            <th>Itinerario</th>
             <th>Ex-Alumno?</th>
           </tr>
         </thead>
         <tbody>
           <tr>
+            <td class="align-middle"></td>
             <td class="align-middle"></td>
             <td class="align-middle"></td>
             <td class="align-middle"></td>
