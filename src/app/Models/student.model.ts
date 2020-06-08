@@ -11,7 +11,8 @@ interface Itinerary {
 
 interface Course {
   id: number;
-  endDate: string | null;
+  beginDate: number;
+  endDate: string | null | number;
   itinerary: Itinerary;
 }
   // API response to GET /students
@@ -35,7 +36,7 @@ export class Student {
   courses: Course[];
     // not returned by API
   itinerary?: string;
-  startDate?: Date;
-  limitDate?: Date;
-  absences?: number;
+  beginDate?: number;
+  endDate?: number | null;
+  totalAbsences?: number;
 }
