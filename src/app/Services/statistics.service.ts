@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class StatisticsService {
-  baseUrl = 'http://217.76.158.200:8090/api/statistics'
+  baseUrl = 'http://217.76.158.200:8090/api/stats'
   constructor(private http: HttpClient) { }
     //get students per itinerary
     public get_itineraryStudents () {
