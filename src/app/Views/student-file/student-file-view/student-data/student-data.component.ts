@@ -1,6 +1,8 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { Student } from '../../../../Models/student.model';
 import { Router } from "@angular/router";
+// Translate
+import { TranslateService } from '@ngx-translate/core';
 
 
 interface StudentData {
@@ -21,6 +23,9 @@ interface StudentData {
   styleUrls: ['./student-data.component.scss']
 })
 export class StudentDataComponent implements OnInit{
+
+  //Translate
+  public selectedLanguage = 'es';
 
     // tslint:disable-next-line: variable-name
   private _student;
@@ -50,7 +55,14 @@ export class StudentDataComponent implements OnInit{
     portrait: ''
   };
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private translateService: TranslateService,
+    ) {
+      //translate
+      this.translateService.setDefaultLang(this.selectedLanguage);
+      this.translateService.use(this.selectedLanguage);
+     }
 
   public changeItinerary(newItinerary: string) {
     this.newItinerary.emit(newItinerary);

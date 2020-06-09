@@ -7,7 +7,7 @@ import { StudentSearchViewComponent } from './student-search-view/student-search
 
 const routes: Routes = [
   { path: 'student-view',  component: StudentSearchViewComponent, canActivate: [AuthGuard] },
-  { path: 'student/:id', component: StudentFileViewComponent, canActivate: [AuthGuard] },
+  { path: 'student/:id', component: StudentFileViewComponent },
 ];
 
 @NgModule({

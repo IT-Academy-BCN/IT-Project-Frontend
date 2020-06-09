@@ -12,5 +12,21 @@
     },
     "footer": {
         "text": "Fet amb ♥ per els estudiants de l'ITAcademy 2019 / 2020"
-    }
+    },
+    "searchStudent":{
+        "text": "Cercar"
+    },
+    "dataStudent": {
+        "_itinerary": "Itinerari: ",
+        "start_date": "Data d'alta: ",
+        "end_date": "Data límit: ",
+        "_abscenes": "Absències: ",
+        "_made": "Cursat"
+    },
+    "exercises": {
+        "_exercises": "Excercicis",
+        "_state": "Estat",
+        "_date": "Data",
+        "change_state": "Canviar estat"
+    } 
 }

@@ -12,5 +12,21 @@
     },
     "footer": {
         "text": "Hecho con ♥ por los estudiantes de ITAcademy 2019 / 2020"
-    }
+    },
+    "searchStudent":{
+        "text": "Buscar"
+    },
+    "dataStudent": {
+        "_itinerary": "Itinerario: ",
+        "start_date": "Fecha de alta: ",
+        "end_date": "Fecha límite: ",
+        "_abscences": "Faltas: ",
+        "_made": "Cursado"
+    },
+    "exercises": {
+        "_exercises": "Ejercicios",
+        "_state": "Estado",
+        "_date": "Fecha",
+        "change_state": "Cambiar estado"
+    } 
 }
