@@ -17,4 +17,7 @@ export class StatisticsService {
     public get_absenceStudents () {
       return this.http.get(this.baseUrl+'/per-absence/');
     }
+    public get_almostDoneStudents () {
+      return this.http.get(this.baseUrl+'/finish-in-x-days/14/');
+    }
 }

@@ -1,5 +1,7 @@
 export interface Almostdone {
-name:string,
-lastname:string,
-limitDate:number
+id: string,
+firstName:string,
+lastName:string,
+days:number,
+finishDate?:Date
 }
