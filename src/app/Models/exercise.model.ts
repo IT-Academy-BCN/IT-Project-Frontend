@@ -89,6 +89,8 @@ export class Student_Review {
   firstName: string;
   lastName: string;
   exercises: exercisesList[];
+  lastClassAttendance: string;
+  lastDeliveredExercise: string;
 }
 
 export interface exercisesList {

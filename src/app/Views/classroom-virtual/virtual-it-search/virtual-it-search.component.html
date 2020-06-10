@@ -1,0 +1,14 @@
+<!-- LOADING BAR -->
+<div class="row justify-content-center mt-4">
+    <div class="col-12 col-md-4 pt-1 mt-md-n5">
+        <select id="inputState" class="form-control" (change)="selectedItemChanged($event.target.value)">
+            <option value="none" selected disabled hidden> 
+                Seleccionar un itinerario 
+            </option>
+            <option>Bloque común</option> 
+            <option>Front-end</option>
+            <option>Back-end</option>
+            <option>.Net</option>
+        </select>
+    </div>
+</div>

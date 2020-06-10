@@ -1,0 +1,37 @@
+<!-- LAYOUT TABLE -->
+<div class="container-fluid mt-5 ml-3">
+  <div class="table-wrap">
+      <table class="table table-hover table-sm text-center">
+          <thead>
+              <tr>
+                  <th class="first p-2 table-bg">
+                      Alumno
+                  </th>
+                  <th class=" p-2 table-bg">Última asistencia</th>
+                  <th class=" p-2 table-bg">Último trabajo entregado</th>
+              </tr>
+          </thead>
+          <tbody>
+                <tr *ngFor="let student of students_ | paginate: {itemsPerPage: 6, currentPage: selectedPage}" [routerLink]="['/student/', student.id]">
+                    <td title="{{student.firstName}} {{student.lastName}}" class="first p-3 table-bg">
+                      {{ student.firstName | titlecase | virtualString | slice: 0: 10 }} {{  student.lastName | titlecase | virtualString | slice: 0: 10}}
+                    </td>
+                    <td class="row-size text-center">{{student.lastClassAttendance}}</td>
+                    <td class="row-size text-center">{{student.lastDeliveredExercise}}</td>
+                </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
+
+<!-- PAGINATION TABLE -->
+<div class="container-fluid mt-3 ml-3">
+  <div class="box-wrap">
+      <div class="row align-middle">
+          <div class="col text-right pagination-layout">
+              <pagination-controls class="ngx-pagination" (pageChange)="selectedPage = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Pagination Table Documentation: https://www.npmjs.com/package/ngx-pagination#demo -->
