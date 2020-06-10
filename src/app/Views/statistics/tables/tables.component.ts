@@ -7,6 +7,7 @@ import { AbsencesService } from './../../../Services/absences.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { TranslateService } from '@ngx-translate/core';
 
+
 @Component({
   selector: 'app-tables',
   templateUrl: './tables.component.html',
