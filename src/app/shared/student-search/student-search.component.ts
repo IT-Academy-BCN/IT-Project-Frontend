@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Select2OptionData } from 'ng2-select2';
 import { StudentInList } from '../../Models/student.model';
 import { StudentService } from '../../Services/student.service';
+// TranslateService
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-student-search',
@@ -12,6 +14,9 @@ import { StudentService } from '../../Services/student.service';
 export class StudentSearchComponent implements OnInit {
 
   public selectedStudent = '';
+  
+  // TRANSLATE
+  selectedLanguage = 'es';
 
     // documentation for select2: https://github.com/NejcZdovc/ng2-select2
   public studentsData: Select2OptionData[] = [];
@@ -26,8 +31,13 @@ export class StudentSearchComponent implements OnInit {
 
   constructor(
     private studentService: StudentService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private translateService: TranslateService,
+  ) { 
+    //translate
+    this.translateService.setDefaultLang(this.selectedLanguage);
+    this.translateService.use(this.selectedLanguage);
+   }
 
   ngOnInit() {
     this.fetchStudentsData();
