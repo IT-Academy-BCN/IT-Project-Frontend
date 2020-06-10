@@ -2,10 +2,10 @@
   <table class="table table-hover text-center">
     <thead>
       <tr>
-        <th>Ejercicios</th>
-        <th>Estado</th>
-        <th>Fecha</th>
-        <th>Cambiar estado</th>
+        <th>{{ 'exercises._exercises' | translate }}</th>
+        <th>{{ 'exercises._state' | translate }}</th>
+        <th>{{ 'exercises._date' | translate }}</th>
+        <th>{{ 'exercises.change_state' | translate }}</th>
       </tr>
     </thead>
     <tbody>
@@ -16,7 +16,7 @@
         <td class="align-middle">
           <button type="button" class="btn submit-btn full-container" 
             (click)="openStatusUpdateModal(statusUpdateModal, exercise)">
-            Cambiar estado
+            {{ 'exercises.change_state' | translate }}
           </button>
         </td>
       </tr>

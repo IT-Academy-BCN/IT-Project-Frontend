@@ -1,0 +1,32 @@
+{
+    "header": {
+        "item1": "Classroom",
+        "item2": "Review",
+        "item3": "Statistics",
+        "item4": "Student",
+        "item5": "Project",
+        "logout": "Logout",
+        "englishLabel": "English",
+        "spanishLabel": "Spanish",
+        "catalanLabel": "Catalan"
+    },
+    "footer": {
+        "text": "Made with ♥ by IT Academy students 2019 / 2020"
+    },
+    "searchStudent":{
+        "text":"Search"
+    },
+    "dataStudent": {
+        "_itinerary": "Itinerary: ",
+        "start_date": "Start date: ",
+        "end_date": "End date: ",
+        "_abscences": "Abscences: ",
+        "_made": "Made"
+    },
+    "exercises": {
+        "_exercises": "Exercises",
+        "_state": "State",
+        "_date": "Date",
+        "change_state": "Change state"
+    } 
+}
