@@ -4,6 +4,7 @@ import { STUDENTS, MockStudent } from '../../../Models/studentsMock';
 // translation
 import { TranslateService } from '@ngx-translate/core';
 
+
 @Component({
   selector: 'app-statistics-view',
   templateUrl: './statistics-view.component.html',

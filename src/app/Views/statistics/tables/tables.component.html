@@ -15,7 +15,9 @@
 
                 <tbody>
                     <ng-container *ngFor='let absence of tooManyAbsences'>
-                        <tr class="text-center" *ngIf="absence.absences > maxAbsences, else showUnstyled" (click)="clickDateAbsences(template); consultAbsence(absence);" style="background-color: #eb7171">
+                        <tr class="text-center" *ngIf="absence.absences > maxAbsences, else showUnstyled"
+                            (click)="clickDateAbsences(template); consultAbsence(absence);"
+                            style="background-color: #eb7171">
                             <td>{{absence.firstName}}</td>
                             <td>{{absence.lastName}}</td>
                             <td>{{absence.absences}}</td>
@@ -35,38 +37,38 @@
 
         <!--modal / absences popup-->
         <ng-template #template>
-          <div class="modal-header">
-              <h1>{{'tables.absences' | translate}}</h1>
-              <button type="button" class="close pull-right buttonX" aria-label="Close" (click)="modalRef.hide()">
-                  <span aria-hidden="true">&times;</span>
-              </button>
-          </div>
-          <div class="modal-body">
-            <h3>
-                <ng-container *ngFor='let absence of tooManyAbsences'>
-                    <div class="text-center" *ngIf="absence.id == studentAbsence">
-                        {{absence.firstName}} {{absence.lastName}} ({{absence.absences}})
-                    </div>
-                </ng-container>
-            </h3>
-            <table class="table">
-              <thead>
-                  <tr class="text-center">
-                      <th scope="col">{{'tables.modalDate' | translate}}</th>
-                      <th scope="col">{{'tables.modalReason' | translate}}</th>
-                  </tr>
-              </thead>
+            <div class="modal-header">
+                <h1>{{'tables.absences' | translate}}</h1>
+                <button type="button" class="close pull-right buttonX" aria-label="Close" (click)="modalRef.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h3>
+                    <ng-container *ngFor='let absence of tooManyAbsences'>
+                        <div class="text-center" *ngIf="absence.id == studentAbsence">
+                            {{absence.firstName}} {{absence.lastName}} ({{absence.absences}})
+                        </div>
+                    </ng-container>
+                </h3>
+                <table class="table">
+                    <thead>
+                        <tr class="text-center">
+                            <th scope="col">{{'tables.modalDate' | translate}}</th>
+                            <th scope="col">{{'tables.modalReason' | translate}}</th>
+                        </tr>
+                    </thead>
 
-              <tbody>
-                  <ng-container *ngFor='let dayAbsence of daysAbsences'>
-                    <tr class="text-center" *ngIf="dayAbsence.userStudent == studentAbsence">
-                        <td>{{dayAbsence.dateMissing | date: 'yyyy-MM-dd'}}</td>
-                        <td></td>
-                    </tr>
-                  </ng-container>
-              </tbody>
-            </table>
-          </div>
+                    <tbody>
+                        <ng-container *ngFor='let dayAbsence of daysAbsences'>
+                            <tr class="text-center" *ngIf="dayAbsence.userStudent == studentAbsence">
+                                <td>{{dayAbsence.dateMissing | date: 'yyyy-MM-dd'}}</td>
+                                <td></td>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                </table>
+            </div>
         </ng-template>
 
         <div class="col-6">
@@ -83,12 +85,13 @@
 
                 <tbody>
                     <ng-container *ngFor="let alumno of almostDone">
-                        <tr class="text-center"  *ngIf="endingInFiveDays>=alumno.days, else showUnstyled" style="background-color: #eb7171">
+                        <tr class="text-center" *ngIf="endingInFiveDays>=alumno.days, else showUnstyled"
+                            style="background-color: #eb7171">
                             <td>{{alumno.firstName}}</td>
                             <td>{{alumno.lastName}}</td>
                             <td>{{alumno.finishDate | date: 'dd-MM-yyyy'}} ({{alumno.days}})</td>
-                          </tr>
-                          <ng-template #showUnstyled>
+                        </tr>
+                        <ng-template #showUnstyled>
                             <tr class="text-center">
                                 <td>{{alumno.firstName}}</td>
                                 <td>{{alumno.lastName}}</td>
@@ -96,8 +99,8 @@
                             </tr>
                         </ng-template>
                     </ng-container>
-  
-<!-- 
+
+                    <!-- 
             <tr class="text-center">
             <td>First Name</td>
             <td>Last Name</td>

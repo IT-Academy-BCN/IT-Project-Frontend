@@ -9,7 +9,6 @@ import { PeoplepieComponent } from './statistics-pies/peoplepie/peoplepie.compon
 import { StatisticsViewComponent } from './statistics-view/statistics-view.component'
 import { TranslateModule } from '@ngx-translate/core';
 
-
 @NgModule({
   declarations: [ PeoplepieComponent, GenrepieComponent,TablesComponent, StatisticsViewComponent],
   imports: [
