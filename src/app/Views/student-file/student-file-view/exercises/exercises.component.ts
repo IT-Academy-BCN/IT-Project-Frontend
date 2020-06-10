@@ -6,6 +6,7 @@ import {
 } from '../../../../Models/exercise.model';
 import { Student } from '../../../../Models/student.model';
 import { ExerciseModalComponent } from '../exercise-modal/exercise-modal.component';
+import { TranslateService } from '@ngx-translate/core';
 
 class ExerciseData {
   constructor(
@@ -34,8 +35,14 @@ export class ExercisesComponent {
   }
   private statuses = Statuses;
   public exercises: ExerciseData[] = [];
+  public selectedLanguage = 'es';
 
-  constructor(private exerciseService: ExerciseService) { }
+  constructor(
+    private exerciseService: ExerciseService,
+    private translateService: TranslateService,) { 
+      this.translateService.setDefaultLang(this.selectedLanguage);
+      this.translateService.use(this.selectedLanguage);
+    }
 
   public updateExerciseStatus(updateData: StatusUpdateData) {
     this.exerciseService

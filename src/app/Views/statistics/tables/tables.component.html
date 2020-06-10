@@ -2,14 +2,14 @@
     <!-- Table 8 absences -->
     <div class="row d-flex justify-content-around mt-4">
         <div class="col faltes">
-            <h2 class="text-center mt-5">Alumnos con más de 8 faltas</h2>
+            <h2 class="text-center mt-5">{{'tables.titleAbsences' | translate}}</h2>
             <table class="table table-hover">
 
                 <thead>
                     <tr class="text-center">
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Apellidos</th>
-                        <th scope="col">Faltas</th>
+                        <th scope="col">{{'tables.studentsName' | translate}}</th>
+                        <th scope="col">{{'tables.studentsSurnames' | translate}}</th>
+                        <th scope="col">{{'tables.studentsAbsences' | translate}}</th>
                     </tr>
                 </thead>
 
@@ -36,7 +36,7 @@
         <!--modal / absences popup-->
         <ng-template #template>
           <div class="modal-header">
-              <h1>Ausencias</h1>
+              <h1>{{'tables.absences' | translate}}</h1>
               <button type="button" class="close pull-right buttonX" aria-label="Close" (click)="modalRef.hide()">
                   <span aria-hidden="true">&times;</span>
               </button>
@@ -52,8 +52,8 @@
             <table class="table">
               <thead>
                   <tr class="text-center">
-                      <th scope="col">Fecha</th>
-                      <th scope="col">Motivo</th>
+                      <th scope="col">{{'tables.modalDate' | translate}}</th>
+                      <th scope="col">{{'tables.modalReason' | translate}}</th>
                   </tr>
               </thead>
 
@@ -70,14 +70,14 @@
         </ng-template>
 
         <div class="col-6">
-            <h2 class="text-center mt-5">Alumnos a dos semanas de finalizar</h2>
+            <h2 class="text-center mt-5">{{'tables.2WeeksToGo' | translate}}</h2>
             <table class="table table-hover">
 
                 <thead>
                     <tr class="text-center">
-                        <th scope="col" class="align-top">Nombre</th>
-                        <th scope="col" class="align-top">Primer Apellido</th>
-                        <th scope="col">Fecha (Faltan días)</th>
+                        <th scope="col" class="align-top">{{'tables.studentsName' | translate}}</th>
+                        <th scope="col" class="align-top">{{'tables.studentsLastName' | translate}}</th>
+                        <th scope="col">{{'tables.date' | translate}}</th>
                     </tr>
                 </thead>
 

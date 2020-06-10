@@ -1,0 +1,49 @@
+{
+    "header": {
+        "item1": "Aula",
+        "item2": "Revisión",
+        "item3": "Estadísticas",
+        "item4": "Alumno",
+        "item5": "Proyecto",
+        "logout": "Salir",
+        "englishLabel": "Inglés",
+        "spanishLabel": "Castellano",
+        "catalanLabel": "Catalán"
+    },
+    "footer": {
+        "text": "Hecho con ♥ por los estudiantes de ITAcademy 2019 / 2020"
+    },
+    "searchStudent":{
+        "text": "Buscar"
+    },
+    "dataStudent": {
+        "_itinerary": "Itinerario: ",
+        "start_date": "Fecha de alta: ",
+        "end_date": "Fecha límite: ",
+        "_abscences": "Faltas: ",
+        "_made": "Cursado"
+    },
+    "exercises": {
+        "_exercises": "Ejercicios",
+        "_state": "Estado",
+        "_date": "Fecha",
+        "change_state": "Cambiar estado"
+    }, 
+    "statistics-view": {
+        "mainTitle": "Estadísticas",
+        "studentsItinerary": "Alumnos por itinerario",
+        "studentsGender": "Alumnos por Sexo"
+    },
+    "tables": {
+        "titleAbsences": "Alumnos con más de 8 faltas",
+        "studentsName": "Nombre",
+        "studentsSurnames": "Apellidos",
+        "studentsAbsences": "Faltas",
+        "absences": "Ausencias",
+        "modalDate": "Fecha",
+        "modalReason": "Motivo",
+        "2WeeksToGo": "Alumnos a dos semanas de finalizar",
+        "studentsLastName": "Primer Apellido",
+        "date": "Fecha (Faltan días)"
+    }
+}

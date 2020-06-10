@@ -7,6 +7,8 @@ import { GenrepieComponent } from './statistics-pies/genrepie/genrepie.component
 import { StatisticsRoutingModule } from './statistics-routing.module';
 import { PeoplepieComponent } from './statistics-pies/peoplepie/peoplepie.component';
 import { StatisticsViewComponent } from './statistics-view/statistics-view.component'
+import { TranslateModule } from '@ngx-translate/core';
+
 
 @NgModule({
   declarations: [ PeoplepieComponent, GenrepieComponent,TablesComponent, StatisticsViewComponent],
@@ -14,6 +16,7 @@ import { StatisticsViewComponent } from './statistics-view/statistics-view.compo
     CommonModule,
     ChartsModule,
     StatisticsRoutingModule,
+    TranslateModule,
   ]
 })
 export class StatisticsModule { }

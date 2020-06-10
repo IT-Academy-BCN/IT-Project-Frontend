@@ -9,10 +9,17 @@ import { AlumnoService } from '../../../../Services/alumno.service';
 })
 export class TablesComponent implements OnInit {
 
-  constructor(private alumnoService: AlumnoService) { }
+  public selectedLanguage = 'es';
+
+  constructor(
+    private alumnoService: AlumnoService,
+    ) { 
+
+    }
 
   tooManyAbsences: Alumno[] = [];
   almostDone: Alumno[] = [];
+  
 
   ngOnInit() {
     this.tooManyAbsences = this.alumnoService.getByAbsences(8);

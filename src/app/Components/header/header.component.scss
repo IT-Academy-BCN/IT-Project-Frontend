@@ -46,6 +46,11 @@ a:hover {
   color: $pink !important;
 }
 
+// Selector de idioma
+.selectLanguage{
+  border: none;
+}
+
 // Grids para cambiar el orden de los elementos del header
 
 @media (max-width: 998px) {
