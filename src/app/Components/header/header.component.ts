@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { User } from "../../Models/user.model";
 import { Router, RouterLink, RouterLinkActive } from "@angular/router";
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: "app-header",
@@ -15,8 +16,23 @@ export class HeaderComponent implements OnInit {
   currentUser = JSON.parse(localStorage.getItem("currentUser"));
   firstName = this.currentUser.firstName;
   lastName = this.currentUser.lastName;
+  
+  // TRANSLATE
+  selectedLanguage = 'es';
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private translateService: TranslateService,
+    ) {
+      //translate
+      this.translateService.setDefaultLang(this.selectedLanguage);
+      this.translateService.use(this.selectedLanguage);
+    }
+
+    //translate
+    toogleLanguage(lang: string){
+      this.translateService.use(lang);
+    }
 
   // logout () {
   //   let menu = <HTMLAnchorElement>document.getElementById('menu');
@@ -34,5 +50,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void { }
+
+ 
 
 }
