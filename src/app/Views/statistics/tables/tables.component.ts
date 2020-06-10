@@ -1,6 +1,7 @@
 import { Component, TemplateRef, OnInit } from '@angular/core';
 import { PerAbsence } from './model/perabsence.model';
 import { PerDayAbsence } from './model/perdayabsence.model';
+import { Almostdone } from './model/almostdone.model';
 import { StatisticsService } from './../../../Services/statistics.service';
 import { AbsencesService } from './../../../Services/absences.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
@@ -17,8 +18,8 @@ export class TablesComponent implements OnInit {
 
   constructor( private statisticsService: StatisticsService,
     private absencesService: AbsencesService,
-    private modalService: BsModalService // modal
-  ) {
+    private modalService: BsModalService, // modal
+    ) {
   }
 
 
@@ -26,6 +27,9 @@ export class TablesComponent implements OnInit {
   daysAbsences:PerDayAbsence[] = [];
   maxAbsences:Number = 12;
   studentAbsence:string = "";
+  almostDone:Almostdone[] = [];
+  almostDoneDate: Date[] = [];
+  endingInFiveDays:number = 5;
 
   ngOnInit() {
 
@@ -40,8 +44,21 @@ export class TablesComponent implements OnInit {
         console.log(daysAbsences);
         this.daysAbsences = daysAbsences;
         });
+    
+    this.statisticsService.get_almostDoneStudents()
+        .subscribe((almostDone: Almostdone[])=>{
+          console.log(almostDone);
+          console.log(almostDone.length);
+          this.almostDone = almostDone;
+        for (let i = 0; i < almostDone.length; i++) {
+        almostDone[i].finishDate = new Date();
+        almostDone[i].finishDate.setDate(almostDone[i].finishDate.getDate() + almostDone[i].days);    
+        }
+        })
 
-  }
+  
+
+}
 
   clickDateAbsences(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
