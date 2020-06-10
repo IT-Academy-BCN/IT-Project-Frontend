@@ -11,6 +11,7 @@ import { ClassroomVirtualRoutingModule } from './classroom-virtual-routing.modul
 import { ClassroomVirtualViewComponent } from './classroom-virtual-view/classroom-virtual-view.component';
 import { VirtualItSearchComponent } from './virtual-it-search/virtual-it-search.component';
 import { VirtualTableComponent }   from './virtual-table/virtual-table.component';
+import { VirtualCirclesComponent }   from './virtual-circles/virtual-circles.component';
 import { virtualStringPipe } from '../../Pipes/virtualStringPipe'
 
 @NgModule({
@@ -18,6 +19,7 @@ import { virtualStringPipe } from '../../Pipes/virtualStringPipe'
     ClassroomVirtualViewComponent,
     VirtualItSearchComponent,
     VirtualTableComponent,
+    VirtualCirclesComponent,
     virtualStringPipe
   ],
   imports: [
