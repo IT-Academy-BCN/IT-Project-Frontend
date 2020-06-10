@@ -69,25 +69,40 @@
           </div>
         </ng-template>
 
-        <!-- Table almost done -->
-        <div class="col">
+        <div class="col-6">
             <h2 class="text-center mt-5">Alumnos a dos semanas de finalizar</h2>
             <table class="table table-hover">
 
                 <thead>
                     <tr class="text-center">
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Primer Apellido</th>
-                        <th scope="col">Fecha Finalización</th>
+                        <th scope="col" class="align-top">Nombre</th>
+                        <th scope="col" class="align-top">Primer Apellido</th>
+                        <th scope="col">Fecha (Faltan días)</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <!-- <tr class="text-center" *ngFor="let alumno of almostDone">
-            <td>{{alumno.name}}</td>
-            <td>{{alumno.lastname}}</td>
-            <td>{{alumno.limitDate | date:'dd/MM/yyyy'}}</td>
-          </tr>-->
+                    <ng-container *ngFor="let alumno of almostDone">
+                        <tr class="text-center"  *ngIf="endingInFiveDays>=alumno.days, else showUnstyled" style="background-color: #eb7171">
+                            <td>{{alumno.firstName}}</td>
+                            <td>{{alumno.lastName}}</td>
+                            <td>{{alumno.finishDate | date: 'dd-MM-yyyy'}} ({{alumno.days}})</td>
+                          </tr>
+                          <ng-template #showUnstyled>
+                            <tr class="text-center">
+                                <td>{{alumno.firstName}}</td>
+                                <td>{{alumno.lastName}}</td>
+                                <td>{{alumno.finishDate | date: 'dd-MM-yyyy'}} ({{alumno.days}})</td>
+                            </tr>
+                        </ng-template>
+                    </ng-container>
+  
+<!-- 
+            <tr class="text-center">
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>15/07/2020</td>
+          </tr> -->
                 </tbody>
             </table>
         </div>
