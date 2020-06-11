@@ -28,5 +28,22 @@
         "_state": "Estat",
         "_date": "Data",
         "change_state": "Canviar estat"
-    } 
+    },
+    "statistics-view": {
+        "mainTitle": "Estadístiques",
+        "studentsItinerary": "Alumnes per itinerari",
+        "studentsGender": "Alumnes per Sexe"
+    },
+    "tables": {
+        "titleAbsences": "Alumnes amb més de 8 faltes",
+        "studentsName": "Nom",
+        "studentsSurnames": "Cognoms",
+        "studentsAbsences": "Faltes",
+        "absences": "Faltes",
+        "modalDate": "Data",
+        "modalReason": "Motiu",
+        "2WeeksToGo": "Alumnes a dues setmanes de finalitzar",
+        "studentsLastName": "Primer Cognom",
+        "date": "Data (Falten dies)"
+    }
 }

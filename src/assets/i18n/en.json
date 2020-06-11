@@ -28,5 +28,22 @@
         "_state": "State",
         "_date": "Date",
         "change_state": "Change state"
+    },
+    "statistics-view": {
+        "mainTitle": "Statistics",
+        "studentsItinerary": "Students per Itinerary",
+        "studentsGender": "Students per Sex"
+    },
+    "tables": {
+        "titleAbsences": "Students with more than 8 Absences",
+        "studentsName": "Name",
+        "studentsSurnames": "Surnames",
+        "studentsAbsences": "Absences",
+        "absences": "Absences",
+        "modalDate": "Date",
+        "modalReason": "Reason",
+        "2WeeksToGo": "Students within two weeks of completion",
+        "studentsLastName": "First Surname",
+        "date": "Date (days to go)"
     } 
 }
