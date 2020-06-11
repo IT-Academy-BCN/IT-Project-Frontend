@@ -17,6 +17,7 @@ import { StudentFileModule } from "./Views/student-file/student-file.module";
 import { StatisticsModule } from "./Views/statistics/statistics.module";
 import { ReviewsModule } from "./Views/reviews/reviews.module";
 import { ClassroomModule } from "./Views/classroom/classroom.module";
+import { ClassroomVirtualModule } from "./Views/classroom-virtual/classroom-virtual.module";
 import { ProjectModule } from './Views/project/project.module';
 /* components */
 import { HeaderComponent } from "./Components/header/header.component";
@@ -59,6 +60,7 @@ export function createTranslateLoader(http: HttpClient){
     ReviewsModule,
     ProjectModule,
     ClassroomModule,
+    ClassroomVirtualModule,
     LoginModule,
     BrowserAnimationsModule,
     TooltipModule.forRoot(),

@@ -1,0 +1,59 @@
+@import '../../../../styles.scss';
+
+/* STYLES */
+
+h2 {
+  font-size: 1.25em;
+  font-weight: 400;
+  color: $pink;
+  text-align: center;
+}
+
+p {
+    color: $dark-grey;
+    font-size: 1em;
+}
+
+.reference {
+    width: 100%;
+    min-width: 400px;
+    margin: 25px auto;
+    height: 50px;
+}
+
+.reference-box {
+    width: 20%;
+    text-align: center;
+}
+
+span.strong {font-weight: 700;}
+span.number-circle{
+  color: #ffffff;
+  position: relative;
+  top: 8px;
+}
+
+
+// ITINERARY COLORS
+.commonblock {
+  background-color: $yellow;
+}
+
+.frontend {
+    background-color: $pink;
+}
+
+.backend {
+    background-color: $blue;
+}
+
+.net {
+    background-color: $black;
+}
+
+.empty {
+    background-color: #CCCCCC;
+}
+
+
+
