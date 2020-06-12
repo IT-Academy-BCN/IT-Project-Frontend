@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { User } from "../../Models/user.model";
-import { Router, RouterLink, RouterLinkActive } from "@angular/router";
+import { Router, RouterLink, RouterLinkActive, ActivatedRoute } from "@angular/router";
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -9,6 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: "./header.component.html",
   styleUrls: ["./header.component.scss"],
 })
+
 export class HeaderComponent implements OnInit {
   faSignOutAlt = faSignOutAlt;
   user: User = new User();
@@ -20,18 +21,24 @@ export class HeaderComponent implements OnInit {
   // TRANSLATE
   selectedLanguage = 'es';
 
+
   constructor(
+    private route: ActivatedRoute,
     private router: Router,
     private translateService: TranslateService,
     ) {
       //translate
       this.translateService.setDefaultLang(this.selectedLanguage);
       this.translateService.use(this.selectedLanguage);
+      this.router.navigate([], {queryParams: { lang:"es" }})
     }
 
     //translate
     toogleLanguage(lang: string){
       this.translateService.use(lang);
+      console.log(lang)
+      console.log(this.route)
+        this.router.navigate([], {queryParams: { lang }})
     }
 
   // logout () {
@@ -49,8 +56,6 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl("/login");
   }
 
-  ngOnInit(): void { }
-
- 
-
+  ngOnInit(): void{
+  }
 }
