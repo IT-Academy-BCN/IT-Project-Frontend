@@ -28,22 +28,5 @@
         "_state": "Estado",
         "_date": "Fecha",
         "change_state": "Cambiar estado"
-    }, 
-    "statistics-view": {
-        "mainTitle": "Estadísticas",
-        "studentsItinerary": "Alumnos por itinerario",
-        "studentsGender": "Alumnos por Sexo"
-    },
-    "tables": {
-        "titleAbsences": "Alumnos con más de 8 faltas",
-        "studentsName": "Nombre",
-        "studentsSurnames": "Apellidos",
-        "studentsAbsences": "Faltas",
-        "absences": "Ausencias",
-        "modalDate": "Fecha",
-        "modalReason": "Motivo",
-        "2WeeksToGo": "Alumnos a dos semanas de finalizar",
-        "studentsLastName": "Primer Apellido",
-        "date": "Fecha (Faltan días)"
-    }
+    } 
 }

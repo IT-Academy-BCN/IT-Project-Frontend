@@ -23,9 +23,27 @@ export class ExerciseService {
   }
 
   public updateExerciseStatus(updateData: StatusUpdateData) {
-    // call to API must be implemented
+    const baseUrl = 'http://217.76.158.200:8090/api/exercises/';
+
+    const updateTemp = {
+      id: parseInt(updateData.exerciseId),
+      status: {
+        id: updateData.status
+      }
+    }
+
+    return this.http.put(`${baseUrl}`, updateTemp)
+              .subscribe(
+                  val  => { console.log("PUT call successful value returned in body", val); },
+                  resp => { console.log("PUT call in error", resp); },
+                  ()   => { console.log("The PUT observable is now completed."); }
+                )
   }
 
+  public postExerciseExercise(updateData: StatusUpdateData){
+    const baseUrl = "";
+    return this.http.post(`${baseUrl}`, updateData)
+  }
   private parseDate(exercises: StudentExercise[]) {
     exercises.forEach(exercise => {
       const date = exercise.status.date.split(' ')[0];

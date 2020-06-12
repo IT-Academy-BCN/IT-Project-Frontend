@@ -1,19 +1,63 @@
 @import '../../../../../styles.scss';
 
-.submit-btn {
-  font-size: 0.9em;
+// .submit-btn {
+//   font-size: 0.9em;
+//   background-color: $pink;
+//   color: $white;
+// }
+// .submit-btn:hover {
+//   text-decoration: underline;
+// }
+
+// .grey-btn {
+//   font-size: 0.9em;
+//   background-color: $dark-grey;
+//   color: $white;
+// }
+// .grey-btn:hover {
+//   text-decoration: underline;
+// }
+
+.modal-lg{
+  width: 700px;
+}
+
+
+// MODAL BUTTONS
+button.submit-btn {
   background-color: $pink;
   color: $white;
 }
-.submit-btn:hover {
+
+button.submit-btn:hover {
+  color: $white;
   text-decoration: underline;
 }
 
-.grey-btn {
-  font-size: 0.9em;
+button.grey-btn {
   background-color: $dark-grey;
   color: $white;
 }
-.grey-btn:hover {
+
+button.grey-btn:hover {
+  color: $white;
+  text-decoration: underline;
+}
+
+button.blue-btn {
+  background-color: $blue;
+  color: $white;
+}
+
+button.blue-btn:hover {
+  color: $white;
+  text-decoration: underline;
+}
+
+button.lightgrey-btn {
+  background-color: $light-grey;
+}
+
+button.lightgrey-btn:hover {
   text-decoration: underline;
 }

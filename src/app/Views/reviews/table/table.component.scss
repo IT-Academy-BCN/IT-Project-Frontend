@@ -33,6 +33,11 @@
     cursor: default;
     padding: 6px;
 }
+.badge-aqua {
+  background-color: $aqua;
+  cursor: default;
+  padding: 6px;
+}
 
 // TABLE
 th,
@@ -86,6 +91,10 @@ td {
 .table-bg-reviewed {
     background-color: $pink;
     color: $white;
+}
+.table-bg-finished {
+  background-color: $aqua;
+  color: $white;
 }
 
 // PAGINATION

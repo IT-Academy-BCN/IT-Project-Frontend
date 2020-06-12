@@ -1,9 +1,7 @@
 import { Component, Input } from '@angular/core';
 /* own */
 import { ExerciseService } from '../../../../Services/exercise.service';
-import {
-  StudentExercise, Statuses, StatusId, StatusUpdateData
-} from '../../../../Models/exercise.model';
+import { StudentExercise, Statuses, StatusId, StatusUpdateData } from '../../../../Models/exercise.model';
 import { Student } from '../../../../Models/student.model';
 import { ExerciseModalComponent } from '../exercise-modal/exercise-modal.component';
 import { TranslateService } from '@ngx-translate/core';
@@ -39,14 +37,13 @@ export class ExercisesComponent {
 
   constructor(
     private exerciseService: ExerciseService,
-    private translateService: TranslateService,) { 
+    private translateService: TranslateService,) {
       this.translateService.setDefaultLang(this.selectedLanguage);
       this.translateService.use(this.selectedLanguage);
     }
 
   public updateExerciseStatus(updateData: StatusUpdateData) {
-    this.exerciseService
-      .updateExerciseStatus(updateData);  // call to API must be implemented
+    this.exerciseService.updateExerciseStatus(updateData);  // call to API must be implemented
 
     // this mocks service response
     const updated = this.exercises.find(exercise => exercise.id === updateData.exerciseId);

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { StudentReview } from '../../../Models/studentsReview';
 import { ReviewsService } from '../../../Services/reviews.service';
 import { StudentService } from '../../../Services/student.service';
@@ -30,7 +30,7 @@ export class TableComponent implements OnInit {
   clickEventsubscription: Subscription;
 
   constructor(private reviewService: ReviewsService,
-    private studentsService: StudentService) {
+              private studentsService: StudentService) {
 
     // Dropdown comunication
     this.clickEventsubscription = this.reviewService.getDropdownEvent().subscribe(data => {
@@ -57,8 +57,9 @@ export class TableComponent implements OnInit {
 
   fillStudents = (students: StudentInList[]) => {
     this.allStudents = students;
-    this.requestExercises(); // Obtenemos los ejercicios 
+    this.requestExercises(); // Obtenemos los ejercicios
     return this.allStudents;
+
   }
 
   requestExercises() {
@@ -74,9 +75,12 @@ export class TableComponent implements OnInit {
   }
 
   bindingStudentsExercises() {
-
     // Se puede implementar una solucion mas elegante uniformando la db con la respuesta que da en la consulta a ejercicios (ver exercise.model --> Statuses)
-    let statusObj = { "FINISHED": "Corregido", "": "No entregado", "To define1": "Entregado", "To define2": "A revisar", "To define3": "" }
+    let statusObj = { "FINISHED": "Corregido",
+                      "": "No entregado",
+                      "To define1": "Entregado",
+                      "To define2": "A revisar",
+                      "To define3": "Finalizado" }
     this.students_ = [];
     this.allStudents.forEach(student => {
 
@@ -88,7 +92,7 @@ export class TableComponent implements OnInit {
       this.exer.forEach(exercise => {
 
         let exercise_ = {} as exercisesList;
-        exercise_.id = exercise.id;
+        exercise_.id = exercise.id ;
         exercise_.name = exercise.name;
         exercise_.state = "No entregado";
         exercise_.date = new Date();
@@ -97,6 +101,8 @@ export class TableComponent implements OnInit {
           if (student.id == studentInSubject.id) {  //This must be done with the IDs when API response will be modified
             exercise_.state = statusObj[studentInSubject.status];
             exercise_.date = studentInSubject.date;
+            exercise_.userExerciseId = studentInSubject.userExerciseId;
+
           }
         });
 
@@ -114,6 +120,5 @@ export class TableComponent implements OnInit {
 
     return this.students_;
   }
-
 
 }

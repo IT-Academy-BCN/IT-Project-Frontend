@@ -5,7 +5,6 @@ import { Almostdone } from './model/almostdone.model';
 import { StatisticsService } from './../../../Services/statistics.service';
 import { AbsencesService } from './../../../Services/absences.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -17,24 +16,12 @@ export class TablesComponent implements OnInit {
 
   modalRef: BsModalRef; // modal
 
-
-    // TRANSLATE
-    selectedLanguage = 'es';
-
   constructor( private statisticsService: StatisticsService,
     private absencesService: AbsencesService,
     private modalService: BsModalService, // modal
-    private translateService: TranslateService,
     ) {
-            //translate
-            this.translateService.setDefaultLang(this.selectedLanguage);
-            this.translateService.use(this.selectedLanguage);
   }
-      
-     //translate
-     toogleLanguage(lang: string){
-      this.translateService.use(lang);
-     }
+
 
   tooManyAbsences:PerAbsence[] = [];
   daysAbsences:PerDayAbsence[] = [];

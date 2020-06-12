@@ -89,8 +89,6 @@ export class Student_Review {
   firstName: string;
   lastName: string;
   exercises: exercisesList[];
-  lastClassAttendance: string;
-  lastDeliveredExercise: string;
 }
 
 export interface exercisesList {
@@ -99,4 +97,5 @@ export interface exercisesList {
   state: string;
   date: Date;
   itinerary: string;
+  userExerciseId: number;
 }

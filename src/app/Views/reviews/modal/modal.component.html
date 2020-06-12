@@ -1,3 +1,4 @@
+
 <!-- CONTENT -->
 <div *ngIf="this.exercises.state != 'No entregado'; else showDefault">
     <p (click)="openModal(template)">
@@ -21,19 +22,41 @@
         </button>
     </div>
     <div class="modal-body">
-        <div class="row">
-            <div class="col-md-2">
+        <div class="row justify-content-center form-group">
+            <div class=" col-md-1 text-right align-self-center">
                 <label>Fecha</label>
             </div>
-            <div class="col-xs-12 col-12 col-md-4 form-group">
+            <div class="col-xs-12 col-12 col-md-4">
                 <input type="text" placeholder="dd/mm/aaaa" class="form-control" bsDatepicker #dp="bsDatepicker" [bsConfig]="dpConfig" #date>
             </div>
         </div>
-        <div class="row justify-content-between m-1">
-            <button type="submit" class="btn grey-btn" (click)="changeDone('Entregado', date.value)">Entregado</button>
-            <button type="button" class="btn blue-btn col-3" (click)="changeCorrected('Corregido', date.value)">Corregido</button>
-            <button type="button" class="btn submit-btn col-3" (click)="changeReviewed('A revisar', date.value)">A revisar</button>
-            <button type="button" class="btn lightgrey-btn" (click)="changeEmpty('No entregado')">No entregado</button>
+
+        <!-- None = 1, TurnedIn = 2 , Received = 3 , Checked  = 4, Finished = 5 -->
+        <div class="row justify-content-center m-1">
+
+          <ng-container *ngFor="let status of statusList; let i = index">
+            <div class="col-lg-2 col-sm-12 mb-2 p-2">
+              <button type="button"
+                      class="btn w-100 h-100"
+                      [ngClass]="{
+                          'lightgrey-btn':'None' === status.name,
+                          'grey-btn': 'TurnedIn' === status.name,
+                          'submit-btn': 'Received' === status.name,
+                          'blue-btn': 'Checked' === status.name,
+                          'btn-info': 'Finished' === status.name }"
+                      (click)="updateStatus(status.id, date.value)">
+
+                {{ statusToDisplay[status.name] | titlecase }}
+              </button>
+            </div>
+          </ng-container>
+          <!-- <button type="button" class="btn submit-btn col-3" (click)="changeReceived('A revisar', date.value)">A revisar</button> -->
+
         </div>
+
+        <!--   <button type="button" class="btn grey-btn" (click)="changeDone(2, date.value)">Entregado</button>
+          <button type="button" class="btn blue-btn col-3" (click)="changeCorrected(5, date.value)">Corregido</button>
+          <button type="button" class="btn submit-btn col-3" (click)="changeReviewed(3, date.value)">A revisar</button>
+          <button type="button" class="btn lightgrey-btn" (click)="changeEmpty(1)">No entregado</button> -->
     </div>
 </ng-template>
