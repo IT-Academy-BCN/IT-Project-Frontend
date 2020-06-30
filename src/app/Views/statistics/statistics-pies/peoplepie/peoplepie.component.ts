@@ -19,13 +19,16 @@ export class PeoplepieComponent implements OnInit {
   constructor(private statisticsService: StatisticsService) {}
 
   ngOnInit() {
-    
     this.statisticsService.get_itineraryStudents()
     .subscribe((result: Peoplepie[])=>{
         result.forEach(element => {
           this.pieChartData.push(element.students);
           this.pieChartLabels.push(element.itinerary);
         });
+        // To delete the last position of the each of two array options because the common itinerary now is a preamble and it has not sense
+        this.pieChartData.pop();
+        this.pieChartLabels.pop();
+        
         new Chart('peoplechart', {
           type: 'pie',
           data: {
@@ -36,8 +39,7 @@ export class PeoplepieComponent implements OnInit {
                 backgroundColor: [  
                   "#ffa3b7",  
                   "#5cc8f5",  
-                  "#ffe397",  
-                  "#e8e8e8"  
+                  "#ffe397"
                 ],  
                 fill: true
               }
