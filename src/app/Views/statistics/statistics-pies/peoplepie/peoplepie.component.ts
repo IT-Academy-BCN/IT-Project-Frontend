@@ -23,7 +23,7 @@ export class PeoplepieComponent implements OnInit {
       .get_itineraryStudents()
       .subscribe((result: Peoplepie[]) => {
         result.forEach((element) => {
-          if ((!this.pieChartData[2]) && (!this.pieChartLabels[2])) {
+          if (element.itinerary != "COMMON-BLOCK") {
             this.pieChartData.push(element.students);
             this.pieChartLabels.push(element.itinerary);
           }
