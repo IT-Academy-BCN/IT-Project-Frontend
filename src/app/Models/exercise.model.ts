@@ -7,7 +7,7 @@ export enum ItineraryId {
   FrontEnd,
   BackEndJava,
   BackEndDotNet,
-  ExStudents
+  //ExStudents  //Para dar lógica a la option del desplegable de virtual-it-search.html
 }
 
 type ItineraryName = keyof typeof ItineraryId;
@@ -17,7 +17,7 @@ export const Itineraries: Record<ItineraryName, string> = {
   FrontEnd: 'Front-end',
   BackEndJava: 'Back-End - JAVA',
   BackEndDotNet: 'Back-End - .NET',
-  ExStudents: 'Ex-alumnos',
+  //ExStudents: 'Ex-alumnos', //Para dar lógica a la option del desplegable de virtual-it-search.html
 } as const;
 
 export enum StatusId {
