@@ -31,10 +31,10 @@ export enum StatusId {
 export type StatusName = keyof typeof StatusId;
 
 export const Statuses: Record<StatusName, string> = {
-  None: 'ninguno',
+  None: 'no entregado',
   TurnedIn: 'entregado',
-  Received: 'recibido (revisión pendiente)',
-  Checked: 'revisado (discusión pendiente)',
+  Received: 'a revisar',
+  Checked: 'corregido',
   Finished: 'finalizado'
 } as const;
 

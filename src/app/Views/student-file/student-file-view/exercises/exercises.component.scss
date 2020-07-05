@@ -1,10 +1,35 @@
 @import '../../../../../styles.scss';
+@import '../../../../../assets/colors.scss';
 
 .submit-btn {
   font-size: 0.9em;
-  background-color: $pink;
+  background-color: $pink;  
   color: $white;
 }
 .submit-btn:hover {
   text-decoration: underline;
+}
+
+// BG CONDITIONS
+.table-bg-default {
+  background-color: $white;
+}
+
+.table-bg-done {
+  background-color: $dark-grey;  
+  color: $white;
+}
+
+.table-bg-corrected {
+  background-color: $blue;
+  color: $white;
+}
+
+.table-bg-reviewed {
+  background-color: $pink;
+  color: $white;
+}
+
+.table-bg-finished {
+  background-color: $light-grey;
 }
