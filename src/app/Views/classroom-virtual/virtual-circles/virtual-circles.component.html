@@ -1,16 +1,37 @@
 <div class="container-fluid text-justify">
   <h2 class="p-4">Alumnos con más de 8 días sin entregar trabajos</h2>
 
-  <!--student background-->
+
   <div class="container reference d-flex justify-content-around">
-    <!-- display numb of students per itinerary -->
-      <div *ngFor="let itinerary of itineraries | slice:0:4; let i = index" class="reference-box">
-          <!-- [i+1] because position [0] is empty (no itinerary with this index) -->
-          <div [ngClass]="{'commonblock': i === 1, 'frontend':i === 3, 'backend':i === 0, 'net':i === 2}" style="width: 40px; height: 40px; border-radius: 100%; margin: auto;">
-            <span class="number-circle">{{ itineraries[i][1] }}</span>
-          </div>
-          <p class="pt-2 strong">{{ itineraries[i][0] }}</p>
+    <div *ngFor="let item of itinerariesDeliveries | slice:0:4; let i = index" class="reference-box">
+      <div [ngClass]="{'commonblock': i === 1, 'frontend':i === 3, 'backend':i === 0, 'net':i === 2}"
+        style="width: 40px; height: 40px; border-radius: 100%; margin: auto;">
+        <span class="number-circle">{{ itinerariesDeliveries[i][1] }}</span>
       </div>
+      <p class="pt-2 strong">{{ itinerariesDeliveries[i][0] }}</p>
+    </div>
   </div>
+
+  <div class="container reference d-flex justify-content-around">
+    <div *ngFor="let item of itinerariesDeliveries | slice:0:4; let i = index" class="reference-box">
+      <div [ngClass]="{'commonblock': i === 1, 'frontend':i === 3, 'backend':i === 0, 'net':i === 2}"
+      style="width: 40px; height: 40px; border-radius: 100%; margin: auto;">{{ item.num_students }}</div>
+      <div class="pt-2 strong">{{ item.itinerary_name }}</div>
+    </div>
+  </div>
+
 </div>
 
+
+
+
+
+<!-- <div class="container reference d-flex justify-content-around">
+    <div *ngFor="let itinerary of itineraries | slice:0:4; let i = index" class="reference-box">
+      <div [ngClass]="{'commonblock': i === 1, 'frontend':i === 3, 'backend':i === 0, 'net':i === 2}"
+        style="width: 40px; height: 40px; border-radius: 100%; margin: auto;">
+        <span class="number-circle">{{ itineraries[i][1] }}</span>
+      </div>
+      <p class="pt-2 strong">{{ itineraries[i][0] }}</p>
+    </div>
+  </div> -->

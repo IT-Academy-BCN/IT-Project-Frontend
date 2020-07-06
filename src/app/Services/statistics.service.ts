@@ -20,4 +20,12 @@ export class StatisticsService {
     public get_almostDoneStudents () {
       return this.http.get(this.baseUrl+'/finish-in-x-days/14/');
     }
+    //get itineraries deliveries
+    public get_itinerariesDeliveries () {
+      return this.http.get(this.baseUrl+'/itineraries-deliveries/');
+    }
+    //get students deliveries
+    public get_studentsDeliveries () {
+      return this.http.get(this.baseUrl+'/students-deliveries/');
+    }
 }
