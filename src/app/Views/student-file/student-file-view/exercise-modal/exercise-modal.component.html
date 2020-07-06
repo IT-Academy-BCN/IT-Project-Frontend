@@ -23,14 +23,16 @@
           <ng-container *ngFor="let status of statusList; let i = index">
             <div class="col-3 px-2" *ngIf="status.name !== 'None'">
               <button type="button"
-                class="btn h-100 w-100"
-                [class.submit-btn]="statusId == i"
-                [class.grey-btn]="statusId != i"
+                class="btn"
+                [class.grey-btn]="status.name == 'TurnedIn'"
+                [class.blue-btn]="status.name == 'Checked'" 
+                [class.submit-btn]="status.name == 'Received'"
+                [class.lightgrey-btn]="status.name == 'Finished'"                
                 (click)="updateStatus(status.id, date.value)">
                 {{ statusToDisplay[status.name] | titlecase }}
-              </button>
-            </div>
-          </ng-container>
+              </button>                                                     
+            </div>              
+          </ng-container>                         
         </div>
       </div>
     </div>

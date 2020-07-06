@@ -11,7 +11,7 @@
     <tbody>
       <tr *ngFor="let exercise of exercises">
         <td class="align-middle">{{ exercise.name | titlecase }}</td>
-        <td class="align-middle">{{ exercise.statusName | titlecase }}</td>
+        <td class="align-middle" [ngClass]="[{'No entregado': 'table-bg-default', 'Entregado': 'table-bg-done', 'Corregido': 'table-bg-corrected', 'A Revisar': 'table-bg-reviewed', 'Finalizado': 'table-bg-finished'}[ exercise.statusName | titlecase ]]">{{ exercise.statusName | titlecase }}</td>
         <td class="align-middle">{{ exercise.statusDate | date:"dd/MM/yyyy" }}</td>
         <td class="align-middle">
           <button type="button" class="btn submit-btn full-container" 
@@ -23,6 +23,5 @@
     </tbody>
   </table>
 </div>
-
 <app-exercise-modal (statusUpdate)="updateExerciseStatus($event)" #statusUpdateModal>
 </app-exercise-modal>
