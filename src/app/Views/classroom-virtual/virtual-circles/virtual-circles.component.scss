@@ -1,12 +1,12 @@
-@import '../../../../styles.scss';
+@import "../../../../styles.scss";
 
 /* STYLES */
 
 h2 {
-  font-size: 1.25em;
-  font-weight: 400;
-  color: $pink;
-  text-align: center;
+    font-size: 1.25em;
+    font-weight: 400;
+    color: $pink;
+    text-align: center;
 }
 
 p {
@@ -26,17 +26,18 @@ p {
     text-align: center;
 }
 
-span.strong {font-weight: 700;}
-span.number-circle{
-  color: #ffffff;
-  position: relative;
-  top: 8px;
+span.strong {
+    font-weight: 700;
 }
-
+span.number-circle {
+    color: #ffffff;
+    position: relative;
+    top: 8px;
+}
 
 // ITINERARY COLORS
 .commonblock {
-  background-color: $yellow;
+    background-color: $yellow;
 }
 
 .frontend {
@@ -52,8 +53,12 @@ span.number-circle{
 }
 
 .empty {
-    background-color: #CCCCCC;
+    background-color: #cccccc;
 }
 
-
-
+.virtual-circles-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    margin: auto;
+}

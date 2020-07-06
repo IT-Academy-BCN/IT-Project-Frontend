@@ -12,8 +12,7 @@ export class VirtualCirclesComponent implements OnInit {
   public studentsFP: any = [];
   public itineraries: any = [];
   public itinerariesDeliveries: any = [];
-  public studentsDeliveries: any = [];
-  // public isAnItinerary: boolean;
+  // public studentsDeliveries: any = [];
 
   constructor(
     public classroomService: ClassroomService,
@@ -40,6 +39,7 @@ export class VirtualCirclesComponent implements OnInit {
       (resp) => {
         this.itinerariesDeliveries = resp; // gets all Itineraries Deliveries info
         console.log(resp);
+        this.printItinerariesDeliveries(); // to display total of students in footer circle
       },
       (error) => {
         console.error(error);
@@ -64,10 +64,9 @@ export class VirtualCirclesComponent implements OnInit {
   printItinerariesDeliveries() {
     let numItineraryDelivery = {};
     this.itinerariesDeliveries.forEach(function (item) {
-      let nameItinerary = item.courses[0].itinerary.name;
-      if (nameItinerary != "COMMON-BLOCK") {
-        numItineraryDelivery[nameItinerary] =
-          (numItineraryDelivery[nameItinerary] || 0) + 1;
+      if (item.itinerary_name != "COMMON-BLOCK") {
+        numItineraryDelivery[item.num_students] =
+          (numItineraryDelivery[item.num_students] || 0) + 1;
       }
     });
     return (this.itinerariesDeliveries = Object.entries(numItineraryDelivery));
