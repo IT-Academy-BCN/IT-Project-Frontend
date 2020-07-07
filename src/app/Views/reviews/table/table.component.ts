@@ -5,7 +5,8 @@ import { StudentService } from '../../../Services/student.service';
 import { ExerciseResponseList, Student_Review, exercisesList, Itineraries, ItineraryId} from '../../../Models/exercise.model';
 import { StudentInList } from '../../../Models/student.model';
 import { Subscription } from 'rxjs';
-
+// translation
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-table',
@@ -24,13 +25,17 @@ export class TableComponent implements OnInit {
   itinerary;
   itinerarySelected;
   itArrayConversor = { 'Bloque común': 1, 'Front-end': 2, 'Back-end': 3, '.Net': 4, null: 0 };
-
+  
+  // TRANSLATE
+  selectedLanguage = 'es';
 
   // Dropdown comunication
   clickEventsubscription: Subscription;
 
-  constructor(private reviewService: ReviewsService,
-    private studentsService: StudentService) {
+  constructor(
+    private reviewService: ReviewsService,
+    private studentsService: StudentService,    
+    private translateService: TranslateService) {
 
     // Dropdown comunication
     this.clickEventsubscription = this.reviewService.getDropdownEvent().subscribe(data => {
@@ -38,6 +43,15 @@ export class TableComponent implements OnInit {
       this.itinerarySelected = true;
       this.onDropdownChange(this.itinerary);
     });
+    
+    //translate
+    this.translateService.setDefaultLang(this.selectedLanguage);
+    this.translateService.use(this.selectedLanguage);
+  }
+  
+  //translate
+  toogleLanguage(lang: string){
+    this.translateService.use(lang);
   }
 
   ngOnInit() {

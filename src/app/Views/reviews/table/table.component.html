@@ -3,10 +3,10 @@
     <div class="box-wrap">
         <div class="row align-middle">
             <div class="col text-right">
-                <span class="badge badge-grey ml-1">Entregado</span>
-                <span class="badge badge-blue ml-1">Corregido</span>
-                <span class="badge badge-pink ml-1">A revisar</span>
-                <span class="badge badge-lightgrey ml-1">No entregado</span>
+                <span class="badge badge-grey ml-1">{{'table.turnedIn' | translate}}</span>
+                <span class="badge badge-blue ml-1">{{'table.checked' | translate}}</span>
+                <span class="badge badge-pink ml-1">{{'table.received' | translate}}</span>
+                <span class="badge badge-lightgrey ml-1">{{'table.none' | translate}}</span>
             </div>
         </div>
     </div>
@@ -19,7 +19,7 @@
             <thead>
                 <tr>
                     <th class="first p-2 table-bg">
-                        Alumno
+                        {{'table._student' | translate}}
                     </th>
                     <th title="{{titleExercise.name}}" class="table-bg" *ngFor="let titleExercise of allStudentsList.exercises">
                         {{ titleExercise.name | slice: 0: 12 }}
@@ -45,7 +45,7 @@
     <div class="box-wrap">
         <div class="row align-middle">
             <div class="col text-right pagination-layout">
-                <pagination-controls class="ngx-pagination" (pageChange)="selectedPage = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+                <pagination-controls class="ngx-pagination" (pageChange)="selectedPage = $event" previousLabel="{{'table.previous' | translate}}" nextLabel="{{'table.next' | translate}}"></pagination-controls>
             </div>
         </div>
     </div>

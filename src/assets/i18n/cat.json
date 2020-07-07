@@ -45,5 +45,29 @@
         "2WeeksToGo": "Alumnes a dues setmanes de finalitzar",
         "studentsLastName": "Primer Cognom",
         "date": "Data (Falten dies)"
+    },
+    "reviews-it-search": {
+        "selectItinerary": "Seleccionar un itinerari",
+        "commonBlock": "Bloc comú",
+        "frontEnd": "Front-end",
+        "backEnd": "Back-end",
+        "dotNet": ".Net"
+    },
+    "table": {
+        "turnedIn": "Entregat",
+        "checked": "Corregit",
+        "received": "Per revisar",
+        "none": "No entregat",
+        "_student": "Alumne",
+        "previous": "Anterior",
+        "next": "Següent"
+    },
+    "reviews-modal": {
+        "revision": "Revisió del exercici",
+        "date": "Data",
+        "turnedIn": "Entregat",
+        "checked": "Corregit",
+        "received": "Per revisar",
+        "none": "No entregat"
     }
 }
