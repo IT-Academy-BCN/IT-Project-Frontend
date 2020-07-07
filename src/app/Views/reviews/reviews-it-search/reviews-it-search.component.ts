@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReviewsService } from '../../../Services/reviews.service';
+// translation
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-reviews-it-search',
@@ -8,7 +10,22 @@ import { ReviewsService } from '../../../Services/reviews.service';
 })
 export class ReviewsItSearchComponent implements OnInit {
 
-  constructor(private ReviewsService:ReviewsService) { }
+  // TRANSLATE
+  selectedLanguage = 'es';
+  
+  constructor(
+    private ReviewsService:ReviewsService,
+    private translateService: TranslateService,
+  ) { 
+    //translate
+    this.translateService.setDefaultLang(this.selectedLanguage);
+    this.translateService.use(this.selectedLanguage);
+   }
+   
+  //translate
+  toogleLanguage(lang: string){
+    this.translateService.use(lang);
+  }
 
   ngOnInit() {
   }

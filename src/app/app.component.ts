@@ -12,9 +12,9 @@ export class AppComponent implements OnInit {
   title = 'angularTest';
   showHeader = false; // if we change it to true, it works correctly, but if the user performs a debugger from the browser, it can stop loading just when the menu is displayed. Better to initialize to false.
 
-  router:any;
+  router:any;  
   constructor( private _router: Router ) {
-    this.router = _router;
+    this.router = _router;   
   }
   ngOnInit() {}
   modifyHeader() { // This method is called many times

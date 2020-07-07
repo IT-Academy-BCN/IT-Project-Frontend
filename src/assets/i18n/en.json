@@ -45,5 +45,29 @@
         "2WeeksToGo": "Students within two weeks of completion",
         "studentsLastName": "First Surname",
         "date": "Date (days to go)"
-    } 
+    },
+    "reviews-it-search": {
+        "selectItinerary": "Select an itinerary",
+        "commonBlock": "Common block",
+        "frontEnd": "Front-end",
+        "backEnd": "Back-end",
+        "dotNet": ".Net"
+    },
+    "table": {
+        "turnedIn": "Turned In",
+        "checked": "Checked",
+        "received": "Received",
+        "none": "Not delivered",
+        "_student": "Student",
+        "previous": "Previous",
+        "next": "Next"
+    },
+    "reviews-modal": {
+        "revision": "Exercise revision",
+        "date": "Date",
+        "turnedIn": "Turned In",
+        "checked": "Checked",
+        "received": "Received",
+        "none": "Not delivered"
+    }
 }

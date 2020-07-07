@@ -6,6 +6,8 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker/';
 // revision component imports
 import { ReviewStudentsService } from '../../../Services/review-students.service';
 import { ExercisesReview } from '../../../Models/exercisesReview';
+// translation
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-modal',
@@ -17,15 +19,27 @@ export class ModalComponent implements OnInit {
 
   @Input('data') exercises: ExercisesReview;
 
+  // TRANSLATE
+  selectedLanguage = 'es';
+
   modalRef: BsModalRef;
   public dpConfig: Partial<BsDatepickerConfig> = new BsDatepickerConfig();
 
   constructor(private modalService: BsModalService,
               private formBuilder: FormBuilder,
-              private service: ReviewStudentsService) {
+              private service: ReviewStudentsService,
+              private translateService: TranslateService) {
     this.dpConfig.containerClass = 'theme-default';
+    //translate
+    this.translateService.setDefaultLang(this.selectedLanguage);
+    this.translateService.use(this.selectedLanguage);
   }
 
+  //translate
+  toogleLanguage(lang: string){
+    this.translateService.use(lang);
+  }
+  
   ngOnInit() {
 
   }

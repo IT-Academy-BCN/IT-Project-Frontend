@@ -13,6 +13,7 @@ import { TableComponent }   from './table/table.component';
 import { ModalComponent } from './modal/modal.component';
 import { ReviewsItSearchComponent } from './reviews-it-search/reviews-it-search.component';
 import { beautifyStringPipe } from '../../Pipes/beautifyStringPipe'
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { beautifyStringPipe } from '../../Pipes/beautifyStringPipe'
     ModalModule.forRoot(),
     NgxPaginationModule,
     ReviewsRoutingModule,
+    TranslateModule,
     TooltipModule.forRoot()
     ]
 })
