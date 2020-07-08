@@ -81,6 +81,8 @@
     "virtual-table": {
         "tableHead1": "Alumno",
         "tableHead2": "Última asistencia",
-        "tableHead3": "Último trabajo entregado"
+        "tableHead3": "Último trabajo entregado",
+        "previous": "Anterior",
+        "next": "Siguiente"
     }
 }

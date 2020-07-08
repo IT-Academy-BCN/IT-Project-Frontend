@@ -81,6 +81,8 @@
     "virtual-table": {
         "tableHead1": "Student",
         "tableHead2": "Last assistance",
-        "tableHead3": "Last exercise delivered"
+        "tableHead3": "Last exercise delivered",
+        "previous": "Previous",
+        "next": "Next"
     }
 }

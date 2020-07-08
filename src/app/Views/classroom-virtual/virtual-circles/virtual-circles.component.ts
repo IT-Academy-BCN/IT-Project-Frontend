@@ -13,7 +13,7 @@ export class VirtualCirclesComponent implements OnInit {
 
   // TRANSLATE
   selectedLanguage = 'es';
-  /* this is the good one! */
+  
   public studentsFP: any = [];
   public itineraries: any = [];
   public itinerariesDeliveries: any = [];

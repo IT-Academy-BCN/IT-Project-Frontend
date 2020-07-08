@@ -71,6 +71,8 @@ export function createTranslateLoader(http: HttpClient){
       loader: {
         provide: TranslateLoader,
         useFactory: createTranslateLoader,
+        // useFactory: (http: Http) => 
+        // new TranslateStaticLoader(http, './assets/i18n', '.json'),
         deps: [ HttpClient ]
       }
     })

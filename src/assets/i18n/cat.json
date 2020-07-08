@@ -81,6 +81,8 @@
     "virtual-table": {
         "tableHead1": "Alumne",
         "tableHead2": "Darrera asistència",
-        "tableHead3": "Darrer treball entregat"
+        "tableHead3": "Darrer treball entregat",
+        "previous": "Anterior",
+        "next": "Següent"
     }
 }

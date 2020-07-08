@@ -30,7 +30,12 @@ import { TranslateModule } from '@ngx-translate/core';
     ModalModule.forRoot(),
     NgxPaginationModule,
     ClassroomVirtualRoutingModule,
-    TooltipModule.forRoot()
-  ]
+    TooltipModule.forRoot(),
+    // other imported modules here
+    TranslateModule
+  ],
+  exports: [
+  // other exported modules here
+  TranslateModule]
 })
 export class ClassroomVirtualModule { }
