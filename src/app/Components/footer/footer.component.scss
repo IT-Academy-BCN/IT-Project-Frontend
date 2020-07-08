@@ -16,10 +16,10 @@
     }
     figure {
         margin: 0;
-        @media screen and (max-width: 1200px) {
-            width: 200px;
+        @media screen and (max-width: 786px) {
+            width: 130px;
         }
-        @media screen and (min-width: 1200px) and (max-width: 1598.5px) {
+        @media screen and (min-width: 786px) and (max-width: 1598.5px) {
             width: 210px;
         }
         @media screen and (min-width: 1600px) {

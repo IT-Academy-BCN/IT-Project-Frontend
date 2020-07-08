@@ -47,12 +47,31 @@ a:hover {
 }
 
 // Selector de idioma
-.selectLanguage{
-  border: none;
+.selectLanguage-box {
+  border-radius: 0.25rem;
+  border: 1px solid #d50283;
+  text-align: center;
+  @media screen and (max-width: 992px) {
+    margin-left: auto;
+  }
+  @media screen and (max-width: 578px) {
+    font-size: 1rem;
+    width: 100px;
+    padding: 0.5rem 0;
+  }
+  @media screen and (min-width: 578px) {
+    font-size: 1.125em;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+  }
+  .selectLanguage {
+    border: none;
+    background: transparent;
+    color: #d50283;
+  }
 }
-
 // Grids para cambiar el orden de los elementos del header
-
 @media (max-width: 998px) {
   .navBarGrid {
     display: grid !important;
@@ -83,7 +102,6 @@ a:hover {
     display: inline-block;
     max-width: 8em;
     min-height: 2em;
-    margin-left: auto;
     margin-right: 0em;
   }
 }
