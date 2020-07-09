@@ -1,6 +1,8 @@
 import { Component, OnInit, TemplateRef } from "@angular/core";
 import { ClassroomService } from "../../../Services/classroom.service";
 import { StatisticsService } from "src/app/Services/statistics.service";
+// translation
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: "app-virtual-circles",
@@ -8,7 +10,10 @@ import { StatisticsService } from "src/app/Services/statistics.service";
   styleUrls: ["./virtual-circles.component.scss"],
 })
 export class VirtualCirclesComponent implements OnInit {
-  /* this is the good one! */
+
+  // TRANSLATE
+  selectedLanguage = 'es';
+  
   public studentsFP: any = [];
   public itineraries: any = [];
   public itinerariesDeliveries: any = [];
@@ -16,8 +21,13 @@ export class VirtualCirclesComponent implements OnInit {
 
   constructor(
     public classroomService: ClassroomService,
-    public statisticsService: StatisticsService
-  ) {}
+    public statisticsService: StatisticsService,
+    private translateService: TranslateService
+  ) {
+    //translate
+    this.translateService.setDefaultLang(this.selectedLanguage);
+    this.translateService.use(this.selectedLanguage);
+  }
 
   ngOnInit() {
     // get the API data

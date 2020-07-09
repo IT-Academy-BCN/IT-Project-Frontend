@@ -69,5 +69,20 @@
         "checked": "Corregit",
         "received": "Per revisar",
         "none": "No entregat"
+    },
+    "virtual-circles": {
+        "mainTitle": "Alumnes amb més de 8 dies sense entregar treballs"
+    },
+    "virtual-it-search": {
+        "defaultOption": "Seleccionar un itinerari",
+        "commonBlockOption": "Bloc comú",
+        "alumniOption": "Ex-alumnes"
+    },
+    "virtual-table": {
+        "tableHead1": "Alumne",
+        "tableHead2": "Darrera asistència",
+        "tableHead3": "Darrer treball entregat",
+        "previous": "Anterior",
+        "next": "Següent"
     }
 }

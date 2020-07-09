@@ -5,6 +5,8 @@ import { StudentService } from '../../../Services/student.service';
 import { ExerciseResponseList, Student_Review, Itineraries } from '../../../Models/exercise.model';
 import { StudentInList } from '../../../Models/student.model';
 import { Subscription } from 'rxjs';
+// translation
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -14,6 +16,9 @@ import { Subscription } from 'rxjs';
 })
 
 export class VirtualTableComponent implements OnInit {
+
+  // TRANSLATE
+  selectedLanguage = 'es';
 
   selectedPage: number = 1;
   students: StudentReview[] = [];
@@ -32,7 +37,8 @@ export class VirtualTableComponent implements OnInit {
 
   constructor(
     private reviewService: ReviewsService,
-    private studentsService: StudentService
+    private studentsService: StudentService,
+    private translateService: TranslateService,
   ) {
 
     // Dropdown comunication
@@ -41,6 +47,9 @@ export class VirtualTableComponent implements OnInit {
       this.itinerarySelected = true;
       this.onDropdownChange(this.itinerary);
     });
+    //translate
+    this.translateService.setDefaultLang(this.selectedLanguage);
+    this.translateService.use(this.selectedLanguage);
   }
 
   ngOnInit() {

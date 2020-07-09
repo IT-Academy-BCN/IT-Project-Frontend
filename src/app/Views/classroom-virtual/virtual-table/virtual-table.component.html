@@ -5,10 +5,10 @@
           <thead>
               <tr>
                   <th class="first p-2 table-bg">
-                      Alumno
+                    {{'virtual-table.tableHead1' | translate}}
                   </th>
-                  <th class=" p-2 table-bg">Última asistencia</th>
-                  <th class=" p-2 table-bg">Último trabajo entregado</th>
+                  <th class=" p-2 table-bg">{{'virtual-table.tableHead2' | translate}}</th>
+                  <th class=" p-2 table-bg">{{'virtual-table.tableHead3' | translate}}</th>
               </tr>
           </thead>
           <tbody>
@@ -24,14 +24,16 @@
   </div>
 </div>
 
+
 <!-- PAGINATION TABLE -->
 <div class="container-fluid mt-3 ml-3">
-  <div class="box-wrap">
-      <div class="row align-middle">
-          <div class="col text-right pagination-layout">
-              <pagination-controls class="ngx-pagination" (pageChange)="selectedPage = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
-          </div>
-      </div>
-  </div>
+    <div class="box-wrap">
+        <div class="row align-middle">
+            <div class="col text-right pagination-layout">
+                <pagination-controls class="ngx-pagination" (pageChange)="selectedPage = $event" previousLabel="{{'virtual-table.previous' | translate}}" nextLabel="{{'virtual-table.next' | translate}}"></pagination-controls>
+            </div>
+        </div>
+    </div>
 </div>
 <!-- Pagination Table Documentation: https://www.npmjs.com/package/ngx-pagination#demo -->
+<!-- Maybe a documentation about ngx translate for ngx navigation: https://www.freakyjolly.com/angular-pagination-example-using-ngx-pagination/#.XwRh45MzbOQ-->

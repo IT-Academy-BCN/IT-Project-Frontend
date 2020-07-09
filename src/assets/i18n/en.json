@@ -69,5 +69,20 @@
         "checked": "Checked",
         "received": "Received",
         "none": "Not delivered"
+    },
+    "virtual-circles": {
+        "mainTitle": "Students with more than 8 days of non-delivery"
+    },
+    "virtual-it-search": {
+        "defaultOption": "Select an itinerary",
+        "commonBlockOption": "Common block",
+        "alumniOption": "Alumni"
+    },
+    "virtual-table": {
+        "tableHead1": "Student",
+        "tableHead2": "Last assistance",
+        "tableHead3": "Last exercise delivered",
+        "previous": "Previous",
+        "next": "Next"
     }
 }

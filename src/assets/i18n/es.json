@@ -69,5 +69,20 @@
         "checked": "Corregido",
         "received": "A revisar",
         "none": "No entregado"
+    },
+    "virtual-circles": {
+        "mainTitle": "Alumnos con más de 8 días sin entregar trabajos"
+    },
+    "virtual-it-search": {
+        "defaultOption": "Seleccionar un itinerario",
+        "commonBlockOption": "Bloque común",
+        "alumniOption": "Ex-alumnos"
+    },
+    "virtual-table": {
+        "tableHead1": "Alumno",
+        "tableHead2": "Última asistencia",
+        "tableHead3": "Último trabajo entregado",
+        "previous": "Anterior",
+        "next": "Siguiente"
     }
 }

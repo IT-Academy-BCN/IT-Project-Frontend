@@ -12,7 +12,8 @@ import { ClassroomVirtualViewComponent } from './classroom-virtual-view/classroo
 import { VirtualItSearchComponent } from './virtual-it-search/virtual-it-search.component';
 import { VirtualTableComponent }   from './virtual-table/virtual-table.component';
 import { VirtualCirclesComponent }   from './virtual-circles/virtual-circles.component';
-import { virtualStringPipe } from '../../Pipes/virtualStringPipe'
+import { virtualStringPipe } from '../../Pipes/virtualStringPipe';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { virtualStringPipe } from '../../Pipes/virtualStringPipe'
     VirtualItSearchComponent,
     VirtualTableComponent,
     VirtualCirclesComponent,
-    virtualStringPipe
+    virtualStringPipe,
+    TranslateModule,
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,12 @@ import { virtualStringPipe } from '../../Pipes/virtualStringPipe'
     ModalModule.forRoot(),
     NgxPaginationModule,
     ClassroomVirtualRoutingModule,
-    TooltipModule.forRoot()
-  ]
+    TooltipModule.forRoot(),
+    // other imported modules here
+    TranslateModule
+  ],
+  exports: [
+  // other exported modules here
+  TranslateModule]
 })
 export class ClassroomVirtualModule { }

@@ -3,13 +3,13 @@
     <div class="col-12 col-md-4 pt-1 mt-md-n5">
         <select id="inputState" class="form-control" (change)="selectedItemChanged($event.target.value)">
             <option value="none" selected disabled hidden> 
-                Seleccionar un itinerario 
+                {{'virtual-it-search.defaultOption' | translate}} 
             </option>
-            <option>Bloque común</option> 
+            <option>{{'virtual-it-search.commonBlockOption' | translate}}</option> 
             <option>Front-end</option>
             <option>Back-end</option>
             <option>.Net</option>
-            <option>Ex-alumnos</option>
+            <option>{{'virtual-it-search.alumniOption' | translate}}</option>
         </select>
     </div>
 </div>
