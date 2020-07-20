@@ -21,8 +21,7 @@ import { TranslateModule } from '@ngx-translate/core';
     VirtualItSearchComponent,
     VirtualTableComponent,
     VirtualCirclesComponent,
-    virtualStringPipe,
-    TranslateModule,
+    virtualStringPipe
   ],
   imports: [
     CommonModule,

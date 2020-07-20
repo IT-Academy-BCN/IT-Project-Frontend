@@ -69,6 +69,12 @@ a:hover {
     border: none;
     background: transparent;
     color: #d50283;
+    &:hover {
+      text-decoration: underline;
+    }
+    &:focus {
+      outline: none;
+    }
   }
 }
 // Grids para cambiar el orden de los elementos del header
