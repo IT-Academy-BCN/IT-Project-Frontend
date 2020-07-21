@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 /* components & modules */
 import { StudentSearchViewComponent } from './student-search-view/student-search-view.component';
@@ -38,7 +39,8 @@ import { TranslateModule } from '@ngx-translate/core';
     ModalModule.forRoot(),
     StudentFileRoutingModule,
     SharedModule,
-    TranslateModule
+    TranslateModule,
+    HttpClientModule
   ],
   providers: [
     StudentService,

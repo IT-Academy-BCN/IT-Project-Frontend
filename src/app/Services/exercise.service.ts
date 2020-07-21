@@ -1,19 +1,22 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
 import { throwError, Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { StudentExercise, StatusUpdateData, Statuses, StatusId } from '../Models/exercise.model';
+import { ExercisesComponent } from '../Views/student-file/student-file-view/exercises/exercises.component'; 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExerciseService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient) { }
 
   public getStudentExercises(studentId: string) {
-    const apiEndPoint = 'http://217.76.158.200:8090/api/exercises/student-id';
-    const url = `${apiEndPoint}/${studentId}`;
+    var apiEndPoint = 'http://217.76.158.200:8090/api/exercises/student-id';
+    var url = `${apiEndPoint}/${studentId}`;
+
     return this.http
       .get<StudentExercise[]>(url)
       .pipe(
@@ -22,8 +25,21 @@ export class ExerciseService {
       );
   }
 
-  public updateExerciseStatus(updateData: StatusUpdateData) {
-    // call to API must be implemented
+  public updateExerciseStatus(updateData: StatusUpdateData): Observable<StatusUpdateData> {
+    // call to API must be implemented  
+    //console.log("ex.service" + updateData.studentId + updateData.exerciseId + status + updateData.date);          
+    //var studentId = updateData.studentId;  
+    //var studentExercisesUrl = `http://217.76.158.200:8090/api/exercises/student-id/${studentId}?id=${updateData.exerciseId}&status{id}=${updateData.status}`;   
+    var studentExercisesUrl = `http://217.76.158.200:8090/api/exercises/student-id/${updateData.studentId}`; 
+    var updatedResult = null;
+    
+    return this.http.put<StatusUpdateData>(studentExercisesUrl, updateData);  
+    
+    /* this.http.put<StatusUpdateData>(studentExercisesUrl, updateData).subscribe(result => {
+      updatedResult = result;
+    }) */
+
+           
   }
 
   private parseDate(exercises: StudentExercise[]) {

@@ -60,7 +60,6 @@ export class ModalComponent implements OnInit {
     } else {
       this.closeModal();
     }
-
   }
 
   changeReviewed(state: string, date: Date) {
@@ -68,9 +67,9 @@ export class ModalComponent implements OnInit {
       this.exercises.state = state;
       this.changeDate(this.exercises, date);
       this.closeModal();
-    } else { }
-    this.closeModal();
-
+    } else { 
+      this.closeModal();
+    }    
   }
 
   changeDone(state: string, date: Date) {
@@ -78,18 +77,18 @@ export class ModalComponent implements OnInit {
       this.exercises.state = state;
       this.changeDate(this.exercises, date);
       this.closeModal();
+    } else { 
+      this.closeModal();
     }
-    this.closeModal();
-
   }
 
   changeEmpty(state: string) {
     if (this.exercises.state !== state) {
       this.exercises.state = 'No entregado';
       this.closeModal();
-    } else { }
-    this.closeModal();
-
+    } else { 
+      this.closeModal();
+    }
   }
 
   changeDate(exercise: any, date: any) {

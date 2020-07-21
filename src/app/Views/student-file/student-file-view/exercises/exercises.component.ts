@@ -44,17 +44,17 @@ export class ExercisesComponent {
       this.translateService.use(this.selectedLanguage);
     }
 
-  public updateExerciseStatus(updateData: StatusUpdateData) {
-    this.exerciseService
-      .updateExerciseStatus(updateData);  // call to API must be implemented
+  public updateExerciseStatus(updateData: StatusUpdateData) {     
+    // call to API must be implemented
+    this.exerciseService.updateExerciseStatus(updateData);    
 
-    // this mocks service response
-    const updated = this.exercises.find(exercise => exercise.id === updateData.exerciseId);
-    updated.statusId = updateData.status;
-    updated.statusName = this.statuses[StatusId[updated.statusId]];
-    updated.statusDate = updateData.date;
+    // this mocks service response //OK
+    const updated = this.exercises.find(exercise => exercise.id === updateData.exerciseId); 
+    updated.statusId = updateData.status;                           
+    updated.statusName = this.statuses[StatusId[updated.statusId]]; 
+    updated.statusDate = updateData.date;                                        
   }
-
+  
   public openStatusUpdateModal(modal: ExerciseModalComponent, exercise: ExerciseData) {
     modal.exerciseId = exercise.id;
     modal.statusId = exercise.statusId;
@@ -77,7 +77,7 @@ export class ExercisesComponent {
         this.statuses[StatusId[exercise.status.id]],
         new Date(exercise.status.date)
       );
-      this.exercises.push(exerciseData);
+      this.exercises.push(exerciseData);      
     }
   }
 
