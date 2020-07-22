@@ -1,19 +1,22 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
 import { throwError, Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { StudentExercise, StatusUpdateData, Statuses, StatusId } from '../Models/exercise.model';
+import { ExercisesComponent } from '../Views/student-file/student-file-view/exercises/exercises.component'; 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExerciseService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient) { }
 
   public getStudentExercises(studentId: string) {
-    const apiEndPoint = 'http://217.76.158.200:8090/api/exercises/student-id';
-    const url = `${apiEndPoint}/${studentId}`;
+    var apiEndPoint = 'http://217.76.158.200:8090/api/exercises/student-id';
+    var url = `${apiEndPoint}/${studentId}`;
+
     return this.http
       .get<StudentExercise[]>(url)
       .pipe(
@@ -23,7 +26,19 @@ export class ExerciseService {
   }
 
   public updateExerciseStatus(updateData: StatusUpdateData) {
-    // call to API must be implemented
+   
+    var studentExercisesUrl = `http://217.76.158.200:8090/api/exercises`;    
+
+    var updatedInfo = {
+      id: updateData.exerciseId,
+      status: {id: updateData.status},
+      date: updateData.date
+    }
+    
+    this.http.put<StatusUpdateData>(studentExercisesUrl, updatedInfo).subscribe(result => {
+      updateData = result;
+    }) 
+        
   }
 
   private parseDate(exercises: StudentExercise[]) {
