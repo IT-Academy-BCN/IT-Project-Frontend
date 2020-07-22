@@ -44,11 +44,11 @@ export class ExercisesComponent {
       this.translateService.use(this.selectedLanguage);
     }
 
-  public updateExerciseStatus(updateData: StatusUpdateData) {     
-    // call to API must be implemented
-    this.exerciseService.updateExerciseStatus(updateData);    
+  public updateExerciseStatus(updateData: StatusUpdateData) {       
 
-    // this mocks service response //OK
+    this.exerciseService.updateExerciseStatus(updateData);  
+       
+    // this mocks service response
     const updated = this.exercises.find(exercise => exercise.id === updateData.exerciseId); 
     updated.statusId = updateData.status;                           
     updated.statusName = this.statuses[StatusId[updated.statusId]]; 

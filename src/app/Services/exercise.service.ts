@@ -25,21 +25,20 @@ export class ExerciseService {
       );
   }
 
-  public updateExerciseStatus(updateData: StatusUpdateData): Observable<StatusUpdateData> {
-    // call to API must be implemented  
-    //console.log("ex.service" + updateData.studentId + updateData.exerciseId + status + updateData.date);          
-    //var studentId = updateData.studentId;  
-    //var studentExercisesUrl = `http://217.76.158.200:8090/api/exercises/student-id/${studentId}?id=${updateData.exerciseId}&status{id}=${updateData.status}`;   
-    var studentExercisesUrl = `http://217.76.158.200:8090/api/exercises/student-id/${updateData.studentId}`; 
-    var updatedResult = null;
-    
-    return this.http.put<StatusUpdateData>(studentExercisesUrl, updateData);  
-    
-    /* this.http.put<StatusUpdateData>(studentExercisesUrl, updateData).subscribe(result => {
-      updatedResult = result;
-    }) */
+  public updateExerciseStatus(updateData: StatusUpdateData) {
+   
+    var studentExercisesUrl = `http://217.76.158.200:8090/api/exercises`;    
 
-           
+    var updatedInfo = {
+      id: updateData.exerciseId,
+      status: {id: updateData.status},
+      date: updateData.date
+    }
+    
+    this.http.put<StatusUpdateData>(studentExercisesUrl, updatedInfo).subscribe(result => {
+      updateData = result;
+    }) 
+        
   }
 
   private parseDate(exercises: StudentExercise[]) {
