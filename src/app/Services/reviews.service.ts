@@ -38,4 +38,20 @@ export class ReviewsService {
     return throwError('Se ha producido un error. Intente nuevamente más tarde.'); // to user
   }
 
+  public updateExerciseStatus(data: ExerciseResponseList) {
+   
+    var reviewExercisesUrl = `http://217.76.158.200:8090/api/exercises`;    
+  
+    /* var updatedInfo = {
+      id: updateData.id,
+      status: {id: updateData.status},
+      date: updateData.date
+    }
+    
+    this.http.put<ExerciseResponseList>(reviewExercisesUrl, updatedInfo).subscribe(result => {
+      updateData = result;
+    })  */
+        
+  }
+
 }

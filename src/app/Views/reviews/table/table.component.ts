@@ -125,9 +125,19 @@ export class TableComponent implements OnInit {
     });
 
     this.allStudentsList = this.students_[0]; // solucion creada para evitar el error de carga inicial del html
-
+    console.log(this.students_);
     return this.students_;
   }
 
+  public updateExerciseStatus(data: ExerciseResponseList) {       
+    console.log(data);
+    
+    this.reviewService.updateExerciseStatus(data); 
+    
+    /* const data = this.exercises.find(exercise => exercise.id === updateData.exerciseId); 
+    data.statusId = data.status;                           
+    data.statusName = this.statuses[StatusId[updated.statusId]]; 
+    data.statusDate = data.date;  */
 
+  }
 }

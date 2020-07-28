@@ -32,7 +32,7 @@
                         {{ student.firstName | titlecase | beautifyString | slice: 0: 10 }} {{ student.lastName | titlecase | beautifyString | slice: 0: 10}}
                     </td>
                     <td class="row-size text-center" *ngFor="let exercises of student.exercises; index as i" [ngClass]="[{'No entregado': 'table-bg-default', 'Entregado': 'table-bg-done', 'Corregido': 'table-bg-corrected', 'A revisar': 'table-bg-reviewed'}[ exercises.state ]]">
-                        <app-modal [data]="exercises"></app-modal>
+                        <app-modal [data]="exercises" (data)="updateExerciseStatus($event)"></app-modal>
                     </td>
                 </tr>
             </tbody>
