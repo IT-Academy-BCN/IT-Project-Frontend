@@ -84,5 +84,10 @@
         "tableHead3": "Last exercise delivered",
         "previous": "Previous",
         "next": "Next"
+    },
+    "page-not-found": {
+        "p1": "PAGE NOT FOUND",
+        "p2": "Unfortunately the page you were looking for could not be found.",
+        "link1": "Return to main page"
     }
 }

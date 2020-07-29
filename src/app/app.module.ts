@@ -27,6 +27,7 @@ import { LoginModule } from "./Views/login/login.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NoimagePipe } from "./Pipes/noimage.pipe";
 import { SweetAlert2Module } from "@sweetalert2/ngx-sweetalert2";
+import { NotFoundComponent } from './Components/not-found/not-found.component';
 /*HTTP API client*/
 import { HttpClientModule, HttpClient } from "@angular/common/http";
 /* Translation */
@@ -44,6 +45,7 @@ export function createTranslateLoader(http: HttpClient){
     FooterComponent,
     LayoutComponent,
     NoimagePipe,
+    NotFoundComponent,
   ],
   imports: [
     BsDatepickerModule,
