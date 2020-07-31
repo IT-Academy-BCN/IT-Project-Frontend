@@ -1,5 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { NgModule, APP_INITIALIZER } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app-routing.module";
@@ -32,9 +32,17 @@ import { HttpClientModule, HttpClient } from "@angular/common/http";
 /* Translation */
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+/* Night mode */
+import { UiStyleToggleService } from './Services/ui-style-toggle.service';
+import { LocalStorageService } from './Services/local-storage.service';
 
 export function createTranslateLoader(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
+//Night mode
+export function themeFactory(themeService: UiStyleToggleService) {
+  return () => themeService.setThemeOnStart();
 }
 
 @NgModule({
@@ -77,7 +85,11 @@ export function createTranslateLoader(http: HttpClient){
       }
     })
   ],
-  providers: [],
+  providers: [
+    UiStyleToggleService,
+    LocalStorageService,
+    {provide: APP_INITIALIZER, useFactory: themeFactory, deps: [UiStyleToggleService], multi: true},
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

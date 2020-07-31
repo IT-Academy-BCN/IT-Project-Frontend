@@ -3,6 +3,7 @@ import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { User } from "../../Models/user.model";
 import { Router, RouterLink, RouterLinkActive } from "@angular/router";
 import { TranslateService } from '@ngx-translate/core';
+import { UiStyleToggleService } from 'src/app/Services/ui-style-toggle.service';
 
 @Component({
   selector: "app-header",
@@ -23,6 +24,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private router: Router,
     private translateService: TranslateService,
+    private uiStyleToggleService: UiStyleToggleService
     ) {
       //translate
       this.translateService.setDefaultLang(this.selectedLanguage);
@@ -51,6 +53,10 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void { }
 
- 
+ //night mode
+  toggleTheme() {
+    this.uiStyleToggleService.toggle();
+  }
+  
 
 }

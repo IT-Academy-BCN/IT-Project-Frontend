@@ -19,3 +19,8 @@
 .fadeIn {
     animation-name: fadeIn;
 }
+
+//night mode
+.animate-colors-transition{
+    transition: color 0.5s, background 0.5s;
+}

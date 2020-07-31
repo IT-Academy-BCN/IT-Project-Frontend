@@ -43,6 +43,16 @@
             <h5>{{ firstName }} {{ lastName }}</h5>
           </span>
         </div>
+        <div class="mr-3">
+          <!-- <button (click)="toggleTheme()" type="submit" class="nightMode" title="Night mode" >
+            <img src="../../../../assets/img/moon4.svg" height="30" class="d-inline-block align-top"
+                alt="Night mode" />
+          </button> -->
+          <a class="nightMode" aria-label="Night mode icon" title="Night mode" (click)="toggleTheme()">
+            <img src="../../../../assets/img/moon4.svg" height="30" class="d-inline-block align-top"
+                alt="Night mode" />
+          </a>          
+        </div>
         <div class="mr-3 selectLanguage-box">
           <select class="selectLanguage"
             [ngModel]="selectedLanguage"

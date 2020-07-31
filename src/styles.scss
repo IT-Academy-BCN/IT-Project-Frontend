@@ -2,6 +2,8 @@
 
 @import "./assets/colors.scss";
 @import "./assets/animation.scss";
+@import "./assets/theme.scss";
+
 body {
     font-family: "Source Sans Pro", sans-serif;
 }
@@ -34,7 +36,8 @@ p {
     width: 120px;
     height: 40px;
     &.swal2-confirm {
-        background-color: $pink !important;
+        //background-color: $pink !important;
+        background-color: --background-color !important;
     }
     &:focus {
         box-shadow: none !important;

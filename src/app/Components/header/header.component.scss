@@ -4,20 +4,24 @@
   // background-color: $white !important;
   // border-bottom: solid 1px $dark-grey;
   .navbar-text {
-    color: $black;
+    //color: $black;
+    color: --text-color;
   }
 }
 
 button.submit-btn {
   font-size: 1.125em;
-  background-color: $pink;
-  color: $white;
+  //background-color: $pink;
+  background-color: --background-color;
+  //color: $white;
+  color: --toolbar-color;
   width: 120px;
   height: 40px;
 }
 
 button.submit-btn:hover {
-  color: $white;
+  //color: $white;
+  color: --toolbar-color;
   text-decoration: underline;
 }
 
@@ -34,16 +38,24 @@ button.submit-btn:hover {
 // menu
 
 a:hover {
-  color: $white;
-  background-color: $pink;
+  //color: $white;
+  color: --toolbar-color;
+  //background-color: $pink;
+  background-color: --background-color;
   border-radius: 0.25rem;
+}
+
+//icono night mode
+.nightMode:hover{
+  background-color: transparent;
 }
 
 // mostrar la pagina actual
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   background-color: transparent !important;
-  color: $pink !important;
+  //color: $pink !important;
+  color: --accent-color !important;
 }
 
 // Selector de idioma
@@ -68,7 +80,8 @@ a:hover {
   .selectLanguage {
     border: none;
     background: transparent;
-    color: #d50283;
+    //color: #d50283;
+    color: --accent-color;
     &:hover {
       text-decoration: underline;
     }

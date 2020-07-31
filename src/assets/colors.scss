@@ -15,3 +15,31 @@ $colors: ( "white": #FFF, "light-grey": #E8E8E8, "dark-grey": #666, "black": #21
         background-color: nth($color, 2);
     }
 }
+
+//night mode
+$accent-color: #D50283;
+$accent-color-dark: lighten(#D50283, 10%);
+
+$background-color: #D50283;
+$background-color-dark: lighten(#D50283, 10%);
+
+$text-color: #000000;
+$text-color-dark: #ffffff;
+
+$toolbar-color: #ffffff;
+$toolbar-color-dark: #000000;
+
+$toolbar-text-color: $toolbar-color-dark;
+$toolbar-text-color-dark: $toolbar-color;
+
+$footer-text-color: #666666;
+$footer-text-color-dark: #ebebeb;
+
+$colors: (
+  --accent-color: ($accent-color, $accent-color-dark),
+  --background-color: ($background-color, $background-color-dark),
+  --text-color: ($text-color, $text-color-dark),
+  --toolbar-color: ($toolbar-color, $toolbar-color-dark),
+  --toolbar-text-color: ($toolbar-text-color, $toolbar-text-color-dark),
+  --footer-text: ($footer-text-color, $footer-text-color-dark)
+)
