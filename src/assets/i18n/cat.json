@@ -84,5 +84,10 @@
         "tableHead3": "Darrer treball entregat",
         "previous": "Anterior",
         "next": "Següent"
+    },
+    "page-not-found": {
+        "p1": "PÀGINA NO TROBADA",
+        "p2": "Ho sentim, no hem pogut localitzar la pàgina que busques.",
+        "link1": "Tornar a la pàgina principal"
     }
 }

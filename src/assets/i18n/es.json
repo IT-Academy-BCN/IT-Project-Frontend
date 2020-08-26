@@ -84,5 +84,10 @@
         "tableHead3": "Último trabajo entregado",
         "previous": "Anterior",
         "next": "Siguiente"
+    },
+    "page-not-found": {
+        "p1": "PAGINA NO ENCONTRADA",
+        "p2": "Lo sentimos, no hemos podido encontrar la página que buscas.",
+        "link1": "Volver a la página principal"
     }
 }
